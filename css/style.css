@@ -9,6 +9,9 @@ body{
 		height: 100%;
 		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;}
 
+nav{background-color: #2d2d2d; padding: 8px 10px; text-align: right; }
+nav a{ color: #bbbbbb; font-size: 14px; text-decoration: none;} 
+
 header{
 		margin-top: 100px;
 		margin-left: 10%;
