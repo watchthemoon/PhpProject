@@ -10,7 +10,7 @@
 </head>
 <body>
 	<header>
-		<img src="images/cover.jpg" alt="cover">
+		<h1>Welkom bij Restaurant Business</h1>
 	</header>
 <div id="rightside">	
 	
@@ -24,6 +24,8 @@
 		<input type="text" name="phonenumber" placeholder="Telefoonnummer" />
 		<input type="text" name="birthdate" placeholder="Geboortedatum" />
 		<input type="password" name="password" placeholder="Paswoord" />
+		<input type="checkbox" name="isAdmin" value="yes" id="isAdmin">
+		<label for="isAdmin">Restauranthouder</label>
 		<input type="submit" name="btnSignup" value="Registreren" />
 		</form>
 		

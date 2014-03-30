@@ -10,7 +10,7 @@
 </head>
 <body>
 	<header>
-		<img src="images/cover.jpg" alt="cover">
+		<h1>Welkom bij Restaurant Business</h1>
 	</header>
 <div id="rightside">	
 	<section id="login">
