@@ -2,9 +2,10 @@ html{
 	width: 100%; 
 	height: 100%; }
 
-body{ 
+body{
+		background: url('../images/background.jpg') no-repeat center center fixed;
 		background-color: #880000;
-		background-size: cover; 
+		background-size: cover;
 		width: 100%;
 		height: 100%;
 		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;}
@@ -30,7 +31,8 @@ header h1{
 		margin-right: 10%;
 		padding: 10px 5%;
 		background-color: #fff;
-		margin-top: 30px;}
+		margin-top: 30px;
+		border-radius: 7px;}
 
 #rightside{ 
 	width: 40%;	

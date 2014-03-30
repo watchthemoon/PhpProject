@@ -25,7 +25,7 @@
 		<input type="text" name="birthdate" placeholder="Geboortedatum" />
 		<input type="password" name="password" placeholder="Paswoord" />
 		<input type="checkbox" name="isAdmin" value="yes" id="isAdmin">
-		<label for="isAdmin">Restauranthouder</label>
+		<label for="isAdmin">Ik ben een restauranthouder</label>
 		<input type="submit" name="btnSignup" value="Registreren" />
 		</form>
 		
