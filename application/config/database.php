@@ -48,7 +48,7 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'inprovo.nl';
+$db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'ydesigns_school';
 $db['default']['password'] = 'schooltje';
 $db['default']['database'] = 'ydesigns_php';
