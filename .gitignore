@@ -1,6 +1,2 @@
-.idea
-.idea/*
-php1
-php1/*
-Sites
-Sites/*
+sftp-config.json
+.gitignore
