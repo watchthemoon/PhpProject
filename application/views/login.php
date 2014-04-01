@@ -1,6 +1,6 @@
 <header>
 
-	<h1>Welkom bij Restaurant Business</h1>
+	<h1>Welkom bij Anjalaya</h1>
 
 </header>
 
@@ -8,7 +8,7 @@
 
 	<section id="login">
 
-		<h2>Welkom bij Restaurant Business</h2>
+		<h2>Welkom bij Anjalaya</h2>
 
 		<form action="" method="post">
 			<input type="text" name="email" placeholder="Email"/>
