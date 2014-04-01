@@ -30,9 +30,8 @@ class m_Register extends CI_Model{
 		$this->db->insert('users',$set);
 
 		## Laat de laatst uitgevoerde query zien
-		echo $this->db->last_query();
-		die();
-
+		## echo $this->db->last_query();
+		## die();
 	}
 
 }
