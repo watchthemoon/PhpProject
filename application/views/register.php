@@ -5,7 +5,7 @@
 
 	<section id="signup">
 
-		<h2>Nieuw bij Restaurant Business? <span>Registreer nu</span></h2>
+		<h2>Nieuw bij Anjalaya? <span>Registreer nu</span></h2>
 
 		<form action="/register/save/" method="post">
 
