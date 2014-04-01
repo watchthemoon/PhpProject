@@ -1,5 +1,5 @@
 <header>
-	<h1>Welkom bij Restaurant Business</h1>
+	<h1>Welkom bij Anjalaya</h1>
 </header>
 <div id="rightside">
 
