@@ -34,10 +34,19 @@ class Login extends CI_Controller {
 			redirect('/login');
 		}else{
 
-		## Geen errors, opslaan
+			## Geen errors, opslaan
 
-		## Laad de model
+			## Laad de model
 			$this->load->model('m_login');
+
+			## Sla de gegevens op in de model
+			$this->m_login->login($post);
+
+			## Vul melding dat het gelukt is
+			$this->session->set_userdata('melding','U bent succesvol geregistreerd');
+
+			## Stuur door naar login pagina
+			## redirect('/login');
 		}
 
 	/*session_start();
@@ -48,5 +57,5 @@ class Login extends CI_Controller {
 	);
 
 	$this->session->set_userdata($login);*/
-
+	}
 }
