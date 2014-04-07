@@ -45,17 +45,8 @@ class Login extends CI_Controller {
 			## Vul melding dat het gelukt is
 			$this->session->set_userdata('melding','U bent succesvol geregistreerd');
 
-			## Stuur door naar login pagina
-			## redirect('/login');
+			## Stuur door naar login check pagina
+			redirect('/login/login');
 		}
-
-	/*session_start();
-
-	$login = array(
-	'email'  => 'johndoe',
-	'logged_in' => TRUE
-	);
-
-	$this->session->set_userdata($login);*/
 	}
 }

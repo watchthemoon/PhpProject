@@ -4,11 +4,17 @@ class Start extends CI_Controller {
 
 	public function index()	{
 
-		$data = array(
-			'view' => 'login'
-		);
+		if (is_online() == true){
+			## Online
 
-		$this->load->view('index',$data);
+		}else{
+			## Niet online
+			$data = array(
+				'view' => 'login'
+			);
+
+			$this->load->view('index',$data);
+		}
 
 	}
 
