@@ -70,7 +70,8 @@ $autoload['libraries'] = array(
 */
 
 $autoload['helper'] = array(
-	'url'
+	'url',
+	'regular',
 );
 
 
@@ -116,7 +117,9 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array();
+$autoload['model'] = array(
+	'm_login'
+);
 
 
 /* End of file autoload.php */

@@ -1,6 +1,4 @@
-<header>
-	<h1>Welkom bij Anjalaya</h1>
-</header>
+<h1>Welkom bij Anjalaya</h1>
 <div id="rightside">
 
 	<section id="signup">
