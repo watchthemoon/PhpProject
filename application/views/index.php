@@ -17,13 +17,24 @@
 					<li><a href="/home">Home</a></li>
 					<li><a href="/uitleg">Uitleg</a></li>
 					<li><a href="/restaurants">Restaurants</a></li>
-					<li><a href="/register">Aanmelden</a></li>
-					<li><a href="/login">Inloggen</a></li>
 					<li><a href="/contact">Contact</a></li>
+					<?php
+					if($online){ ?>
+						<li><a href="/logout">Uitloggen</a></li>
+					<?php
+					}else{
+						?>
+						<li><a href="/register">Aanmelden</a></li>
+						<li><a href="/login">Inloggen</a></li>
+					<?php
+					}
+					?>
 				</ul>
 			</nav>
 		</header>
-
+		<?php if(!empty($melding)){ ?>
+			<div class="notice"><?php echo $melding; ?></div>
+		<?php } ?>
 		<div class="main">
 			<?php
 			if ($view != ''){

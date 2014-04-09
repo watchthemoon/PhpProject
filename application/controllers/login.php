@@ -1,16 +1,21 @@
-<?php
-
-class Login extends CI_Controller {
+<?php include "config.php";
+class Login extends Config {
 
 	public function index(){
 
+		if ($this->online){
+			redirect('/');
+		}
+
 		$data = array(
 			'view' => 'login',
-			'errors' => $this->session->userdata('error')
+			'errors' => $this->session->userdata('error'),
+			'post' => $this->session->userdata('post')
 		);
 
-		$this->load->view('index',$data);
+		$this->load->view('index',array_merge($this->data,$data));
 		$this->session->unset_userdata('error');
+		$this->session->unset_userdata('post');
 
 	}
 
@@ -31,6 +36,7 @@ class Login extends CI_Controller {
 
 			## Errors gevonden
 			$this->session->set_userdata('error',$error);
+			$this->session->set_userdata('post',$post);
 			redirect('/login');
 		}else{
 
@@ -43,10 +49,10 @@ class Login extends CI_Controller {
 			$this->m_login->login($post);
 
 			## Vul melding dat het gelukt is
-			$this->session->set_userdata('melding','U bent succesvol geregistreerd');
+			$this->session->set_userdata('melding','U bent succesvol ingelogd.');
 
 			## Stuur door naar login check pagina
-			redirect('/login/login');
+			redirect('/');
 		}
 	}
 }

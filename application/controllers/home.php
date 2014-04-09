@@ -1,10 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
-class Home extends CI_Controller {
+include "config.php";
+class Home extends Config {
 
 	public function index()	{
-
-		$this->load->view('index',$data);
+		$data = Array();
+		$this->load->view('index',array_merge($this->data,$data));
 
 	}
 

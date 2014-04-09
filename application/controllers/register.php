@@ -1,17 +1,21 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
-class Register extends CI_Controller {
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); include "config.php";
+class Register extends Config {
 
 	public function index()	{
 
+		if ($this->online){
+			redirect('/');
+		}
+
 		$data = array(
 			'view' => 'register',
-			'errors' => $this->session->userdata('error')
+			'errors' => $this->session->userdata('error'),
+			'post' => $this->session->userdata('post')
 		);
 
 		$this->load->view('index',$data);
 		$this->session->unset_userdata('error');
-
+		$this->session->unset_userdata('post');
 	}
 
 	public function save(){
@@ -60,6 +64,7 @@ class Register extends CI_Controller {
 
 			## Errors gevonden
 			$this->session->set_userdata('error',$error);
+			$this->session->set_userdata('post',$post);
 			redirect('/register');
 
 		}else{
@@ -73,7 +78,7 @@ class Register extends CI_Controller {
 			$this->m_register->save($post);
 
 			## Vul melding dat het gelukt is
-			$this->session->set_userdata('melding','U bent succesvol geregistreerd');
+			$this->session->set_userdata('melding','U bent succesvol geregistreerd.');
 
 			## Stuur door naar login pagina
 			redirect('/login');

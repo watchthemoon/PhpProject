@@ -6,7 +6,7 @@
 		<h2>Welkom bij Anjalaya</h2>
 
 		<form action="/login/save/" method="post" autocomplete="off">
-			<input type="text" name="email" placeholder="Email"/><?php if ($errors['email'] != ''){ echo $errors['email']; } ?>
+			<input type="text" name="email" placeholder="Email" value="<?php echo $post['email']; ?>" /><?php if ($errors['email'] != ''){ echo $errors['email']; } ?>
 			<input type="password" name="password" placeholder="Paswoord"/><?php if ($errors['password'] != ''){ echo $errors['password']; } ?>
 
 			<input type="submit" name="btnLogin" value="Inloggen"/>
