@@ -4,7 +4,7 @@
 
 		<h2>Restaurant Overzicht</h2>
 
-		
+
 
 	</section>
 

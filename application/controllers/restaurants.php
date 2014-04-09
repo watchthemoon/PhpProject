@@ -4,18 +4,13 @@ class Restaurants extends Config {
 
 	public function index(){
 
-		if ($this->online){
-			redirect('/');
-		}
-
-
 		$data = array(
 			'view' => 'restaurants',
 			'errors' => $this->session->userdata('error'),
 			'post' => $this->session->userdata('post')
 		);
 
-		$this->load->view('index',$data);
+		$this->load->view('index',array_merge($this->data,$data));
 		$this->session->unset_userdata('error');
 		$this->session->unset_userdata('post');
 
@@ -23,18 +18,13 @@ class Restaurants extends Config {
 
 	public function form(){
  	## Hier bouw je het formulier om een restaurant toe te voegen of te wijzigen ( de view word dan bijvoorbeeld restaurants_form.php )
-		if ($this->online){
-			redirect('/');
-		}
-
-
 		$data = array(
 			'view' => 'restaurants_form',
 			'errors' => $this->session->userdata('error'),
 			'post' => $this->session->userdata('post')
 		);
 
-		$this->load->view('index',$data);
+		$this->load->view('index',array_merge($this->data,$data));
 		$this->session->unset_userdata('error');
 		$this->session->unset_userdata('post');
 	}
