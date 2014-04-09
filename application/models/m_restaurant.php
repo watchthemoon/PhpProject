@@ -1,5 +1,5 @@
 <?php
-	class m_AddRestaurant extends CI_Model{
+	class m_Restaurant extends CI_Model{
 
 		public function save($data){
 

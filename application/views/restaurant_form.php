@@ -4,7 +4,7 @@
 
 		<h2>Restaurant toevoegen</h2>
 
-		<form action="/addRestaurant/save/" method="post" autocomplete="off">
+		<form action="/restaurants/save/" method="post" autocomplete="off">
 
 			<input type="text" name="name" placeholder="Naam"/><?php if ($errors['name'] != ''){ echo $errors['name']; } ?>
 			<input type="text" name="address" placeholder="Straat + huisnummer"/><?php if ($errors['address'] != ''){ echo $errors['address']; } ?>

@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 include "config.php";
-class AddRestaurant extends Config {
+class Restaurants extends Config {
 
 	public function index(){
 
@@ -10,7 +10,7 @@ class AddRestaurant extends Config {
 
 
 		$data = array(
-			'view' => 'addRestaurant',
+			'view' => 'restaurants',
 			'errors' => $this->session->userdata('error'),
 			'post' => $this->session->userdata('post')
 		);
@@ -19,6 +19,24 @@ class AddRestaurant extends Config {
 		$this->session->unset_userdata('error');
 		$this->session->unset_userdata('post');
 
+	}
+
+	public function form(){
+ 	## Hier bouw je het formulier om een restaurant toe te voegen of te wijzigen ( de view word dan bijvoorbeeld restaurants_form.php )
+		if ($this->online){
+			redirect('/');
+		}
+
+
+		$data = array(
+			'view' => 'restaurants_form',
+			'errors' => $this->session->userdata('error'),
+			'post' => $this->session->userdata('post')
+		);
+
+		$this->load->view('index',$data);
+		$this->session->unset_userdata('error');
+		$this->session->unset_userdata('post');
 	}
 
 	public function save(){
@@ -59,10 +77,10 @@ class AddRestaurant extends Config {
 			## Geen errors, opslaan
 
 			## Laad de model
-			$this->load->model('m_addrestaurant');
+			$this->load->model('m_restaurant');
 
 			## Sla de gegevens op in de model
-			$this->m_addrestaurant->save($post);
+			$this->m_restaurant->save($post);
 
 			## Vul melding dat het gelukt is
 			$this->session->set_userdata('melding','Restaurant succesvol toegevoegd');
@@ -72,5 +90,9 @@ class AddRestaurant extends Config {
 
 		}
 
+	}
+
+	public function delete(){
+ 	## Hier bouw je de functie om restaurants met alle koppelingen te verwijderen ( ook geen view van toepassing, na verwijderen doorsturen naar de index van restaurants )
 	}
 }
