@@ -136,3 +136,14 @@ label {
 	padding: 5px;
 	color: #FFFFFF;
 }
+
+textarea{
+	resize: none;
+	border-radius: 5px;
+	border: 1px solid #cccccc;
+	width: 70%;
+	height: 70%;
+	display: block;
+	padding: 5px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
