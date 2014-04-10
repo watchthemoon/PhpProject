@@ -2,12 +2,26 @@
 include "config.php";
 class Restaurants extends Config {
 
-	public function index(){
+	function __construct()
+ 
+    {
+ 
+        parent::__construct();
+ 
+        $this->load->helper('form');
+ 
+        $this->load->helper('url');
+ 
+    }  
 
+	public function index(){
+		$this->load->model('m_restaurant');
+		$query = $this->m_restaurant->getRestaurants();
 		$data = array(
 			'view' => 'restaurants',
 			'errors' => $this->session->userdata('error'),
-			'post' => $this->session->userdata('post')
+			'post' => $this->session->userdata('post'),
+			'query' => $query
 		);
 
 		$this->load->view('index',array_merge($this->data,$data));
@@ -18,8 +32,9 @@ class Restaurants extends Config {
 
 	public function form(){
  	## Hier bouw je het formulier om een restaurant toe te voegen of te wijzigen ( de view word dan bijvoorbeeld restaurants_form.php )
+
 		$data = array(
-			'view' => 'restaurants_form',
+			'view' => 'restaurant_form',
 			'errors' => $this->session->userdata('error'),
 			'post' => $this->session->userdata('post')
 		);
@@ -56,11 +71,33 @@ class Restaurants extends Config {
 			$error['description'] = 'Vul een beschrijving in.';
 		}
 
+		## foto uploaden in map
+		$config['upload_path'] = './upload/restaurants/'; /* NB! create this dir! */
+      	$config['allowed_types'] = 'gif|jpg|png|bmp|jpeg';
+      	$config['max_size']  = '100';
+      	$config['max_width']  = '1024';
+      	$config['max_height']  = '768';
+      /* Load the upload library */
+      $this->load->library('upload', $config);
+ 
+		if ( ! $this->upload->do_upload())
+		{
+		$error['image'] = "failed";
+		 
+		// uploading failed. $error will holds the errors.
+		}
+		else
+		{
+		$data = array('upload_data' => $this->upload->data());
+		 
+		// uploading successfull, now do your further actions
+		}
+
 		if (count($error) > 0){
 
 			## Errors gevonden
 			$this->session->set_userdata('error',$error);
-			redirect('/addRestaurant');
+			redirect('/restaurants/form');
 
 		}else{
 
@@ -76,7 +113,7 @@ class Restaurants extends Config {
 			$this->session->set_userdata('melding','Restaurant succesvol toegevoegd');
 
 			## Stuur door naar login pagina
-			redirect('/login');
+			redirect('/restaurants');
 
 		}
 

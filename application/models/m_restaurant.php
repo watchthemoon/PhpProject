@@ -17,6 +17,12 @@
 			## Sla de array op als restaurant
 			$this->db->insert('restaurants',$set);
 		}
+
+		public function getRestaurants(){
+			$query = $this->db->get('restaurants');
+			return $query;
+		
 	}
+}
 
 ?>
