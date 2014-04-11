@@ -93,6 +93,7 @@ class Restaurants extends Config
 
 		## Als de folder niet bestaat, deze toevoegen
 		if (!file_exists($folder)){
+			## @ voor een functie zorgt ervoor dat als het fout gaat hij die regel gewoon 'negeert'
 			@mkdir($_SERVER["DOCUMENT_ROOT"] . '/upload/restaurants/', 0755, true);
 		}
 
