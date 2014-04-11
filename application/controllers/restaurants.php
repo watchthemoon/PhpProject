@@ -118,13 +118,8 @@ class Restaurants extends Config
 		} else {
 			## Uploaden ging goed :)
 			$data = array('upload_data' => $this->upload->data());
-			print_r($data);
+			$post['image'] = $data['upload_data']['file_name'];
 
-			##############################
-			##############################
-			## VERGEET NIET BESTANDSNAAM OP TE SLAAN IN DE DATABSE ($post['image'] = $data['file_name'];
-			##############################
-			##############################
 		}
 
 		if (count($error) > 0) {

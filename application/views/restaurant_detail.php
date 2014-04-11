@@ -2,6 +2,7 @@
 	<h1><?php echo $row->name; ?></h1>
 	<section id="restaurants-view">	
 			<div class="details">
+				<img src="<?php echo site_url('upload/restaurants/'.$row->image.''); ?>" alt="<?php echo $row->image; ?>">
 				<h2>Informatie</h2>
 				<p>Straat: <?php echo $row->address; ?></p>
 				<p>Stad: <?php echo $row->city; ?></p>
