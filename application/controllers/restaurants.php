@@ -3,16 +3,11 @@ include "config.php";
 class Restaurants extends Config {
 
 	function __construct()
- 
-    {
- 
-        parent::__construct();
- 
-        $this->load->helper('form');
- 
-        $this->load->helper('url');
- 
-    }  
+	{
+		parent::__construct();
+		$this->load->helper(array('form', 'url'));
+	}
+  
 
 	public function index(){
 		$this->load->model('m_restaurant');
@@ -37,6 +32,23 @@ class Restaurants extends Config {
 			'view' => 'restaurant_form',
 			'errors' => $this->session->userdata('error'),
 			'post' => $this->session->userdata('post')
+		);
+
+		$this->load->view('index',array_merge($this->data,$data));
+		$this->session->unset_userdata('error');
+		$this->session->unset_userdata('post');
+	}
+
+	public function detail(){
+ 	## Hier bouw je detail pagina op
+		$this->load->helper('url');
+		$this->load->model('m_restaurant');
+		$query = $this->m_restaurant->getRestaurantById($this->uri->segment(3));
+		$data = array(
+			'view' => 'restaurant_detail',
+			'errors' => $this->session->userdata('error'),
+			'post' => $this->session->userdata('post'),
+			'query' => $query
 		);
 
 		$this->load->view('index',array_merge($this->data,$data));
@@ -72,17 +84,18 @@ class Restaurants extends Config {
 		}
 
 		## foto uploaden in map
-		$config['upload_path'] = './upload/restaurants/'; /* NB! create this dir! */
+		$config['upload_path'] = 'upload/restaurants/'; /* NB! create this dir! */
       	$config['allowed_types'] = 'gif|jpg|png|bmp|jpeg';
       	$config['max_size']  = '100';
       	$config['max_width']  = '1024';
       	$config['max_height']  = '768';
-      /* Load the upload library */
+      ## Laden van the upload library
       $this->load->library('upload', $config);
  
-		if ( ! $this->upload->do_upload())
+		$image1='image';
+		if ( ! $this->upload->do_upload($image1))
 		{
-		$error['image'] = "failed";
+		$error['image'] = $this->upload->display_errors();
 		 
 		// uploading failed. $error will holds the errors.
 		}

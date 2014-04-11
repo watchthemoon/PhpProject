@@ -6,7 +6,7 @@
 			<div class="res">
 				<h2><?php echo $row->name; ?></h2>
 				<p><?php echo $row->description; ?></p>
-				<a href="">Meer info</a>
+				<a href="<?php echo site_url('restaurants/detail/'.$row->restaurantid.''); ?>">Meer info</a>
 			</div>
 		<?php } ?>	
 	</section>

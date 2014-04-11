@@ -22,7 +22,14 @@
 			$query = $this->db->get('restaurants');
 			return $query;
 		
-	}
+		}
+
+		public function getRestaurantById($id){
+			$this->db->from('restaurants');
+			$this->db->where('restaurantid',$id);
+			$rec = $this->db->get();
+			return $rec;
+		}
 }
 
 ?>
