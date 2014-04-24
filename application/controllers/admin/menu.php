@@ -1,10 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-include "config.php";
-class Home extends Config {
+include dirname(__FILE__) . "/../config.php";
+class Menu extends Config {
 
 	public function index()	{
 		$data = array(
-			'view' => 'home',
+			'view' => '/admin/menu',
 			'errors' => $this->session->userdata('error'),
 			'post' => $this->session->userdata('post')
 		);

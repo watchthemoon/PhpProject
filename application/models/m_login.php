@@ -12,6 +12,7 @@ class m_Login extends CI_Model{
 		if ($rec->num_rows() > 0){
 			## Gebruiker gevonden
 			$this->session->set_userdata('user_id',$rec->row()->userid);
+			$this->session->set_userdata('super',$rec->row()->superuser);
 			return true;
 		}else{
 			## Geen gebruiker gevonden
@@ -30,4 +31,12 @@ class m_Login extends CI_Model{
 		}
 	}
 
+	function is_super(){
+		## Als de user een super is
+		if($this->session->userdata('super') == 1){
+			return true;
+		}else{
+			return false;
+		}
+	}
 }

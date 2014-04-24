@@ -15,6 +15,38 @@
 			<nav>
 				<ul>
 					<li><a href="/home">Home</a></li>
+
+					<?php
+					## Als het een ingelogde superuser is
+					if($super && $online){ ?>
+						<li><a href="/admin/restaurants">Restaurants</a></li>
+						<li><a href="/admin/menu">Menu's</a></li>
+						<li><a href="/tafels">Tafels</a></li>
+						<li><a href="/logout">Uitloggen</a></li>
+
+					<?php
+					## Als het een ingelogde gewone gebruiker is
+					}else if($online){ ?>
+						<li><a href="/uitleg">Uitleg</a></li>
+						<li><a href="/restaurants">Restaurants</a></li>
+						<li><a href="/contact">Contact</a></li>
+						<li><a href="/logout">Uitloggen</a></li>
+
+						<?php
+					## Als het een niet ingelogd persoon is
+					}else{ ?>
+						<li><a href="/uitleg">Uitleg</a></li>
+						<li><a href="/restaurants">Restaurants</a></li>
+						<li><a href="/contact">Contact</a></li>
+						<li><a href="/register">Aanmelden</a></li>
+						<li><a href="/login">Inloggen</a></li>
+					<?php }
+					?>
+				</ul>
+
+				<?php /*
+					if($super){ ?>
+					<li><a href="/home">Home</a></li>
 					<li><a href="/uitleg">Uitleg</a></li>
 					<li><a href="/restaurants">Restaurants</a></li>
 					<li><a href="/contact">Contact</a></li>
@@ -27,7 +59,9 @@
 						<li><a href="/register">Aanmelden</a></li>
 						<li><a href="/login">Inloggen</a></li>
 					<?php
-					}
+					}}else{ ?>
+						<li><a>Geen restauranthouder</li>
+					<?php } */
 					?>
 				</ul>
 			</nav>
