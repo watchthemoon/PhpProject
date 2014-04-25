@@ -24,7 +24,7 @@ class Restaurants extends Config {
 		## Hier bouw je het formulier om een restaurant toe te voegen of te wijzigen ( de view word dan bijvoorbeeld restaurants_form.php )
 
 		$data = array(
-			'view' => 'restaurant_form',
+			'view' => 'admin/restaurant_form',
 			'errors' => $this->session->userdata('error'),
 			'post' => $this->session->userdata('post')
 		);
