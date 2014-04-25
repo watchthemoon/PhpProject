@@ -4,7 +4,7 @@
 
 		<h2>Restaurant toevoegen</h2>
 
-			<form action="/restaurants/save" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+			<form action="/admin/restaurants/save" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 			<input type="text" name="name" placeholder="Naam"/><?php if ($errors['name'] != ''){ echo $errors['name']; } ?>
 			<input type="text" name="address" placeholder="Straat + huisnummer"/><?php if ($errors['address'] != ''){ echo $errors['address']; } ?>
 			<input type="text" name="city" placeholder="Stad"/><?php if ($errors['city'] != ''){ echo $errors['city']; } ?>
