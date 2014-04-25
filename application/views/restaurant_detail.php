@@ -13,7 +13,7 @@
 			</div>
 	</section>
 <div id="addRestaurant">
-		<form action="/restaurants/form" method="post">
+		<form action="/reserve" method="post">
 			<input type="submit" value="Reserveer"/>
 		</form>
 </div>
