@@ -11,9 +11,4 @@
 			</div>
 		<?php } ?>	
 	</section>
-<div id="addRestaurant">
-		<form action="/restaurants/form" method="post">
-			<input type="submit" value="Restaurant Toevoegen"/>
-		</form>
-</div>
 
