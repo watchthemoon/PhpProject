@@ -188,8 +188,19 @@ textarea{
 	background-color: #880000;
 	border: 1px solid #880000;
 	border-radius: 5px;
-	width: 200px;
 	font-size: 14px;
+	width:200px;
+	color: #fff;
+	font-weight: bold;
+	text-shadow: 1px 1px 0 #000;
+}
+
+input[type=submit] {
+	background-color: #880000;
+	border: 1px solid #880000;
+	border-radius: 5px;
+	font-size: 14px;
+	width:200px;
 	color: #fff;
 	font-weight: bold;
 	text-shadow: 1px 1px 0 #000;
