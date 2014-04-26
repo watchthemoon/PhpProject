@@ -46,13 +46,21 @@ class Login extends Config {
 			$this->load->model('m_login');
 
 			## Sla de gegevens op in de model
-			$this->m_login->login($post);
+			$result = $this->m_login->login($post);
 
-			## Vul melding dat het gelukt is
-			$this->session->set_userdata('melding','U bent succesvol ingelogd.');
+			if($result){
+				## Vul melding dat het gelukt is
+				$this->session->set_userdata('melding','U bent succesvol ingelogd.');
 
-			## Stuur door naar login check pagina
-			redirect('/');
+				## Stuur door naar login check pagina
+				redirect('/');
+			}else{
+				## Vul melding dat het niet gelukt is
+				$this->session->set_userdata('melding','Uw login gegevens zijn onjuist.');
+
+				## Stuur door naar login check pagina
+				redirect('/login');
+			}
 		}
 	}
 }

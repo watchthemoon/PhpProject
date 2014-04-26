@@ -21,8 +21,12 @@ class m_Login extends CI_Model{
 	}
 
 	function is_online(){
+		$this->db->from('users');
+		$this->db->where('userid',$this->session->userdata('user_id'));
+		$rec = $this->db->get();
+
 		## Als de sessie gevuld is
-		if($this->session->userdata('user_id') != 0){
+		if($rec->num_rows() > 0){
 			## User is ingelogd
 			return true;
 		}else{
