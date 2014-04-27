@@ -5,13 +5,52 @@
 
 		<p>Hier komen de menu's voor de restauranthouder.</p>
 
-		<form method="post" action="">
-			<h1>Menu toevoegen</h1>
-			<input type="text" name="name" id="name" placeholder="Naam gerecht">
-			<input type="text" name="price" id="price" placeholder="Prijs gerecht">
-			<button type="submit">Menu toevoegen</button>
-		</form>
+		<button class="toevoegen" type="submit">menu toevoegen </button>
 
 	</section>
 
+<?php foreach ($query->result() as $row) { ?>
+<div id="menu">
+				<h2><?php echo $row->name; ?></h2>
+				<p><?php echo $row->price; ?></p>
+				
+					
+
+
 </div>
+
+		<?php } ?>
+
+
+
+
+<a href="#" class="menuvoorgerecht">Voorgerechten</a>
+<a href="#" onclick="menuhoofdgerecht">Hoofdgerechten</a>
+<a href="#" onclick="menunagerecht">Nagerechten</a>
+
+
+<div id="menucontent"> 
+</div>
+
+
+
+<script type="text/javascript">
+$(".toevoegen").on('click',function(){
+		var data = {
+			'restaurantid': '<?php echo $restaurantid;?>'
+		};
+		openWindow('/admin/menu/form',data);
+
+	});
+  $(".menuvoorgerecht").on('click',function(){
+   		$('#menucontent').load('voorgerechten.php');
+    });
+
+    $(".menuhoofdgerecht").on('click',function(){
+   		$('#menucontent').load('hoofdgerechten.php');
+    }); 
+
+     $(".menunagerecht").on('click',function(){
+   		$('#menucontent').load('nagerechten.php');
+    });
+</script>

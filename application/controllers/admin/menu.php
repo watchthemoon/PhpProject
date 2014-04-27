@@ -9,19 +9,29 @@ class Menu extends Config {
 		$this->load->model('m_menu');
 	}
 
-	public function view($menuid)
+	public function view($restaurantid)
 		{
+		$query = $this->m_menu->getMenu($restaurantid);	
 		$data = array(
-			'menuid' => $menuid,
+			'restaurantid' => $restaurantid,
 			'view' => '/admin/menu',
 			'errors' => $this->session->userdata('error'),
 			'post' => $this->session->userdata('post'),
-			'menu' => $this->m_menu->load($menuid)
+			'query' => $query
 		);
 
-		$this->load->view('/admin/menu',array_merge($this->data,$data));
+		$this->load->view('index',array_merge($this->data,$data));
 
 	}
+
+		public function form(){
+		$data = array(
+			'data' => $this->input->post()
+		);
+
+		$this->load->view('/admin/menu_form',array_merge($this->data,$data));
+	}
+
 
 
 	public function save()
@@ -43,9 +53,10 @@ class Menu extends Config {
 
 			## Errors gevonden
 			$this->session->set_userdata('error', $error);
-			redirect('/admin/menu');
+			redirect('/admin/menu/form');
 
 		} else {
+
 
 			## Sla de gegevens op in de model
 			$this->m_menu->save($post);
@@ -54,15 +65,11 @@ class Menu extends Config {
 			$this->session->set_userdata('melding', 'Menu toegevoegd');
 
 			## Stuur door naar tafel pagina
-			redirect('/admin/menu/view/'.$post['menuid']);
+			redirect('/admin/menu/view/'.$post['restaurantid']);
 
 		}
 
 	}
-
-
-
-
 	
 
 }
