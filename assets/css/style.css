@@ -14,7 +14,7 @@ body {
 	background-size: cover;
 	width: 100%;
 	height: 100%;
-	overflow: scroll;
+	overflow-y: scroll;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -86,6 +86,8 @@ h2 {
 	font-weight: normal;
 	font-size: 18px;
 	border-bottom: 1px solid #e2e2e2;
+	margin-bottom: 10px;
+	padding-bottom: 5px;
 }
 
 input{
@@ -201,4 +203,36 @@ input[type=submit] {
 .res .btn{
 	margin-top: 5px;
 	display: block;
+}
+
+.grid-block{
+	width: 50px;
+	height: 50px;
+	background: #DDD;
+	float: left;
+	border-right: 1px solid #eeeeee;
+	border-bottom: 1px solid #eeeeee;
+}
+.grid-block:hover{
+	background: #bbbbbb;
+	cursor: pointer;
+}
+
+#popup_window{
+	background: rgba(0,0,0,0.6);
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	opacity: 0;
+	display: none;
+}
+
+#popup_form{
+	background: #ffffff;
+	position: absolute;
+	width: 600px;
+	top: 125px;
+	left: 50%;
+	margin-left: -300px;
+	padding: 20px;
 }
