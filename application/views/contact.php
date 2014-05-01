@@ -12,7 +12,7 @@
 			<input  type="text" name="EmailContact" placeholder="Emailadres *">
 			<input  type="text" name="TelephoneContact" placeholder="Telefoonnummer">
 			<input  type="text" name="TitelContact" placeholder="Titel *">
-			<input  type="text" name="MessageContact" placeholder="Bericht *">
+			<textarea name="MessageContact" placeholder="Bericht *" id="MessageContact"></textarea>
 
 			<input type="submit" value="Verstuur"/>
 		</form>
