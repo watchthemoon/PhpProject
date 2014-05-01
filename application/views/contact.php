@@ -5,7 +5,7 @@
 
 		<p>Voor verdere vragen gelieve het contact formulier hieronder in te vullen en door te sturen.</p>
 		<p>* zijn verplichte velden.</p>
-		<form action="" method="post" autocomplete="off" name="contactform">
+		<form action="/contact" method="post" autocomplete="off" name="contactform">
 
 			<input  type="text" name="FirstnameContact" placeholder="Voornaam *">
 			<input  type="text" name="LastnameContact" placeholder="Achternaam *">
