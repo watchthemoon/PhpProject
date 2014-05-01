@@ -1,17 +1,23 @@
 <?php
-// display form if user has not clicked submit
-if ($_POST["submit"]){
-  if (isset($_POST["EmailContact"])) {
-      $email = $_POST["EmailContact"]; // sender
-      $firstname = $_POST["FirstnameContact"];
-      $lastname = $_POST["LastnameContact"];
-      $telephone = $_POST["TelephoneContact"];
-      $subject = $_POST["TitelContact"];
-      $message = $_POST["MessageContact"];
-      // message lines should not exceed 70 characters (PHP rule), so wrap it
-      $message = wordwrap($message, 70);
-      // send mail
-      mail("jana.devoecht@gmail.com",$firstname,$lastname,$telephone,$subject,$message,"From: $email\n");
-      echo "Uw formulier is verstuurd.";
-    }
+class m_Contact extends CI_Model{
+
+  public function mail($data){
+
+    ## Alles gaan doorsturen
+
+    $to      = 'jana.devoecht@gmail.com';
+    $subject = $data["TitelContact"];
+    $message = 'U heeft een contactbericht ontvangen: \n
+       Naam:' . $data["FirstnameContact"] . ' ' . $data["LastnameContact"] . '\n' .
+       'Telefoonnummer:' . $data["TelephoneContact"]. '\n' .
+       'Onderwerp:' . $data["TitelContact"] . '\n' .
+       'Bericht:'. $data["MessageContact"];
+    $headers .= 'From:' . $data["FirstnameContact"] . ' ' . $data["LastnameContact"] . '\n';
+
+    mail($to, $subject, $message, $headers);
+
+
+
+
+  }
 }
