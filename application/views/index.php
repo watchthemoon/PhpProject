@@ -24,9 +24,7 @@
 
 						if ($super){
 							?>
-							<li><a href="/admin/restaurants">Restaurants</a></li>
-							<li><a href="/admin/menu">Menu's</a></li>
-							<li><a href="/tafels">Tafels</a></li>
+							<li><a href="/admin/restaurants">Restaurants beheren</a></li>
 							<?php
 						}else{
 							?>

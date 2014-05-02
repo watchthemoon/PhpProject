@@ -211,7 +211,7 @@ textarea{
 	border-bottom: 1px solid #eeeeee;
 }
 
-.grid-block:hover,{
+.grid-block:hover{
 	background: #bbbbbb;
 	cursor: pointer;
 }
