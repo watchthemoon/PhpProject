@@ -28,6 +28,14 @@ class Tables extends Config {
 		$this->load->view('/admin/tables_form',array_merge($this->data,$data));
 	}
 
+	public function edit(){
+		$data = array(
+			'data' => $this->input->post()
+		);
+
+		$this->load->view('/admin/tables_form',array_merge($this->data,$data));
+	}
+
 	public function save()
 	{
 
@@ -37,7 +45,7 @@ class Tables extends Config {
 		##VALIDEREN VAN DE VELDEN
 
 		if (empty($post['name'])) {
-			$error['name'] = 'Vul een tafelnaam in.';
+			$error['name'] = 'Vul een tafelnummer in.';
 		}
 		if (empty($post['amount'])) {
 			$error['amount'] = 'Vul het aantal zitplaatsen in.';

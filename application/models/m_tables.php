@@ -15,6 +15,18 @@ class m_Tables extends CI_Model{
 		$this->db->insert('tables',$set);
 	}
 
+	public function edit($data){
+
+		## Array maken met gebruikers data
+		$set = array(
+			'name' => $data['name'],
+			'amountseats' => $data['amount'],
+		);
+
+		## Sla de array op als user
+		$this->db->update('tables',$set);
+	}
+
 	public function load($restaurantid){
 		$this->db->from('tables');
 		$this->db->where('restaurantid',$restaurantid);
