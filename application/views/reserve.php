@@ -15,8 +15,17 @@
 			</section>	
 			
 			<form action="" method="post">
-				<input type="submit" value="Reserveer"/>
+				<input id="buttonreserveer" type="submit" value="Reserveer"/>
 			</form>
 	</section>
 
 </div>
+
+<script type="text/javascript">
+	$("#buttonreserveer").on('click',function(){
+		var data = {
+	
+		};
+		openWindow('/reserve/form',data);
+	});
+</script>
