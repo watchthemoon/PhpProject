@@ -5,7 +5,7 @@
 		<?php foreach ($query as $row) { ?>
 			<div class="res">
 				<h2><?php echo $row->name; ?></h2>
-				<img src="../assets/images/delete.jpg" alt="delete">
+				<img src="../assets/images/delete.jpg" id="delete<?php echo $row->restaurantid;?>" class="icon-delete" alt="delete">
 				<img src="<?php echo '../upload/restaurants/' . $row->image; ?>" class="resfoto" alt="<?php echo $row->image; ?>">
 				<p><?php echo $row->description; ?></p>
 				<a href="<?php echo site_url('admin/restaurants/detail/'.$row->restaurantid.''); ?>">Meer info</a>
@@ -23,5 +23,20 @@
 <div>
 	<a href="/admin/restaurants/form" class="btn">Restaurant toevoegen</a>
 </div>
+<script type="text/javascript">
+	$(".icon-delete").on('click',function(){
+		var data = {
+			'restaurantid': this.id.replace('delete','')
+		};
+
+		$.ajax({
+        type: "POST",
+        url: "/admin/restaurants/delete",
+        data: {'restaurantid': this.id.replace('delete','')},  // fix: need to append your data to the call
+        success: function (data) {
+        }
+    });
+	});
+</script>
 
 

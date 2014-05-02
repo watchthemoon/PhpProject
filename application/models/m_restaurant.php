@@ -30,6 +30,14 @@
 			$rec = $this->db->get();
 			return $rec->row();
 		}
+
+		public function delete($data){
+			$set = array(
+			'restaurantid' => $data['restaurantid']
+			);
+
+			$this->db->delete('restaurants',$set);
+		}
 }
 
 ?>

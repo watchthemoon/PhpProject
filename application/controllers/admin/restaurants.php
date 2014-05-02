@@ -137,4 +137,9 @@ class Restaurants extends Config {
 
 	}
 
+	public function delete()
+	{
+		## Hier bouw je de functie om restaurants met alle koppelingen te verwijderen ( ook geen view van toepassing, na verwijderen doorsturen naar de index van restaurants )
+	}
+
 }
