@@ -20,7 +20,7 @@
 
 		public function getRestaurants(){
 			$query = $this->db->get('restaurants');
-			return $query;
+			return $query->result();
 		
 		}
 
@@ -28,7 +28,7 @@
 			$this->db->from('restaurants');
 			$this->db->where('restaurantid',$id);
 			$rec = $this->db->get();
-			return $rec;
+			return $rec->row();
 		}
 }
 

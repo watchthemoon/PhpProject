@@ -5,12 +5,11 @@ class Restaurants extends Config {
 	public function index()
 	{
 		$this->load->model('m_restaurant');
-		$query = $this->m_restaurant->getRestaurants();
 		$data = array(
 			'view' => 'admin/restaurants',
 			'errors' => $this->session->userdata('error'),
 			'post' => $this->session->userdata('post'),
-			'query' => $query
+			'query' => $this->m_restaurant->getRestaurants()
 		);
 
 		$this->load->view('index', array_merge($this->data, $data));
@@ -27,6 +26,23 @@ class Restaurants extends Config {
 			'view' => 'admin/restaurant_form',
 			'errors' => $this->session->userdata('error'),
 			'post' => $this->session->userdata('post')
+		);
+
+		$this->load->view('index', array_merge($this->data, $data));
+		$this->session->unset_userdata('error');
+		$this->session->unset_userdata('post');
+	}
+
+	public function detail()
+	{
+		## Hier bouw je detail pagina op
+		$this->load->helper('url');
+		$this->load->model('m_restaurant');
+		$data = array(
+			'view' => 'admin/restaurant_detail',
+			'errors' => $this->session->userdata('error'),
+			'post' => $this->session->userdata('post'),
+			'query' => $this->m_restaurant->getRestaurantById($this->uri->segment(4))
 		);
 
 		$this->load->view('index', array_merge($this->data, $data));

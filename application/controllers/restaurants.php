@@ -14,12 +14,11 @@ class Restaurants extends Config
 	public function index()
 	{
 		$this->load->model('m_restaurant');
-		$query = $this->m_restaurant->getRestaurants();
 		$data = array(
 			'view' => 'restaurants',
 			'errors' => $this->session->userdata('error'),
 			'post' => $this->session->userdata('post'),
-			'query' => $query
+			'query' => $this->m_restaurant->getRestaurants()
 		);
 
 		$this->load->view('index', array_merge($this->data, $data));
@@ -34,12 +33,11 @@ class Restaurants extends Config
 		## Hier bouw je detail pagina op
 		$this->load->helper('url');
 		$this->load->model('m_restaurant');
-		$query = $this->m_restaurant->getRestaurantById($this->uri->segment(3));
 		$data = array(
 			'view' => 'restaurant_detail',
 			'errors' => $this->session->userdata('error'),
 			'post' => $this->session->userdata('post'),
-			'query' => $query
+			'query' => $this->m_restaurant->getRestaurantById($this->uri->segment(3))
 		);
 
 		$this->load->view('index', array_merge($this->data, $data));
