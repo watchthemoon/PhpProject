@@ -10,7 +10,6 @@ class Reserve extends Config {
 		);
 
 		$this->load->view('index',array_merge($this->data,$data));
-
 	}
 
 	public function form(){
@@ -19,6 +18,13 @@ class Reserve extends Config {
 		);
 
 		$this->load->view('/reserve_form',array_merge($this->data,$data));
+	}
+
+	public function check(){
+		$data = $this->input->post();
+		$this->load->model('m_reserve');
+
+		$this->m_reserve->check($data['restaurantid'],$data['tableid']);
 	}
 
 }

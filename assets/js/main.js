@@ -18,3 +18,10 @@ function closeWindow(){
 		$("#popup_form").html('');
 	});
 }
+
+function liveCheck(restaurantid, tableid){
+	$.post( "/reserve/check", { restaurantid: restaurantid, tableid: tableid})
+		.done(function( data ) {
+			alert( "Data Loaded: " + data );
+		});
+}
