@@ -4,15 +4,24 @@
 	<section id="home">
 
 		<h2>Selecteer de tafel(s) waar u wilt reserveren.</h2>
-		<p>1 tafel is 2 personen<p>
 
 			<section id="tafels">
-				<p>Tafel 1</p>
-				<p>Tafel 2</p>
-				<p>Tafel 3</p>
-				<p>Tafel 4</p>
-				<p>Tafel 5</p>
+
+			<?php
+		for($y = 1; $y <= 10; $y++){
+			for($x = 1; $x <= 10; $x++){
+				if(is_object($tables[$x . '-' . $y])){
+					$table = $tables[$x . '-' . $y];
+					?><div id="block<?php echo $x . '-' . $y;?>" class="grid-block-filled" data-tableid="<?php echo $table->tableid;?>"></div><?php
+				}else{
+					?><div id="block<?php echo $x . '-' . $y;?>" class="grid-block"></div><?php
+				}
+			}
+			?><div class="clear"></div><?php
+		}
+		?>
 			</section>	
+		</br>
 			
 			<form action="" method="post">
 				<input id="buttonreserveer" type="submit" value="Reserveer"/>
@@ -28,4 +37,14 @@
 		};
 		openWindow('/reserve/form',data);
 	});
+
+	$(".grid-block-filled").on('click',function(){
+		var data = {
+			'restaurantid': '<?php echo $restaurantid;?>',
+			'tableid': $(this).data('tableid'),
+			'coordinates': this.id.replace('block','')
+		};
+		openWindow('/reserve/form',data);
+	});
+
 </script>
