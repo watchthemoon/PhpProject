@@ -5,26 +5,17 @@
 
 		<div id="grid">
 			<?php
-				for($y = 1; $y <= 10; $y++){
-					for($x = 1; $x <= 10; $x++){
-						$teller = 0;
-						if(!empty($tables)){
-
-							foreach($tables as $table){
-								$str = $x . '-' . $y;
-								if($str == $table->coordinates){
-									$teller++;
-									?><div id="block<?php echo $x . '-' . $y;?>" class="grid-block-filled"></div><?php
-								}
-
-							}
-						}
-						if($teller == 0){
-							?><div id="block<?php echo $x . '-' . $y;?>" class="grid-block"></div><?php
-						}
+			for($y = 1; $y <= 10; $y++){
+				for($x = 1; $x <= 10; $x++){
+					if(is_object($tables[$x . '-' . $y])){
+						$table = $tables[$x . '-' . $y];
+						?><div id="block<?php echo $x . '-' . $y;?>" class="grid-block-filled" data-tableid="<?php echo $table->tableid;?>"></div><?php
+					}else{
+						?><div id="block<?php echo $x . '-' . $y;?>" class="grid-block"></div><?php
 					}
-					?><div class="clear"></div><?php
 				}
+				?><div class="clear"></div><?php
+			}
 			?>
 		</div>
 
@@ -44,10 +35,8 @@
 	$(".grid-block-filled").on('click',function(){
 		var data = {
 			'restaurantid': '<?php echo $restaurantid;?>',
-			'coordinates': '<?php echo $table->coordinates;?>',
-			'tablename': '<?php echo $table->name;?>',
-			'amount': '<?php echo $table->amountseats;?>'
+			'tableid': $(this).data('tableid')
 		};
-		openWindow('/admin/tables/edit',data);
+		openWindow('/admin/tables/form',data);
 	});
 </script>

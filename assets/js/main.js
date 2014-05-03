@@ -9,3 +9,12 @@ function openWindow(url,data){
 		$( "#popup_form" ).load(url,data);
 	})
 }
+
+function closeWindow(){
+	$("#popup_window").animate({
+		opacity: 0
+	},250,function(){
+		$("#popup_window").hide();
+		$("#popup_form").html('');
+	});
+}

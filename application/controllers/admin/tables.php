@@ -21,16 +21,15 @@ class Tables extends Config {
 	}
 
 	public function form(){
-		$data = array(
-			'data' => $this->input->post()
-		);
 
-		$this->load->view('/admin/tables_form',array_merge($this->data,$data));
-	}
+		$data = $this->input->post();
 
-	public function edit(){
+		$table = $this->m_tables->load($data['restaurantid'],$data['tableid']);
+
 		$data = array(
-			'data' => $this->input->post()
+			'restaurantid' => $data['restaurantid'],
+			'table' => $table,
+			'data' => $data
 		);
 
 		$this->load->view('/admin/tables_form',array_merge($this->data,$data));
