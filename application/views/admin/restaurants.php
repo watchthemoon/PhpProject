@@ -8,7 +8,7 @@
 				<!--<img src="../assets/images/delete.jpg" id="delete<?php echo $row->restaurantid;?>" class="icon-delete" alt="delete">-->
 				<form action="/admin/restaurants/delete" method="post">
 				<input type="hidden" name="restaurantid" value="<?php echo $row->restaurantid;?>" />
-				<input type="submit" value="delete"/>
+				<input type="submit" value="delete" class="delete"/>
 				</form>
 				<img src="<?php echo '../upload/restaurants/' . $row->image; ?>" class="resfoto" alt="<?php echo $row->image; ?>">
 				<p><?php echo $row->description; ?></p>
@@ -28,6 +28,10 @@
 	<a href="/admin/restaurants/form" class="btn">Restaurant toevoegen</a>
 </div>
 <script type="text/javascript">
+	$('.delete').click(function(){
+  	var answer = confirm('Zeker?');
+  	return answer // answer is a boolean
+	}); 
 	$(".icon-delete").on('click',function(){
 		$.ajax({
         type: "POST",
