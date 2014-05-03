@@ -130,7 +130,7 @@ class Restaurants extends Config {
 			## Vul melding dat het gelukt is
 			$this->session->set_userdata('melding', 'Restaurant succesvol toegevoegd');
 
-			## Stuur door naar login pagina
+			## Stuur door naar overzicht pagina
 			redirect('/admin/restaurants');
 
 		}
@@ -140,6 +140,18 @@ class Restaurants extends Config {
 	public function delete()
 	{
 		## Hier bouw je de functie om restaurants met alle koppelingen te verwijderen ( ook geen view van toepassing, na verwijderen doorsturen naar de index van restaurants )
+		$post = $this->input->post();
+		## Laad de model
+			$this->load->model('m_restaurant');
+
+			## Sla de gegevens op in de model
+			$this->m_restaurant->delete($post);
+
+			## Vul melding dat het gelukt is
+			$this->session->set_userdata('melding', 'Restaurant succesvol verwijderd');
+
+			## Stuur door naar overzicht pagina
+			redirect('/admin/restaurants');
 	}
 
 }
