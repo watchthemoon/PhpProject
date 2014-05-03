@@ -1,27 +1,34 @@
-<h1>Tafels</h1>
-<div id="rightside">
-
-	<section>
-
-		<div id="grid">
-			<?php
-			for($y = 1; $y <= 10; $y++){
-				for($x = 1; $x <= 10; $x++){
-					if(is_object($tables[$x . '-' . $y])){
-						$table = $tables[$x . '-' . $y];
-						?><div id="block<?php echo $x . '-' . $y;?>" class="grid-block-filled" data-tableid="<?php echo $table->tableid;?>"></div><?php
-					}else{
-						?><div id="block<?php echo $x . '-' . $y;?>" class="grid-block"></div><?php
-					}
+<section class="tables">
+	<h1>Tafels</h1>
+	<div id="grid">
+		<?php
+		for($y = 1; $y <= 10; $y++){
+			for($x = 1; $x <= 10; $x++){
+				if(is_object($tables[$x . '-' . $y])){
+					$table = $tables[$x . '-' . $y];
+					?><div id="block<?php echo $x . '-' . $y;?>" class="grid-block-filled" data-tableid="<?php echo $table->tableid;?>"></div><?php
+				}else{
+					?><div id="block<?php echo $x . '-' . $y;?>" class="grid-block"></div><?php
 				}
-				?><div class="clear"></div><?php
 			}
-			?>
-		</div>
+			?><div class="clear"></div><?php
+		}
+		?>
+	</div>
 
-	</section>
+</section>
 
-</div>
+<aside class="tables">
+	<div>
+		<div class="legend block"></div>
+		<div class="text"><p>= lege ruimte</p></div>
+	</div>
+
+	<div>
+		<div class="legend"><img src="/assets/images/table.png" alt="Tafel" /></div>
+		<div class="text"><p>= bezette ruimte</p></div>
+	</div>
+</aside>
 
 <script type="text/javascript">
 	$(".grid-block").on('click',function(){
@@ -35,7 +42,8 @@
 	$(".grid-block-filled").on('click',function(){
 		var data = {
 			'restaurantid': '<?php echo $restaurantid;?>',
-			'tableid': $(this).data('tableid')
+			'tableid': $(this).data('tableid'),
+			'coordinates': this.id.replace('block','')
 		};
 		openWindow('/admin/tables/form',data);
 	});

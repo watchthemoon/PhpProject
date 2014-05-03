@@ -248,3 +248,36 @@ textarea{
 	padding: 5px;
 	height:200px;
 }
+
+section.tables{
+	float: left;
+}
+
+aside.tables{
+	float: left;
+	margin-left: 50px;
+	margin-top: 22px;
+}
+
+.legend{
+	width: 50px;
+	margin: 5px;
+}
+
+.legend.block{
+	height: 50px;
+	background: #DDD;
+	float: left;
+	border-right: 1px solid #eeeeee;
+	border-bottom: 1px solid #eeeeee;
+}
+
+.legend img{
+	float: left;
+}
+
+.text{
+	width: 200px;
+	height: 50px;
+	line-height: 50px;
+}

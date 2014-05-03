@@ -1,7 +1,7 @@
 <?php
 class m_Tables extends CI_Model{
 
-	public function save($data){
+	public function save($data,$tableid = 0){
 
 		## Array maken met gebruikers data
 		$set = array(
@@ -12,19 +12,11 @@ class m_Tables extends CI_Model{
 		);
 
 		## Sla de array op als user
-		$this->db->insert('tables',$set);
-	}
-
-	public function edit($data){
-
-		## Array maken met gebruikers data
-		$set = array(
-			'name' => $data['name'],
-			'amountseats' => $data['amount'],
-		);
-
-		## Sla de array op als user
-		$this->db->update('tables',$set);
+		if($tableid != 0){
+			$this->db->update('tables',$set,'tableid =' . $tableid);
+		}else{
+			$this->db->insert('tables',$set);
+		}
 	}
 
 	public function load($restaurantid,$tableid = 0){
@@ -54,6 +46,11 @@ class m_Tables extends CI_Model{
 			return '';
 		}
 
+	}
+
+	public function delete($tableid){
+		$this->db->where('tableid',$tableid);
+		$this->db->delete('tables');
 	}
 
 }

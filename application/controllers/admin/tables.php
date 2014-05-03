@@ -35,6 +35,15 @@ class Tables extends Config {
 		$this->load->view('/admin/tables_form',array_merge($this->data,$data));
 	}
 
+	public function delete($tableid,$restaurantid){
+		$this->m_tables->delete($tableid);
+
+		$this->session->set_userdata('melding', 'Tafel succesvol verwijderd');
+
+		## Stuur door naar tafel pagina
+		redirect('/admin/tables/view/'.$restaurantid);
+	}
+
 	public function save()
 	{
 
@@ -59,10 +68,14 @@ class Tables extends Config {
 		} else {
 
 			## Sla de gegevens op in de model
-			$this->m_tables->save($post);
+			$this->m_tables->save($post,$post['tableid']);
 
 			## Vul melding dat het gelukt is
-			$this->session->set_userdata('melding', 'Tafel succesvol toegevoegd');
+			if($post['tableid'] != 0){
+				$this->session->set_userdata('melding', 'Tafel succesvol gewijzigd');
+			}else{
+				$this->session->set_userdata('melding', 'Tafel succesvol toegevoegd');
+			}
 
 			## Stuur door naar tafel pagina
 			redirect('/admin/tables/view/'.$post['restaurantid']);
