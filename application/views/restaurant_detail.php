@@ -12,7 +12,7 @@
 			</div>
 	</section>
 <div id="addRestaurant">
-		<form action="/reserve" method="post">
+		<form action="/reserve/view/<?php echo $query->restaurantid;?>" method="post">
 			<input type="submit" value="Reserveer"/>
 		</form>
 </div>

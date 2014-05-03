@@ -2,11 +2,18 @@
 include "config.php";
 class Reserve extends Config {
 
-	public function index()	{
+	public function __construct(){
+		parent::__construct();
+
+		$this->load->model('m_tables');
+	}
+
+	public function view($restaurantid)	{
 		$data = array(
 			'view' => 'reserve',
 			'errors' => $this->session->userdata('error'),
-			'post' => $this->session->userdata('post')
+			'post' => $this->session->userdata('post'),
+			'tables' => $this->m_tables->load($restaurantid)
 		);
 
 		$this->load->view('index',array_merge($this->data,$data));
