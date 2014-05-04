@@ -54,5 +54,40 @@ class m_Menu extends CI_Model{
 		
 		}
 
+			public function getGerecht($menuid){
+			$this->db->from('menu');
+			$this->db->where('menuid',$menuid);
+			$wijzigquery = $this->db->get();
+			return $wijzigquery;
+		
+		}
+
+
+		public function delete($data){
 	
+			$this->db->where('menuid', $data['menuid']);
+			$this->db->delete('menu'); 
+		}
+
+
+
+		public function edit($data)
+		{
+			$set = array(
+			'name' => $data['name'],
+			'price' => $data['price'],
+			'gerechttypeid' => $data['gerechttypeid'],
+			'restaurantid' => $data['restaurantid'],
+
+			);
+
+			$this->db->where('menuid', $data['menuid']);
+			$this->db->update('menu', $set); 
+
+
+
+
+
+	
+}
 }
