@@ -13,7 +13,7 @@
 					<div id="block<?php echo $x . '-' . $y; ?>" class="grid-block-filled" data-tableid="<?php echo $table->tableid; ?>"></div><?php
 				} else {
 					?>
-					<div id="block<?php echo $x . '-' . $y; ?>" class="grid-block"></div><?php
+					<div id="block<?php echo $x . '-' . $y; ?>" class="grid-block" ></div><?php
 				}
 			}
 			?>
@@ -22,17 +22,18 @@
 		?>
 	</section>
 	</br>
-
-	<form action="" method="post">
-		<input id="buttonreserveer" type="submit" value="Reserveer"/>
-	</form>
 </section>
 
 <script type="text/javascript">
-	$("#buttonreserveer").on('click', function () {
-		var data = {
 
-		};
-		openWindow('/reserve/form', data);
+	$(".grid-block-filled").on('click',function(){
+	location.href = "/reserve/reservetable";
 	});
+
+	$(".grid-block").click(function(e){
+		e.unbind();
+    alert("");
+		})
+
+
 </script>

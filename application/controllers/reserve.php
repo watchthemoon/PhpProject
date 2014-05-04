@@ -34,4 +34,15 @@ class Reserve extends Config {
 		$this->m_reserve->check($data['restaurantid']);
 	}
 
+	public function reservetable($tableid){
+		$data = array(
+			'view' => 'reservetable',
+			'errors' => $this->session->userdata('error'),
+			'post' => $this->session->userdata('post'),
+			'tables' => $this->m_tables->load($tableid)
+		);
+
+		$this->load->view('index',array_merge($this->data,$data));
+	}
+
 }
