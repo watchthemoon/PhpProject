@@ -1,21 +1,34 @@
 <h1>Reservatie voltooien</h1>
 <div id="rightside">
 
-	<section id="login">
-		<h2>Snel reserveren via je log in!</h2>
+	<?php if(isset($_SESSION['registrerendiv'])): ?>
+		<div>
+			<p></p>	
+		</div>
+		
+	<?php else: ?>
+		<div id="inloggen">
+		<section id="login">
+			<h2>Snel reserveren via je log in!</h2>
 
-		<form action="/login/save/" method="post" autocomplete="off">
-			<input type="text" name="email" placeholder="Email" value="<?php echo $post['email']; ?>" /><?php if ($errors['email'] != ''){ echo $errors['email']; } ?>
-			<input type="password" name="password" placeholder="Paswoord"/><?php if ($errors['password'] != ''){ echo $errors['password']; } ?>
+			<form action="login/savereserve/" method="post" autocomplete="off">
+				<input type="text" name="email" placeholder="Email" value="<?php echo $post['email']; ?>" /><?php if ($errors['email'] != ''){ echo $errors['email']; } ?>
+				<input type="password" name="password" placeholder="Paswoord"/><?php if ($errors['password'] != ''){ echo $errors['password']; } ?>
 
-			<input type="submit" name="btnLogin" value="Inloggen"/>
-		</form>
+				<input type="submit" name="btnLogin" value="Inloggen"/>
+			</form>
+			<form action="login/showregister/" method="post">
+			<input type="submit" id="btnnoggeenacc" name="btnnoggeenacc" value="Ik heb nog geen account"/>
+			</form>
+		</div>
+	<?php endif; ?>
 
+	<?php if(isset($_SESSION['registrerendiv'])): ?>
+		<div id="registreren">
 		<section id="signup">
+		<h2>Reserveer via een accountregistratie.</h2>
 
-		<h2>Nog geen log in, creëer dan hier uw acount.</h2>
-
-		<form action="/register/save/" method="post" autocomplete="off">
+		<form action="/register/savereserve/" method="post" autocomplete="off">
 
 			<input type="text" name="firstname" placeholder="Voornaam" value="<?php echo $post['firstname']; ?>" /><?php if ($errors['firstname'] != ''){ echo $errors['firstname']; } ?>
 			<input type="text" name="name" placeholder="Achternaam" value="<?php echo $post['name']; ?>" /><?php if ($errors['name'] != ''){ echo $errors['name']; } ?>
@@ -42,15 +55,28 @@
 
 			<input type="password" name="password" placeholder="Paswoord"/><?php if ($errors['password'] != ''){ echo $errors['password']; } ?>
 
-			<input type="checkbox" name="isAdmin" value="yes" id="isAdmin">
-			<label for="isAdmin">Ik ben een restauranthouder</label>
-
 			<input type="submit" value="Registreren"/>
 
 		</form>
+	</div>
+		
+	<?php else: ?>
+		<div>
+				<p></p>	
+		</div>
+		
+	<?php endif; ?>
 
-	</section>
+	<?php if(isset($_SESSION['registratievoltooiddiv'])): ?>
 
-	</section>
+	<div id="registratievoltooid">
+		<p>tonen wanneer de registratie voltooid is met een link terug naar het restaurant of de homepage. </p>
+		<p>Invullen welk uur de tafel bezet moet zijn, welke reservatie, adres informatie, ... </p>
+	</div>
+	<?php else: ?>
+		<div>
+			<p></p>	
+		</div>
+	<?php endif; ?>
 
 </div>

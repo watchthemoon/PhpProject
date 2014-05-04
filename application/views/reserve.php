@@ -30,10 +30,6 @@
 	location.href = "/reserve/reservetable";
 	});
 
-	$(".grid-block").click(function(e){
-		e.unbind();
-    alert("");
-		})
-
+	$('.grid-block').click(function(event){event.preventDefault()});
 
 </script>
