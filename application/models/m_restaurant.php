@@ -36,6 +36,24 @@
 			$this->db->where('restaurantid', $data['restaurantid']);
 			$this->db->delete('restaurants'); 
 		}
+
+		public function edit($data)
+		{
+			$set = array(
+			'name' => $data['name'],
+			'address' => $data['address'],
+			'city' => $data['city'],
+			'country' => $data['country'],
+			'phone' => $data['phone'],
+			'image' => $data['image'],
+			'description' => $data['description']
+			);
+
+			$this->db->where('restaurantid', $data['restaurantid']);
+			$this->db->update('restaurants', $set); 
+
+
+		}
 }
 
 ?>
