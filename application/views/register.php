@@ -7,10 +7,10 @@
 
 		<form action="/register/save/" method="post" autocomplete="off">
 
-			<input type="text" name="firstname" placeholder="Voornaam" value="<?php echo $post['firstname']; ?>" /><?php if ($errors['firstname'] != ''){ echo $errors['firstname']; } ?>
-			<input type="text" name="name" placeholder="Achternaam" value="<?php echo $post['name']; ?>" /><?php if ($errors['name'] != ''){ echo $errors['name']; } ?>
-			<input type="email" name="email" placeholder="Email"/ value="<?php echo $post['email']; ?>" ><?php if ($errors['email'] != ''){ echo $errors['email']; } ?>
-			<input type="text" name="phonenumber" placeholder="Telefoonnummer" value="<?php echo $post['phonenumber']; ?>" /><?php if ($errors['phonenumber'] != ''){ echo $errors['phonenumber']; } ?>
+			<input required type="text" name="firstname" placeholder="Voornaam" value="<?php echo $post['firstname']; ?>" /><?php if ($errors['firstname'] != ''){ echo $errors['firstname']; } ?>
+			<input required type="text" name="name" placeholder="Achternaam" value="<?php echo $post['name']; ?>" /><?php if ($errors['name'] != ''){ echo $errors['name']; } ?>
+			<input required type="email" name="email" placeholder="Email"/ value="<?php echo $post['email']; ?>" ><?php if ($errors['email'] != ''){ echo $errors['email']; } ?>
+			<input required type="text" name="phonenumber" placeholder="Telefoonnummer" value="<?php echo $post['phonenumber']; ?>" /><?php if ($errors['phonenumber'] != ''){ echo $errors['phonenumber']; } ?>
 
 			<label>Geboortedatum</label><br/>
 			<select name="day">
@@ -30,7 +30,7 @@
 			</select>
 			<?php if ($errors['day'] != ''){ echo $errors['day']; } ?>
 
-			<input type="password" name="password" placeholder="Paswoord"/><?php if ($errors['password'] != ''){ echo $errors['password']; } ?>
+			<input required type="password" name="password" placeholder="Paswoord"/><?php if ($errors['password'] != ''){ echo $errors['password']; } ?>
 
 			<input type="checkbox" name="isAdmin" value="yes" id="isAdmin">
 			<label for="isAdmin">Ik ben een restauranthouder</label>

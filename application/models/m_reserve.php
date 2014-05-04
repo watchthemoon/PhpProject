@@ -1,10 +1,8 @@
 <?php
 class m_Reserve extends CI_Model{
-	
-	public function check($restaurantid, $tableid){
+	public function check($restaurantid){
 		$this->db->from('reserve');
-		$this->db->where('restaurantid',$restaurantid);
-		$this->db->where('tableid',$tableid);
+		$this->db->where('restaurantid',2);
 
 		$rec = $this->db->get();
 
@@ -13,7 +11,7 @@ class m_Reserve extends CI_Model{
 		}else{
 			return '';
 		}
-		print_r($rec->result());
+
 	}
 
 	public function load($restaurantid,$tableid = 0){

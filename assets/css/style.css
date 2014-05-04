@@ -281,3 +281,22 @@ aside.tables{
 	height: 50px;
 	line-height: 50px;
 }
+
+.close{
+	float: right;
+	margin-right: 10px;
+}
+
+h2.title{
+	float: left;
+}
+
+input[type=button]{
+	width: 150px;
+}
+
+select{
+	border: 1px solid #dddddd;
+	border-radius: 3px;
+	margin-bottom: 10px;
+}

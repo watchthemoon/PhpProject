@@ -10,7 +10,7 @@ class Reserve extends Config {
 
 	public function view($restaurantid)	{
 		$data = array(
-			'view' => 'reserve',
+			'view' => '/reserve/',
 			'errors' => $this->session->userdata('error'),
 			'post' => $this->session->userdata('post'),
 			'tables' => $this->m_tables->load($restaurantid)
@@ -31,7 +31,7 @@ class Reserve extends Config {
 		$data = $this->input->post();
 		$this->load->model('m_reserve');
 
-		$this->m_reserve->check($data['restaurantid'],$data['tableid']);
+		$this->m_reserve->check($data['restaurantid']);
 	}
 
 }
