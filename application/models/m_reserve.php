@@ -1,8 +1,11 @@
 <?php
 class m_Reserve extends CI_Model{
+
 	public function check($restaurantid){
-		$this->db->from('reserve');
-		$this->db->where('restaurantid',2);
+		$this->db->select('t.coordinates');
+		$this->db->from('reserve r');
+		$this->db->join('tables t', 't.tableid = r.tableid');
+		$this->db->where('r.restaurantid',$restaurantid);
 
 		$rec = $this->db->get();
 

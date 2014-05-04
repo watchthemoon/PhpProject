@@ -12,6 +12,7 @@ class Menu extends Config {
 	public function view($restaurantid)
 		{
 		$query = $this->m_menu->getMenu($restaurantid);	
+		$wijzigquery = $this->m_menu->getGerecht($restaurantid);
 		$data = array(
 			'restaurantid' => $restaurantid,
 			'view' => '/admin/menu',
@@ -69,6 +70,64 @@ class Menu extends Config {
 
 		}
 
+	}
+
+
+	public function editsave()
+	{
+
+		$error = array();
+		$post = $this->input->post();
+
+		##VALIDEREN VAN DE VELDEN
+
+		if (empty($post['name'])) {
+			$error['name'] = 'Vul een gerechtnaam in.';
+		}
+		if (empty($post['price'])) {
+			$error['price'] = 'Vul de prijs in.';
+		}
+
+		if (count($error) > 0) {
+
+			## Errors gevonden
+			$this->session->set_userdata('error', $error);
+			redirect('/admin/menu/wijzigform');
+
+		} else {
+
+
+			## Sla de gegevens op in de model
+			$this->m_menu->save($post);
+
+			## Vul melding dat het gelukt is
+			$this->session->set_userdata('melding', 'Menu toegevoegd');
+
+			## Stuur door naar tafel pagina
+			redirect('/admin/menu/view/'.$post['restaurantid']);
+
+		}
+
+	}
+
+
+
+
+	public function delete()
+	{
+		## Hier bouw je de functie om menus met alle koppelingen te verwijderen ( ook geen view van toepassing, na verwijderen doorsturen naar de index van restaurants )
+		$post = $this->input->post();
+		## Laad de model
+			$this->load->model('m_menu');
+
+			## Sla de gegevens op in de model
+			$this->m_menu->delete($post);
+
+			## Vul melding dat het gelukt is
+			$this->session->set_userdata('melding', 'Gerecht succesvol verwijderd');
+
+			## Stuur door naar overzicht pagina
+				redirect('/admin/menu/view/'.$post['restaurantid']);
 	}
 	
 
