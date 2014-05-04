@@ -19,9 +19,11 @@ function closeWindow(){
 	});
 }
 
-function liveCheck(restaurantid, tableid){
-	$.post( "/reserve/check", { restaurantid: restaurantid, tableid: tableid})
-		.done(function( data ) {
-			alert( "Data Loaded: " + data );
+function liveCheck(restaurantid){
+	$.post( "/reserve/check", { restaurantid: restaurantid }).done(function( data ) {
+		$('#tables .reserved').remove();
+		$.each( data, function( key, val ) {
+			$('#block' + val.coordinates).append('<div class="reserved"></div>');
 		});
+	});
 }

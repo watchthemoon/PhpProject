@@ -9,11 +9,15 @@ class Reserve extends Config {
 	}
 
 	public function view($restaurantid)	{
+
+		$tables = $this->m_tables->load($restaurantid);
+
 		$data = array(
-			'view' => '/reserve/',
+			'view' => 'reserve',
 			'errors' => $this->session->userdata('error'),
 			'post' => $this->session->userdata('post'),
-			'tables' => $this->m_tables->load($restaurantid)
+			'tables' => $tables,
+			'restaurantid' => $restaurantid
 		);
 
 		$this->load->view('index',array_merge($this->data,$data));
@@ -31,7 +35,10 @@ class Reserve extends Config {
 		$data = $this->input->post();
 		$this->load->model('m_reserve');
 
-		$this->m_reserve->check($data['restaurantid']);
+		$check = $this->m_reserve->check($data['restaurantid']);
+
+		header('Content-type: application/json');
+		echo json_encode($check);
 	}
 
 	public function reservetable($tableid){

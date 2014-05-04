@@ -201,6 +201,14 @@ textarea{
 	border-right: 1px solid #eeeeee;
 	border-bottom: 1px solid #eeeeee;
 }
+.grid-block-none{
+	width: 50px;
+	height: 50px;
+	background: #eeeeee;
+	float: left;
+	border-right: 1px solid #ffffff;
+	border-bottom: 1px solid #ffffff;
+}
 
 .grid-block-filled{
 	width: 50px;
@@ -209,6 +217,7 @@ textarea{
 	float: left;
 	border-right: 1px solid #eeeeee;
 	border-bottom: 1px solid #eeeeee;
+	position: relative;
 }
 
 .grid-block:hover{
@@ -262,6 +271,7 @@ aside.tables{
 .legend{
 	width: 50px;
 	margin: 5px;
+	position: relative;
 }
 
 .legend.block{
@@ -320,4 +330,14 @@ select{
 	border: 1px solid #dddddd;
 	border-radius: 3px;
 	margin-bottom: 10px;
+}
+
+.reserved{
+	background: rgba(255,0,0,0.4);
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: default;
 }
