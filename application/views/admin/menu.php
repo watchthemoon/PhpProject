@@ -34,7 +34,7 @@ $(document).ready(function(){
         var data = {
             'restaurantid': '<?php echo $restaurantid;?>'
         };
-        openWindow('/admin/menu/wijzigform',data);
+        openWindow('/admin/menu/form',data);
     });
 
     $(".wijzig").on('click',function(){
