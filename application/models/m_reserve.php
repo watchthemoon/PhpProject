@@ -1,14 +1,14 @@
 <?php
 class m_Reserve extends CI_Model{
 
-	public function check($restaurantid){
+	public function check($restaurantid,$date){
 		$this->db->select('t.coordinates');
 		$this->db->from('reserve r');
 		$this->db->join('tables t', 't.tableid = r.tableid');
 		$this->db->where('r.restaurantid',$restaurantid);
+		$this->db->where('r.date',date("Y-m-d",strtotime($date)));
 
 		$rec = $this->db->get();
-
 		if ($rec->num_rows() > 0){
 			return $rec->result();
 		}else{

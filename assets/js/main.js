@@ -19,12 +19,14 @@ function closeWindow(){
 	});
 }
 
-function liveCheck(restaurantid){
-	$.post( "/reserve/check", { restaurantid: restaurantid }).done(function( data ) {
+function liveCheck(restaurantid,date){
+	$.post( "/reserve/check", { restaurantid: restaurantid,date: date }).done(function( data ) {
 		$('#tables .reserved').remove();
+		$('#tables .free').show();
 		$.each( data, function( key, val ) {
 			$('#block' + val.coordinates).append('<div class="reserved"></div>');
-			$('#block' + val.coordinates).attr("title", "Deze tafel is al gereserveerd.");
+			$('#block' + val.coordinates + ' .free').hide();
+			$('#block' + val.coordinates + ' .reserved').attr("title", "Deze tafel is al gereserveerd.");
 		});
 	});
 }

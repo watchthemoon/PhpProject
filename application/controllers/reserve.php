@@ -25,6 +25,10 @@ class Reserve extends Config {
 
 	public function form(){
 
+		$data = array(
+			'view' => 'reserve',
+		);
+
 		$this->load->view('/reserve_form',array_merge($this->data,$data));
 	}
 
@@ -32,7 +36,7 @@ class Reserve extends Config {
 		$data = $this->input->post();
 		$this->load->model('m_reserve');
 
-		$check = $this->m_reserve->check($data['restaurantid']);
+		$check = $this->m_reserve->check($data['restaurantid'],$data['date']);
 
 		header('Content-type: application/json');
 		echo json_encode($check);
