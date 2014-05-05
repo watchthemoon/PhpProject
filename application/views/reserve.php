@@ -44,13 +44,18 @@
 
 <script type="text/javascript">
 
-	 $(".grid-block-filled").on('click',function(){
+	$(".grid-block-filled").on('click',function(){
+
+		openWindow('/reserve/form',data);
+	});
+	
+	 /*$(".grid-block-filled").on('click',function(){
   		var currentId = $(this).attr('data-tableid');
 
     if ($(this).find('.reserved').length == 0){
 	    location.href = "/reserve/reservetable/"+ <?php echo $restaurantid?> + "/" + currentId;
 	    }
-    });
+    });*/
 
 	$('.grid-block').click(function(event){event.preventDefault()});
 

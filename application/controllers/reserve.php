@@ -24,9 +24,6 @@ class Reserve extends Config {
 	}
 
 	public function form(){
-		$data = array(
-			'data' => $this->input->post()
-		);
 
 		$this->load->view('/reserve_form',array_merge($this->data,$data));
 	}
