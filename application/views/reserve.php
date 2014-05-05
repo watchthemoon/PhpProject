@@ -10,7 +10,7 @@
 				if (is_object($tables[$x . '-' . $y])) {
 					$table = $tables[$x . '-' . $y];
 					?>
-					<div id="block<?php echo $x . '-' . $y; ?>" class="grid-block-filled" data-tableid="<?php echo $table->tableid; ?>"></div><?php
+					<div id="block<?php echo $x . '-' . $y; ?>" class="grid-block-filled" data-tableid="<?php echo $table->tableid; ?>"><div class="free"></div></div><?php
 				} else {
 					?>
 					<div id="block<?php echo $x . '-' . $y; ?>" class="grid-block-none" ></div><?php
@@ -26,7 +26,10 @@
 
 <aside class="tables">
 	<div>
-		<div class="legend"><img src="/assets/images/table.png" alt="Vrije tafel" /></div>
+		<div class="legend">
+			<img src="/assets/images/table.png" alt="Vrije tafel" />
+			<div class="free"></div>
+		</div>
 		<div class="text"><p>= vrije ruimte</p></div>
 	</div>
 
