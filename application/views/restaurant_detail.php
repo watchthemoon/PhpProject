@@ -1,6 +1,6 @@
-	
-	<section id="restaurants-view">	
-			
+
+	<section id="restaurants-view">
+		
 			<div class="details">
 				<img src="<?php echo site_url('upload/restaurants/'.$query->image.''); ?>" alt="<?php echo $query->image; ?>">
 				<h1><?php echo $query->name; ?></h1>
