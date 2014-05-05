@@ -16,10 +16,10 @@ class m_Menu extends CI_Model{
 	}
 
 
-		public function getMenu($restaurantid){
+		public function getMenu($data){
 			$this->db->from('menu');
-			$this->db->where('restaurantid',$restaurantid);
-			$this->db->where('gerechttypeid',1);
+			$this->db->where('restaurantid',$data['restaurantid']);
+			$this->db->where('gerechttypeid',$data['gerechttypeid']);
 			$query = $this->db->get();
 			return $query;
 		
