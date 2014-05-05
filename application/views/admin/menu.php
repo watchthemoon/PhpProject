@@ -1,3 +1,14 @@
+<script type="text/javascript">
+$(document).ready(function(){
+
+ var data = {
+            'restaurantid': '<?php echo $restaurantid;?>',
+            'gerechttypeid' : "1"
+        };
+       $(".menucontent").load('/admin/menu/loadmenu/>',data);
+});
+</script>
+
 <h1>Menu's</h1>
 <div id="rightside">
 
@@ -20,7 +31,9 @@
 <div class="menucontent">
 
 
-<?php foreach ($query->result() as $row) { ?>
+<<<<<<< HEAD
+=======
+<?php foreach ($query as $row) { ?>
 				<h2><?php echo $row->name; ?></h2>
 				<p><?php echo $row->price; ?></p>
                
@@ -38,6 +51,7 @@
 
 		<?php } ?>
 
+>>>>>>> 0486322e0fda785398d6478fa7855f3fcd389d86
 </div>
 
 <script type="text/javascript">
@@ -50,39 +64,31 @@
         openWindow('/admin/menu/form',data);
     });
 
-    $(".wijzig").on('click',function(){
-        var data = {
-            'restaurantid': '<?php echo $restaurantid;?>',
-            'menuid' : '<?php echo $menuid;?>'
-        };
-        openWindow("/admin/menu/wijzigform/<?php echo $row->menuid;?>",data);
-});
-
      $(".voorgerechten").on('click',function(){
+        
        var data = {
-            'restaurantid': '<?php echo $restaurantid;?>'
+            'restaurantid': '<?php echo $restaurantid;?>',
+            'gerechttypeid' : "1"
         };
-       $(".menucontent").load('/admin/menu/form',data);
+       $(".menucontent").load('/admin/menu/loadmenu/>',data);
     });
 
 
      $(".hoofdgerechten").on('click',function(){
-       var data = {
+var data = {
             'restaurantid': '<?php echo $restaurantid;?>',
-             'menuid' : '<?php echo $menuid;?>'
-     
+            'gerechttypeid' : "2"
         };
-       $(".menucontent").load('/admin/menu/wijzigform/<?php echo $row->menuid;?>',data);
+       $(".menucontent").load('/admin/menu/loadmenu/>',data);
     });
-
 
      $(".nagerechten").on('click',function(){
-       var data = {
-            'restaurantid': '<?php echo $restaurantid;?>'
+     var data = {
+            'restaurantid': '<?php echo $restaurantid;?>',
+            'gerechttypeid' : "3"
         };
-       $(".menucontent").load('/admin/menu/form',data);
+       $(".menucontent").load('/admin/menu/loadmenu/>',data);
     });
-
 </script>
 
 

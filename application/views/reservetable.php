@@ -1,12 +1,14 @@
 <h1>Reservatie voltooien</h1>
 <div id="rightside">
-
-	<?php if($registrerendiv==1){?>
-		<div>
-			<p></p>	
+		<div id="registratievoltooid">
+			<div class="details">
+				<h2>Informatie</h2>
+				<p>Tafelnaam: <?php echo $query->name; ?></p>
+				<p>Aantal plaatsen: <?php echo $query->amountseats; ?></p>
+			</div>
+	</section>
 		</div>
-		
-	<?php } else{ ?>
+
 		<div id="inloggen">
 		<section id="login">
 			<h2>Snel reserveren via je log in!</h2>
@@ -17,17 +19,12 @@
 
 				<input type="submit" name="btnLogin" value="Inloggen"/>
 			</form>
-
-			<form action="login/showregister/" method="post">
-			<input type="submit" id="btnnoggeenacc" name="btnnoggeenacc" value="Ik heb nog geen account"/>
-			</form>
 		</div>
-	<?php }; ?>
 
-	<?php if($registrerendiv==1){?>
+	
 		<div id="registreren">
 		<section id="signup">
-		<h2>Reserveer via een accountregistratie.</h2>
+		<h2>Reserveer via een accountregistratie als je nog geen account hebt.</h2>
 
 		<form action="/register/savereserve/" method="post" autocomplete="off">
 
@@ -61,23 +58,9 @@
 		</form>
 	</div>
 		
-	<?php }else{ ?>
-		<div>
-				<p></p>	
-		</div>
-		
-	<?php }; ?>
 
-	<?php if($registratievoltooiddiv==1){ ?>
 
-	<div id="registratievoltooid">
-		<p>tonen wanneer de registratie voltooid is met een link terug naar het restaurant of de homepage. </p>
-		<p>Invullen welk uur de tafel bezet moet zijn, welke reservatie, adres informatie, ... </p>
-	</div>
-	<?php }else{ ?>
-		<div>
-			<p></p>	
-		</div>
-	<?php }; ?>
+
+
 
 </div>

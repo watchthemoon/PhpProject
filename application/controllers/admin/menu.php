@@ -10,14 +10,12 @@ class Menu extends Config {
 	}
 
 	public function view($restaurantid)
-		{
-		$query = $this->m_menu->getMenu($restaurantid);	
+		{	
 		$data = array(
 			'restaurantid' => $restaurantid,
 			'view' => '/admin/menu',
 			'errors' => $this->session->userdata('error'),
-			'post' => $this->session->userdata('post'),
-			'query' => $query
+			'post' => $this->session->userdata('post')
 		);
 
 		$this->load->view('index',array_merge($this->data,$data));
@@ -40,15 +38,27 @@ class Menu extends Config {
 		);
 		$this->load->view('/admin/menu_wijzig_form',array_merge($this->data,$data));
 	}
+		
+/*
 		public function loadmenu($gerechttypeid,$restaurantid){
-		$query = $this->m_menu->getMenu($restaurantid, $menuid);
+		$query = $this->m_menu->getMenu($gerechttypeid, $restaurantid);
 		$data = array(
 			'data' => $this->input->post(),
 			'query' =>  $query
-		);.
+		);
 		$this->load->view('/admin/Gerecht',array_merge($this->data,$data));
 	}
 	
+*/
+
+			public function loadmenu(){
+		$query = $this->m_menu->getMenu($this->input->post());
+		$data = array(
+			'data' => $this->input->post(),
+			'query' =>  $query
+		);
+		$this->load->view('/admin/Gerecht',array_merge($this->data,$data));
+	}
 
 
 	public function save()
