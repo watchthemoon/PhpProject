@@ -20,7 +20,7 @@
 <div class="menucontent">
 
 
-<?php foreach ($query->result() as $row) { ?>
+<?php foreach ($query as $row) { ?>
 				<h2><?php echo $row->name; ?></h2>
 				<p><?php echo $row->price; ?></p>
                

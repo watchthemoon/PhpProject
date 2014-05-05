@@ -1,4 +1,4 @@
-	
+
 	<section id="restaurants-view">	
 			
 			<div class="details">
@@ -18,10 +18,17 @@
 				<p><?php echo $query->description; ?></p>
 				<h2>Menu</h2>
 				<h3>Voorgerechten</h3>
-				<p><?php echo $voorgerecht->name; ?></p>
+				<?php foreach ($voorgerecht as $vg) { ?>
+				<p><?php echo $vg->name; ?> -  <?php echo $vg->price; ?></p>
+				<?php } ?>
 				<h3>Hoofdgerechten</h3>
+				<?php foreach ($hoofdgerecht as $hg) { ?>
+				<p><?php echo $hg->name; ?> -  <?php echo $hg->price; ?></p>
+				<?php } ?>
 				<h3>Nagerechten</h3>
-
+				<?php foreach ($nagerecht as $ng) { ?>
+				<p><?php echo $ng->name; ?> -  <?php echo $ng->price; ?></p>
+				<?php } ?>
 				</div>
 			</div>
 	</section>
