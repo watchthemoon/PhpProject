@@ -24,6 +24,7 @@ function liveCheck(restaurantid){
 		$('#tables .reserved').remove();
 		$.each( data, function( key, val ) {
 			$('#block' + val.coordinates).append('<div class="reserved"></div>');
+			$('#block' + val.coordinates).attr("title", "Deze tafel is al gereserveerd.");
 		});
 	});
 }

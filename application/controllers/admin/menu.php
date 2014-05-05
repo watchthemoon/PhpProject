@@ -45,7 +45,7 @@ class Menu extends Config {
 		$data = array(
 			'data' => $this->input->post(),
 			'query' =>  $query
-		);.
+		);
 		$this->load->view('/admin/Gerecht',array_merge($this->data,$data));
 	}
 	
