@@ -18,6 +18,8 @@
 				<div>
 					<a href="/admin/menu/view/<?php echo $row->restaurantid;?>" class="btn">Menu's beheren</a>
 					<a href="/admin/tables/view/<?php echo $row->restaurantid;?>" class="btn">Tafels beheren</a>
+					<a href="/admin/reservations/view/<?php echo $row->restaurantid;?>" class="btn">Reservaties bekijken</a>
+				
 				</div>
 
 			</div>
