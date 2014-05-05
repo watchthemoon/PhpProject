@@ -43,6 +43,7 @@
 
 						?>
 						<li><a href="/logout">Uitloggen</a></li>
+						<li><a href="/reservations">Reservaties</a></li>
 						<?php
 
 					}else{
