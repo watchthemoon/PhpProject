@@ -17,5 +17,17 @@
 
 
 		<?php } ?>
+<script type="text/javascript">
+
+    $(".wijzig").on('click',function(){
+        var data = {
+            'restaurantid': '<?php echo $restaurantid;?>',
+            'menuid' : '<?php echo $menuid;?>'
+        };
+        openWindow("/admin/menu/wijzigform/<?php echo $row->menuid;?>",data);
+});
+
+</script>
+
 
         </section>

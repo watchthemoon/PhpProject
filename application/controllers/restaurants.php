@@ -39,7 +39,9 @@ class Restaurants extends Config
 			'errors' => $this->session->userdata('error'),
 			'post' => $this->session->userdata('post'),
 			'query' => $this->m_restaurant->getRestaurantById($this->uri->segment(3)),
-			'voorgerecht' => $this->m_menu->getVoorgerecht($this->uri->segment(3))
+			'voorgerecht' => $this->m_menu->getVoorgerecht($this->uri->segment(3)),
+			'hoofdgerecht' => $this->m_menu->getHoofdgerecht($this->uri->segment(3)),
+			'nagerecht' => $this->m_menu->getNagerecht($this->uri->segment(3))
 		);
 
 		$this->load->view('index', array_merge($this->data, $data));
