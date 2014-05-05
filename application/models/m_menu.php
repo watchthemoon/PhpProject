@@ -30,7 +30,7 @@ class m_Menu extends CI_Model{
 			$this->db->where('restaurantid',$restaurantid);
 			$this->db->where('gerechttypeid',1);
 			$query = $this->db->get();
-			return $query;
+			return $query->result();
 		
 		}
 
