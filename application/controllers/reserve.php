@@ -42,10 +42,7 @@ class Reserve extends Config {
 	}
 
 	public function reservetable($tableid){
-
 		$tables = $this->m_tables->load($tableid);
-		$query = $this->db->where('tableid',$tableid);
-
 
 		$data = array(
 			'view' => 'reservetable',
@@ -56,8 +53,6 @@ class Reserve extends Config {
 		);
 
 		$this->load->view('index',array_merge($this->data,$data));
-
-		return $query;
 	}
 
 }

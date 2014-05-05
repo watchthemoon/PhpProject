@@ -7,13 +7,6 @@
 	<link href="/assets/css/style.css" type="text/css" rel="stylesheet">
 	<script type="text/javascript" src="/assets/js/main.js"></script>
 	<script type="text/javascript" src="/assets/js/jquery.min.js"></script>
-	<link href="/assets/css/jquery-ui.css" type="text/css" rel="stylesheet">
-	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-	<script>
-		$(function() {
-			$( document ).tooltip();
-		});
-	</script>
 
 </head>
 <body>
@@ -43,7 +36,6 @@
 
 						?>
 						<li><a href="/logout">Uitloggen</a></li>
-						<li><a href="/reservations">Reservaties</a></li>
 						<?php
 
 					}else{

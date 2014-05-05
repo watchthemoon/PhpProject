@@ -16,12 +16,8 @@ class m_Menu extends CI_Model{
 	}
 
 
-		public function getMenu($data){
+		public function getMenu($restaurantid){
 			$this->db->from('menu');
-<<<<<<< HEAD
-			$this->db->where('restaurantid',$data['restaurantid']);
-			$this->db->where('gerechttypeid',$data['gerechttypeid']);
-=======
 			$this->db->where('restaurantid',$restaurantid);
 			$this->db->where('gerechttypeid',1);
 			$query = $this->db->get();
@@ -34,7 +30,7 @@ class m_Menu extends CI_Model{
 			$this->db->where('restaurantid',$restaurantid);
 			$this->db->where('gerechttypeid',1);
 			$query = $this->db->get();
-			return $query->result();
+			return $query;
 		
 		}
 
@@ -44,7 +40,7 @@ class m_Menu extends CI_Model{
 			$this->db->where('restaurantid',$restaurantid);
 			$this->db->where('gerechttypeid',2);
 			$query = $this->db->get();
-			return $query->result();
+			return $query;
 		
 		}
 
@@ -53,9 +49,8 @@ class m_Menu extends CI_Model{
 			$this->db->from('menu');
 			$this->db->where('restaurantid',$restaurantid);
 			$this->db->where('gerechttypeid',3);
->>>>>>> 0486322e0fda785398d6478fa7855f3fcd389d86
 			$query = $this->db->get();
-			return $query->result();
+			return $query;
 		
 		}
 

@@ -1,14 +1,3 @@
-<script type="text/javascript">
-$(document).ready(function(){
-
- var data = {
-            'restaurantid': '<?php echo $restaurantid;?>',
-            'gerechttypeid' : "1"
-        };
-       $(".menucontent").load('/admin/menu/loadmenu/>',data);
-});
-</script>
-
 <h1>Menu's</h1>
 <div id="rightside">
 
@@ -31,9 +20,7 @@ $(document).ready(function(){
 <div class="menucontent">
 
 
-<<<<<<< HEAD
-=======
-<?php foreach ($query as $row) { ?>
+<?php foreach ($query->result() as $row) { ?>
 				<h2><?php echo $row->name; ?></h2>
 				<p><?php echo $row->price; ?></p>
                
@@ -51,7 +38,6 @@ $(document).ready(function(){
 
 		<?php } ?>
 
->>>>>>> 0486322e0fda785398d6478fa7855f3fcd389d86
 </div>
 
 <script type="text/javascript">
@@ -64,31 +50,39 @@ $(document).ready(function(){
         openWindow('/admin/menu/form',data);
     });
 
-     $(".voorgerechten").on('click',function(){
-        
-       var data = {
+    $(".wijzig").on('click',function(){
+        var data = {
             'restaurantid': '<?php echo $restaurantid;?>',
-            'gerechttypeid' : "1"
+            'menuid' : '<?php echo $menuid;?>'
         };
-       $(".menucontent").load('/admin/menu/loadmenu/>',data);
+        openWindow("/admin/menu/wijzigform/<?php echo $row->menuid;?>",data);
+});
+
+     $(".voorgerechten").on('click',function(){
+       var data = {
+            'restaurantid': '<?php echo $restaurantid;?>'
+        };
+       $(".menucontent").load('/admin/menu/form',data);
     });
 
 
      $(".hoofdgerechten").on('click',function(){
-var data = {
+       var data = {
             'restaurantid': '<?php echo $restaurantid;?>',
-            'gerechttypeid' : "2"
+             'menuid' : '<?php echo $menuid;?>'
+     
         };
-       $(".menucontent").load('/admin/menu/loadmenu/>',data);
+       $(".menucontent").load('/admin/menu/wijzigform/<?php echo $row->menuid;?>',data);
     });
 
+
      $(".nagerechten").on('click',function(){
-     var data = {
-            'restaurantid': '<?php echo $restaurantid;?>',
-            'gerechttypeid' : "3"
+       var data = {
+            'restaurantid': '<?php echo $restaurantid;?>'
         };
-       $(".menucontent").load('/admin/menu/loadmenu/>',data);
+       $(".menucontent").load('/admin/menu/form',data);
     });
+
 </script>
 
 

@@ -18,16 +18,4 @@
 
 		<?php } ?>
 
-
-<script type="text/javascript">
-
-
-    $(".wijzig").on('click',function(){
-        var data = {
-            'restaurantid': '<?php echo $restaurantid;?>'
-        };
-        openWindow("/admin/menu/wijzigform/<?php echo $row->menuid;?>",data);
-});
-</script>
-
         </section>

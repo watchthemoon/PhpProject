@@ -10,7 +10,7 @@
 				if (is_object($tables[$x . '-' . $y])) {
 					$table = $tables[$x . '-' . $y];
 					?>
-					<div title="Deze tafel heeft <?php echo $table->amountseats ?> stoelen. Klik om te reserveren." id="block<?php echo $x . '-' . $y; ?>" class="grid-block-filled" data-tableid="<?php echo $table->tableid; ?>"><div class="free"></div></div><?php
+					<div id="block<?php echo $x . '-' . $y; ?>" class="grid-block-filled" data-tableid="<?php echo $table->tableid; ?>"><div class="free"></div></div><?php
 				} else {
 					?>
 					<div id="block<?php echo $x . '-' . $y; ?>" class="grid-block-none" ></div><?php
@@ -40,6 +40,10 @@
 		</div>
 		<div class="text"><p>= bezette ruimte</p></div>
 	</div>
+
+	<div id="hover">
+		<?php echo $table->tableid; ?>
+	</div>
 </aside>
 
 <script type="text/javascript">
@@ -48,9 +52,9 @@
   		var currentId = $(this).attr('data-tableid');
 
     if ($(this).find('.reserved').length == 0){
-	    location.href = "/reserve/reservetable/"+ <?php echo $restaurantid?> + "/" + currentId;
-	    }
-    });
+     location.href = "/reserve/reservetable/"+ <?php echo $restaurantid?> + "/" + currentId;  
+    }
+ });
 
 	$('.grid-block').click(function(event){event.preventDefault()});
 
