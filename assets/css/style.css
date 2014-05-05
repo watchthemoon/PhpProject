@@ -332,10 +332,10 @@ select{
 	margin-bottom: 10px;
 }
 
-<<<<<<< HEAD
 #btnnoggeenacc{
 	width:200;
-=======
+}
+
 .reserved{
 	background: rgba(255,0,0,0.4);
 	width: 50px;
@@ -344,5 +344,4 @@ select{
 	top: 0;
 	left: 0;
 	cursor: default;
->>>>>>> 7e5a9cb1372ad71c6d20fcefb1deb7cb84f9bcfa
 }

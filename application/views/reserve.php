@@ -47,14 +47,13 @@
 		}
 	});
 
-<<<<<<< HEAD
+
 	$('.grid-block').click(function(event){event.preventDefault()});
-=======
+
 	liveCheck(<?php echo $restaurantid; ?>);
 
 	setInterval(function(){
 		liveCheck(<?php echo $restaurantid ?>);
 	},2000)
->>>>>>> 7e5a9cb1372ad71c6d20fcefb1deb7cb84f9bcfa
 
 </script>
