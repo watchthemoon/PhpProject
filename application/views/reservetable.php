@@ -1,7 +1,7 @@
 <h1>Reservatie voltooien</h1>
 <div id="rightside">
 
-	<?php if($registrerendiv==0){?>
+	<?php if($registrerendiv==1){?>
 		<div>
 			<p></p>	
 		</div>
@@ -68,7 +68,7 @@
 		
 	<?php }; ?>
 
-	<?php if($registratievoltooiddiv==0){ ?>
+	<?php if($registratievoltooiddiv==1){ ?>
 
 	<div id="registratievoltooid">
 		<p>tonen wanneer de registratie voltooid is met een link terug naar het restaurant of de homepage. </p>

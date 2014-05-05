@@ -42,10 +42,6 @@ class Reserve extends Config {
 	}
 
 	public function reservetable($tableid){
-
-		$registratievoltooiddiv = 0;
-		$registrerendiv = 0;
-
 		$tables = $this->m_tables->load($tableid);
 
 		$data = array(
