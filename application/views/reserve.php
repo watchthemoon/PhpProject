@@ -37,16 +37,21 @@
 		</div>
 		<div class="text"><p>= bezette ruimte</p></div>
 	</div>
+
+	<div id="hover">
+		<?php echo $table->tableid; ?>
+	</div>
 </aside>
 
 <script type="text/javascript">
 
-	$(".grid-block-filled").on('click',function(){
-		if ($(this).find('.reserved').length == 0){
-			location.href = "/reserve/reservetable";
-		}
-	});
+	 $(".grid-block-filled").on('click',function(){
+  		var currentId = $(this).attr('data-tableid');
 
+    if ($(this).find('.reserved').length == 0){
+     location.href = "/reserve/reservetable/"+ <?php echo $restaurantid?> + "/" + currentId;  
+    }
+ });
 
 	$('.grid-block').click(function(event){event.preventDefault()});
 

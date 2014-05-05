@@ -42,11 +42,18 @@ class Reserve extends Config {
 	}
 
 	public function reservetable($tableid){
+
+		$registratievoltooiddiv = 0;
+		$registrerendiv = 0;
+
+		$tables = $this->m_tables->load($tableid);
+
 		$data = array(
 			'view' => 'reservetable',
 			'errors' => $this->session->userdata('error'),
 			'post' => $this->session->userdata('post'),
 			'tables' => $this->m_tables->load($tableid)
+
 		);
 
 		$this->load->view('index',array_merge($this->data,$data));

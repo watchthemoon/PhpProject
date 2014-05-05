@@ -1,12 +1,12 @@
 <h1>Reservatie voltooien</h1>
 <div id="rightside">
 
-	<?php if(isset($_SESSION['registrerendiv'])): ?>
+	<?php if($registrerendiv==0){?>
 		<div>
 			<p></p>	
 		</div>
 		
-	<?php else: ?>
+	<?php } else{ ?>
 		<div id="inloggen">
 		<section id="login">
 			<h2>Snel reserveren via je log in!</h2>
@@ -17,13 +17,14 @@
 
 				<input type="submit" name="btnLogin" value="Inloggen"/>
 			</form>
+
 			<form action="login/showregister/" method="post">
 			<input type="submit" id="btnnoggeenacc" name="btnnoggeenacc" value="Ik heb nog geen account"/>
 			</form>
 		</div>
-	<?php endif; ?>
+	<?php }; ?>
 
-	<?php if(isset($_SESSION['registrerendiv'])): ?>
+	<?php if($registrerendiv==1){?>
 		<div id="registreren">
 		<section id="signup">
 		<h2>Reserveer via een accountregistratie.</h2>
@@ -60,23 +61,23 @@
 		</form>
 	</div>
 		
-	<?php else: ?>
+	<?php }else{ ?>
 		<div>
 				<p></p>	
 		</div>
 		
-	<?php endif; ?>
+	<?php }; ?>
 
-	<?php if(isset($_SESSION['registratievoltooiddiv'])): ?>
+	<?php if($registratievoltooiddiv==0){ ?>
 
 	<div id="registratievoltooid">
 		<p>tonen wanneer de registratie voltooid is met een link terug naar het restaurant of de homepage. </p>
 		<p>Invullen welk uur de tafel bezet moet zijn, welke reservatie, adres informatie, ... </p>
 	</div>
-	<?php else: ?>
+	<?php }else{ ?>
 		<div>
 			<p></p>	
 		</div>
-	<?php endif; ?>
+	<?php }; ?>
 
 </div>

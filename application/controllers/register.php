@@ -129,7 +129,7 @@ class Register extends Config {
 			## Errors gevonden
 			$this->session->set_userdata('error',$error);
 			$this->session->set_userdata('post',$post);
-			redirect('/register');
+			redirect('/reserve/reservetable');
 
 		}else{
 
@@ -146,10 +146,8 @@ class Register extends Config {
 
 			## Op deze pagina blijven maar andere div tonen
 			## sessie voor Div starten bij klik. 
-			session_start();
-			$_SESSION['registratievoltooiddiv'] = true;
-
-			redirect('/reservetable');
+			$registratievoltooiddiv = 1;
+			$registrerendiv = 0;
 
 		}
 

@@ -99,25 +99,19 @@ class Login extends Config {
 
 				## Stuur door naar pagina zelf maar andere div zichtbaar
 				## sessie voor Div starten bij klik. 
-				session_start();
-				$_SESSION['registratievoltooiddiv'] = true;
-				redirect('/reservetable');
+				$registratievoltooiddiv = 1;
+				$registrerendiv = 0;
+
 			}else{
 				## Vul melding dat het niet gelukt is
 				$this->session->set_userdata('melding','Uw login gegevens zijn onjuist.');
-
-				## Stuur door naar de pagina zelf
-				redirect('/reservetable');
 			}
 		}
 	}
 
 	public function showregister(){
 		## sessie voor Div starten bij klik. 
-			session_start();
-			$_SESSION['registrerendiv'] = true;
-
-			## Stuur door naar de pagina zelf
-				redirect('/reservetable');
+			$registrerendiv = 1;
+			$registratievoltooiddiv = 0;
 	}
 }
