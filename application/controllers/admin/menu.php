@@ -12,7 +12,6 @@ class Menu extends Config {
 	public function view($restaurantid)
 		{
 		$query = $this->m_menu->getMenu($restaurantid);	
-		$wijzigquery = $this->m_menu->getGerecht($restaurantid);
 		$data = array(
 			'restaurantid' => $restaurantid,
 			'view' => '/admin/menu',
@@ -33,6 +32,23 @@ class Menu extends Config {
 		$this->load->view('/admin/menu_form',array_merge($this->data,$data));
 	}
 
+		public function wijzigform($menuid){
+		$wijzigquery = $this->m_menu->getGerecht($menuid);
+		$data = array(
+			'data' => $this->input->post(),
+			'wijzigquery' =>  $wijzigquery
+		);
+		$this->load->view('/admin/menu_wijzig_form',array_merge($this->data,$data));
+	}
+		public function loadmenu($gerechttypeid,$restaurantid){
+		$query = $this->m_menu->getMenu($restaurantid, $menuid);
+		$data = array(
+			'data' => $this->input->post(),
+			'query' =>  $query
+		);.
+		$this->load->view('/admin/Gerecht',array_merge($this->data,$data));
+	}
+	
 
 
 	public function save()
@@ -63,7 +79,7 @@ class Menu extends Config {
 			$this->m_menu->save($post);
 
 			## Vul melding dat het gelukt is
-			$this->session->set_userdata('melding', 'Menu toegevoegd');
+			$this->session->set_userdata('melding', 'Gerecht toegevoegd');
 
 			## Stuur door naar tafel pagina
 			redirect('/admin/menu/view/'.$post['restaurantid']);
@@ -98,10 +114,10 @@ class Menu extends Config {
 
 
 			## Sla de gegevens op in de model
-			$this->m_menu->save($post);
+			$this->m_menu->edit($post);
 
 			## Vul melding dat het gelukt is
-			$this->session->set_userdata('melding', 'Menu toegevoegd');
+			$this->session->set_userdata('melding', 'Gerecht gewijzigd');
 
 			## Stuur door naar tafel pagina
 			redirect('/admin/menu/view/'.$post['restaurantid']);

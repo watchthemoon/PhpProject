@@ -77,7 +77,7 @@ class m_Menu extends CI_Model{
 			'name' => $data['name'],
 			'price' => $data['price'],
 			'gerechttypeid' => $data['gerechttypeid'],
-			'restaurantid' => $data['restaurantid'],
+			'restaurantid' => $data['restaurantid']
 
 			);
 
