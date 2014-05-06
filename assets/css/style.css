@@ -197,19 +197,29 @@ textarea{
 }
 
 .res{
-	border: 1px solid #cccccc;
-	border-radius: 5px;
 	float: left;
-	padding: 5px;
 	margin: 0px 10px 10px 0px;
 	width: 17%;
 
 }
 
 .res h2{
-	color: #FF0000;
 	text-align:center;
+	background-color: #880000;
+	border: none;
+	margin-top: -4px;
+	padding-top: 5px;
+	color: #ffffff;
 
+}
+
+.res h3{
+	text-align: center;
+	border: none;
+}
+
+.res p{
+	padding-left: 10px;
 }
 
 .resfoto{
@@ -246,6 +256,22 @@ textarea{
 	line-height: 25px;
 	text-align: center;
 	padding: 0px 15px;
+
+}
+
+.btnmeerinfo{
+	background-color: #880000;
+	font-size: 14px;
+	color: #fff;
+	font-weight: bold;
+	text-shadow: 1px 1px 0 #000;
+	text-decoration: none;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	padding: 0px 0px;
+	width: 197px;
 }
 
 .res .btn{
