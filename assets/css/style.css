@@ -361,17 +361,19 @@ section.contain{
 	padding: 25px;
 	box-sizing: border-box;
 	border-radius: 5px;
+}
+
+.fleft{
+	float: left;
+}
+
+section.contain p{
 	line-height: 25px;
 }
 
-section.tables{
+div#tables{
 	float: left;
-}
-
-aside.tables{
-	float: left;
-	margin-left: 50px;
-	margin-top: 22px;
+	margin-left: 30px;
 }
 
 .legend{
@@ -392,10 +394,11 @@ aside.tables{
 	float: left;
 }
 
-.text{
+section.contain .text p{
 	width: 200px;
 	height: 50px;
 	line-height: 50px;
+	margin-left: 5px;
 }
 
 .fotoEdit{

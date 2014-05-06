@@ -1,13 +1,27 @@
-<h1>Reservatie</h1>
-<div class="fleft">
-	<div id="datepicker"></div>
-</div>
-<div class="fleft">
-	<section class="tables">
+	<section class="tables contain">
+		<h2>Reserveer in dit restaurant</h2>
+		<div class="fleft">
+			<div id="datepicker"></div>
+			<aside class="tables">
+				<div>
+					<div class="legend">
+						<img src="/assets/images/table.png" alt="Vrije tafel" />
+						<div class="free"></div>
+					</div>
+					<div class="text"><p>= vrije ruimte</p></div>
+				</div>
 
-		<h2>Selecteer de tafel(s) waar u wilt reserveren.</h2>
+				<div>
+					<div class="legend">
+						<img src="/assets/images/table.png" alt="Bezette tafel" />
+						<div class="reserved"></div>
+					</div>
+					<div class="text"><p>= bezette ruimte</p></div>
+				</div>
+			</aside>
+		</div>
 
-		<section id="tables">
+		<div id="tables">
 			<?php
 			for ($y = 1; $y <= 10; $y++) {
 				for ($x = 1; $x <= 10; $x++) {
@@ -27,30 +41,10 @@
 				<div class="clear"></div><?php
 			}
 			?>
-		</section>
-		</br>
+		</div>
+		<div class="clear"></div>
 	</section>
 
-	<aside class="tables">
-		<div>
-			<div class="legend">
-				<img src="/assets/images/table.png" alt="Vrije tafel" />
-				<div class="free"></div>
-			</div>
-			<div class="text"><p>= vrije ruimte</p></div>
-		</div>
-
-		<div>
-			<div class="legend">
-				<img src="/assets/images/table.png" alt="Bezette tafel" />
-				<div class="reserved"></div>
-			</div>
-			<div class="text"><p>= bezette ruimte</p></div>
-		</div>
-	</aside>
-
-</div>
-<div class="clear"></div>
 
 <script type="text/javascript">
 	var curdate = '<?php echo date("d-m-Y");?>';
