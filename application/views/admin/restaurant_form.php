@@ -1,5 +1,4 @@
-<div>
-	<section>
+	<section class="contain">
 		<h2>Restaurant toevoegen</h2>
 
 			<form action="/admin/restaurants/save" method="post" accept-charset="utf-8" enctype="multipart/form-data">
@@ -12,11 +11,14 @@
 				<label for="description">Beschrijving</label>
 				<textarea name="description"></textarea><?php if ($errors['description'] != ''){ echo $errors['description']."<br/>"; } ?>
 
-				<label for="image">Foto</label>
+				<label for="image">Foto Overzicht</label>
 				<input type="file" name="image"><?php if ($errors['image'] != ''){ echo $errors['image']."<br/>"; } ?>
+
+				<label for="imageHeader">Foto Header</label>
+				<input type="file" name="imageHeader"><?php if ($errors['imageHeader'] != ''){ echo $errors['imageHeader']."<br/>"; } ?>
 
 				<input type="submit" value="Toevoegen"/>
 
 		</form>
 	</section>
-</div>
+

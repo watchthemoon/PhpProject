@@ -217,8 +217,11 @@ textarea{
 	text-align:center;
 	background-color: #880000;
 	border: none;
-	margin-top: -4px;
+	margin-top: -7px;
 	padding-top: 5px;
+	color: #ffffff;
+	font-size: 18px;
+	margin-bottom: 0px;
 	
 
 }
@@ -226,12 +229,18 @@ textarea{
 .res h3{
 	text-align: center;
 	border: none;
-	color: #000000;
+	color: #ffffff;
+	background-color: #484848; 
+	padding-top: 5px;
 }
 
 .res p{
 	padding-left: 10px;
+	padding-right: 5px;
 	color: #000000;
+	height: 70px;
+	font-size: 12px;
+	line-height: 18px;
 }
 
 .resfoto{
@@ -242,15 +251,26 @@ textarea{
 	overflow: hidden;
 }
 
-.info{
-	float: left;
-	width: 70%;
+.info h2{
+	background-color: #880000;
+	color: #ffffff;
+	padding-top: 5px;
+	margin-top: -7px;
+	padding-left: 5px;
+}
+
+.info h3{
+	border: none;
+	color: #ffffff;
+	background-color: #484848; 
+	padding-top: 5px;
+	padding-left: 5px;
+}
+
+.info img{
 }
 
 .details img{
-	height: 20%;
-	width: 20%;
-	float: left;
 	padding-right: 10px;
 }
 
@@ -283,7 +303,7 @@ textarea{
 	line-height: 25px;
 	text-align: center;
 	padding: 0px 0px;
-	width: 197px;
+	width: 188px;
 }
 
 .res .btn{
@@ -476,11 +496,26 @@ color: #000000;
 }
 #restauranttable th 
 {
-font-size:1.1em;
+font-size:1em;
 text-align:left;
 padding-top:5px;
 padding-bottom:4px;
 background-color:#880000;
 color:#ffffff;
 padding-left: 7px;
+border:1px solid #880000;
+}
+
+.knop{
+	padding-top: 10px;
+}
+
+.editkolom{
+	width: 50px;
+	text-align: center;
+}
+
+.deletekolom{
+	width: 70px;
+	text-align: center;
 }

@@ -50,7 +50,7 @@ class Restaurants extends Config {
 		$this->session->unset_userdata('post');
 	}
 
-	public function edit()
+	public function edit($restaurantid)
 		{
 		$this->load->helper('url');
 		$this->load->model('m_restaurant');
@@ -93,12 +93,12 @@ class Restaurants extends Config {
 			$error['description'] = 'Vul een beschrijving in.';
 		}
 
-		$folder = $_SERVER["DOCUMENT_ROOT"] . '/upload/restaurants/';
+		$folder = $_SERVER["DOCUMENT_ROOT"] . '/upload/restaurants/overzicht/';
 
 		## Als de folder niet bestaat, deze toevoegen
 		if (!file_exists($folder)){
 			## @ voor een functie zorgt ervoor dat als het fout gaat hij die regel gewoon 'negeert'
-			@mkdir($_SERVER["DOCUMENT_ROOT"] . '/upload/restaurants/', 0755, true);
+			@mkdir($_SERVER["DOCUMENT_ROOT"] . '/upload/restaurants/overzicht/', 0755, true);
 		}
 
 		## foto uploaden in map
@@ -110,11 +110,11 @@ class Restaurants extends Config {
 		$config = array(
 			'upload_path' => $folder,
 			'allowed_types' => 'gif|jpg|png|bmp|jpeg',
-			'max_width' => '1024',
-			'max_height' => '768',
+			'max_width' => '2500',
+			'max_height' => '2500',
 		);
 
-		## Config inladen
+		## Config inladen voor overzicht
 		$this->upload->initialize($config);
 		if (!$this->upload->do_upload('image')) {
 			## Uploaden ging fout :(
@@ -123,6 +123,39 @@ class Restaurants extends Config {
 			## Uploaden ging goed :)
 			$data = array('upload_data' => $this->upload->data());
 			$post['image'] = $data['upload_data']['file_name'];
+
+		}
+
+		$folder = $_SERVER["DOCUMENT_ROOT"] . '/upload/restaurants/header/';
+
+		## Als de folder niet bestaat, deze toevoegen
+		if (!file_exists($folder)){
+			## @ voor een functie zorgt ervoor dat als het fout gaat hij die regel gewoon 'negeert'
+			@mkdir($_SERVER["DOCUMENT_ROOT"] . '/upload/restaurants/header/', 0755, true);
+		}
+
+		## foto uploaden in map
+
+		## Library laden
+		$this->load->library('upload');
+
+		## Config instellen
+		$config = array(
+			'upload_path' => $folder,
+			'allowed_types' => 'gif|jpg|png|bmp|jpeg',
+			'max_width' => '2500',
+			'max_height' => '2500',
+		);
+
+		## Config inladen voor header
+		$this->upload->initialize($config);
+		if (!$this->upload->do_upload('imageHeader')) {
+			## Uploaden ging fout :(
+			$error['imageHeader'] = $this->upload->display_errors();
+		} else {
+			## Uploaden ging goed :)
+			$data = array('upload_data' => $this->upload->data());
+			$post['imageHeader'] = $data['upload_data']['file_name'];
 
 		}
 
@@ -198,8 +231,8 @@ class Restaurants extends Config {
 			$config = array(
 				'upload_path' => $folder,
 				'allowed_types' => 'gif|jpg|png|bmp|jpeg',
-				'max_width' => '1024',
-				'max_height' => '768',
+				'max_width' => '2500',
+				'max_height' => '2500',
 			);
 
 			## Config inladen
@@ -230,7 +263,7 @@ class Restaurants extends Config {
 			$this->m_restaurant->edit($post);
 
 			## Vul melding dat het gelukt is
-			$this->session->set_userdata('melding', 'Restaurant succesvol toegevoegd');
+			$this->session->set_userdata('melding', 'Restaurant succesvol gewijzigd');
 
 			## Stuur door naar overzicht pagina
 			redirect('/admin/restaurants');

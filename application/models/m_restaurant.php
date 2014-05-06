@@ -11,6 +11,7 @@ class m_Restaurant extends CI_Model{
 			'country' => $data['country'],
 			'phone' => $data['phone'],
 			'image' => $data['image'],
+			'imageHeader' => $data['imageHeader'],
 			'description' => $data['description']
 		);
 

@@ -1,4 +1,4 @@
-<section id="restaurants-view">
+<section class="contain">
 		<h2>Restaurant Overzicht</h2>
 			<table id="restauranttable">
 				<tr>
@@ -9,13 +9,8 @@
 				<?php foreach ($query as $row) { ?>
 				<tr>
 				<td class="naam" id="<?php echo $row->restaurantid;?>"><?php echo $row->name; ?></td>
-				<td><img src="../assets/images/edit.jpg" onclick="editrestaurant(<?php echo $row->restaurantid; ?>);" class="edit"/></td>
-				<td><img src="../assets/images/delete.jpg" onclick="deleterestaurant(<?php echo $row->restaurantid; ?>);" class="delete"/></td>
-				<!--
-				
-				<img src="<?php echo '../upload/restaurants/' . $row->image; ?>" class="resfoto" alt="<?php echo $row->image; ?>">
-				<p><?php echo $row->description; ?></p>
-				<a href="<?php echo site_url('admin/restaurants/detail/'.$row->restaurantid.''); ?>">Meer info</a> -->
+				<td class="editkolom"><img src="../assets/images/edit.jpg" onclick="editrestaurant(<?php echo $row->restaurantid; ?>);" class="edit"/></td>
+				<td class="deletekolom"><img src="../assets/images/delete.jpg" onclick="deleterestaurant(<?php echo $row->restaurantid; ?>);" class="delete"/></td>
 				</tr>
 				<?php } ?>
 				</table>
@@ -28,11 +23,12 @@
 			
 		
 	<div class="clear"></div>
-	</section>
-
-<div>
+	<div class="knop">
 	<a href="/admin/restaurants/form" class="btn">Restaurant toevoegen</a>
 </div>
+	</section>
+
+
 <script type="text/javascript">
 		function deleterestaurant(restaurantid){
 			if(confirm('Weet u zeker dat u dit restaurant wilt verwijderen?')){

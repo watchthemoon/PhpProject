@@ -1,33 +1,32 @@
 	<section class="contain">
 
-			<div class="details">
-				<img src="<?php echo site_url('upload/restaurants/'.$query->image.''); ?>" alt="<?php echo $query->image; ?>">
-				<h1><?php echo $query->name; ?></h1>
+			<div class="info">
+				<img src="<?php echo site_url('upload/restaurants/header/'.$query->imageHeader.''); ?>" alt="<?php echo $query->image; ?>">
+				<h2><?php echo $query->name . ' in '.$query->city . ' (' .$query->country.')'; ?></h2>
 				<div id="addRestaurant">
 				<form action="/reserve/view/<?php echo $query->restaurantid;?>" method="post">
 					<input type="submit" value="Reserveer"/>
 				</form>
-			</div>
-				<div class="info">
-				<h2>Informatie</h2>
+				<h3>Informatie</h3>
 				<p>Straat: <?php echo $query->address; ?></p>
 				<p>Stad: <?php echo $query->city; ?></p>
 				<p>Land: <?php echo $query->country; ?></p>
-				<h2>Beschrijving</h2>
+				<h3>Beschrijving</h3>
 				<p><?php echo $query->description; ?></p>
-				<h2>Menu</h2>
-				<h3>Voorgerechten</h3>
+				<h3>Menu</h3>
+				<h4>Voorgerechten</h4>
 				<?php foreach ($voorgerecht as $vg) { ?>
 				<p><?php echo $vg->name; ?> -  <?php echo $vg->price; ?></p>
 				<?php } ?>
-				<h3>Hoofdgerechten</h3>
+				<h4>Hoofdgerechten</h4>
 				<?php foreach ($hoofdgerecht as $hg) { ?>
 				<p><?php echo $hg->name; ?> -  <?php echo $hg->price; ?></p>
 				<?php } ?>
-				<h3>Nagerechten</h3>
+				<h4>Nagerechten</h4>
 				<?php foreach ($nagerecht as $ng) { ?>
 				<p><?php echo $ng->name; ?> -  <?php echo $ng->price; ?></p>
 				<?php } ?>
 				</div>
 			</div>
+			<div class="clear"></div>
 	</section>
