@@ -124,12 +124,17 @@ class Register extends Config {
 			}
 		}
 
+		## Controleren of het een superuser is of niet
+		if($post['isAdmin'] != 'yes'){
+			$post['isAdmin'] = 'no';
+		}
+
 		if (count($error) > 0){
 
 			## Errors gevonden
 			$this->session->set_userdata('error',$error);
 			$this->session->set_userdata('post',$post);
-			redirect('/reserve/reservetable');
+			redirect('/reserve/reserve_form');
 
 		}else{
 
@@ -144,10 +149,8 @@ class Register extends Config {
 			## Vul melding dat het gelukt is
 			$this->session->set_userdata('melding','U bent succesvol geregistreerd.');
 
-			## Op deze pagina blijven maar andere div tonen
-			## sessie voor Div starten bij klik. 
-			$registratievoltooiddiv = 1;
-			$registrerendiv = 0;
+			## Stuur door naar login pagina
+			redirect('/reserve/reservetable');
 
 		}
 

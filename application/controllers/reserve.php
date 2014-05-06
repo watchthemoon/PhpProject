@@ -10,6 +10,10 @@ class Reserve extends Config {
 
 	public function view($restaurantid)	{
 
+		if ($this->online){
+			$online = true;
+		}
+
 		$tables = $this->m_tables->load($restaurantid);
 
 		$data = array(
@@ -42,7 +46,7 @@ class Reserve extends Config {
 		echo json_encode($check);
 	}
 
-	public function reservetable($tableid){
+	public function reservetable(){
 
 		$tables = $this->m_tables->load($tableid);
 		$query = $this->db->where('tableid',$tableid);

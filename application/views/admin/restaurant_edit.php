@@ -1,5 +1,5 @@
-<div>
-	<section>
+
+	<section class="contain">
 		<h2>Restaurant wijzigen</h2>
 
 			<form action="/admin/restaurants/editsave" method="post" accept-charset="utf-8" enctype="multipart/form-data">
@@ -22,4 +22,4 @@
 
 		</form>
 	</section>
-</div>
+

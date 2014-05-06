@@ -64,7 +64,11 @@ class Login extends Config {
 		}
 	}
 
-	public function savereserve(){
+		public function savereserve(){
+
+		
+
+
 		$error = array();
 		$post = $this->input->post();
 
@@ -82,7 +86,7 @@ class Login extends Config {
 			## Errors gevonden
 			$this->session->set_userdata('error',$error);
 			$this->session->set_userdata('post',$post);
-			redirect('reserve/reservetable');
+			redirect('/login');
 		}else{
 
 			## Geen errors, opslaan
@@ -90,22 +94,36 @@ class Login extends Config {
 			## Laad de model
 			$this->load->model('m_login');
 
-			## Sla de gegevens op in de modela
+			## Sla de gegevens op in de model
 			$result = $this->m_login->login($post);
 
 			if($result){
 				## Vul melding dat het gelukt is
-				$this->session->set_userdata('melding','U bent succesvol ingelogd.');
+				$this->session->set_userdata('melding','U kan uw reservatie voltooien.');
 
+
+				$tafelid = "1";
+				$aantal = "2";
+				$userinformatie = "user" ;
+				$restaurantinfo = "restaurant";
+
+				$data = array(
+					'view' => 'reservetable',
+					'tafelid' => $tafelid,
+					'aantal' => $aantal,
+					'user' => $userinformatie,
+					'restaurant' => $restaurantinfo
+				);
+
+					$this->load->view('index',array_merge($this->data,$data));
 				## Stuur door naar login check pagina
-				redirect('/reserve');
+				redirect('/reserve/reservetable');
+
 
 			}else{
 				## Vul melding dat het niet gelukt is
 				$this->session->set_userdata('melding','Uw login gegevens zijn onjuist.');
-
-				redirect('reserve/reservetable');
-
+				redirect('/reserve/reserve_form');
 			}
 		}
 	}
