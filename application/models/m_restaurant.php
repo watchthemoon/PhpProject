@@ -31,9 +31,9 @@
 			return $rec->row();
 		}
 
-		public function delete($data){
+		public function delete($id){
 	
-			$this->db->where('restaurantid', $data['restaurantid']);
+			$this->db->where('restaurantid', $id);
 			$this->db->delete('restaurants'); 
 		}
 

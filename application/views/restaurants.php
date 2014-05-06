@@ -1,6 +1,5 @@
 <h1>Restaurant Overzicht</h1>
 
-
 	<section id="restaurants-view">
 		<?php foreach ($query as $row) { ?>
 			<div class="res">

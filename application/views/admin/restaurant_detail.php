@@ -1,5 +1,6 @@
-	<h1><?php echo $query->name; ?></h1>
-	<section id="restaurants-view">	
+	
+	<section>	
+			<h2><?php echo $query->name; ?></h2>
 			<div class="details">
 				<img src="<?php echo site_url('../upload/restaurants/'.$query->image.''); ?>" alt="<?php echo $query->image; ?>">
 				<h2>Informatie</h2>
@@ -10,9 +11,10 @@
 				<p><?php echo $query->description; ?></p>
 
 			</div>
-	</section>
-<div id="addRestaurant">
+			<div id="addRestaurant">
 		<form action="" method="post">
 			<input type="submit" value="Wijzigen"/>
 		</form>
 </div>
+	</section>
+
