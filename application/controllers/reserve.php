@@ -10,6 +10,10 @@ class Reserve extends Config {
 
 	public function view($restaurantid)	{
 
+		if ($this->online){
+			$online = true;
+		}
+
 		$tables = $this->m_tables->load($restaurantid);
 
 		$data = array(

@@ -7,6 +7,7 @@
 				<form action="/reserve/view/<?php echo $query->restaurantid;?>" method="post">
 					<input type="submit" value="Reserveer"/>
 				</form>
+				<p>Reserveer nu met je account, nog geen account? <a href="/register">registreer hier!</a></p>
 			</div>
 				<div class="info">
 				<h2>Informatie</h2>
