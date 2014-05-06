@@ -209,6 +209,7 @@ textarea{
 	float: left;
 	margin: 0px 10px 10px 0px;
 	width: 17%;
+	background-color: #fdfdff;
 
 }
 
@@ -218,17 +219,19 @@ textarea{
 	border: none;
 	margin-top: -4px;
 	padding-top: 5px;
-	color: #ffffff;
+	
 
 }
 
 .res h3{
 	text-align: center;
 	border: none;
+	color: #000000;
 }
 
 .res p{
 	padding-left: 10px;
+	color: #000000;
 }
 
 .resfoto{
@@ -457,4 +460,27 @@ select{
 	top: 0;
 	left: 0;
 	cursor: pointer;
+}
+
+#restauranttable{
+	width:100%;
+	border-collapse:collapse;
+}
+#restauranttable td
+{
+font-size:1em;
+border:1px solid #880000;
+padding:3px 7px 2px 7px;
+background-color:#fdfdff;
+color: #000000;
+}
+#restauranttable th 
+{
+font-size:1.1em;
+text-align:left;
+padding-top:5px;
+padding-bottom:4px;
+background-color:#880000;
+color:#ffffff;
+padding-left: 7px;
 }

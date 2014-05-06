@@ -30,7 +30,6 @@ class m_Restaurant extends CI_Model{
 		} else {
 			return '';
 		}
-
 	}
 
 	public function getRestaurantById($id)	{
@@ -40,11 +39,11 @@ class m_Restaurant extends CI_Model{
 		return $rec->row();
 	}
 
-	public function delete($data)	{
-
-		$this->db->where('restaurantid', $data['restaurantid']);
-		$this->db->delete('restaurants');
-	}
+		public function delete($id){
+	
+			$this->db->where('restaurantid', $id);
+			$this->db->delete('restaurants'); 
+		}
 
 	public function edit($data)	{
 		$set = array(

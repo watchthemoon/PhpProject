@@ -6,6 +6,9 @@
 	}else{
 		foreach ($restaurants as $item) {
 			?>
+
+	<section id="restaurants-view">
+		<?php foreach ($query as $row) { ?>
 			<div class="res">
 				<img src="<?php echo 'upload/restaurants/' . $item->image; ?>" class="resfoto" alt="<?php echo $item->image; ?>">
 				<h2><?php echo $item->name; ?></h2>
@@ -19,5 +22,3 @@
 	?>
 	<div class="clear"></div>
 </section>
-
-Whoop whoop :D
