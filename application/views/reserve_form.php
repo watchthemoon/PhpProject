@@ -1,17 +1,6 @@
 <section>
-	<h2 class="title">Met hoeveel personen komt u?</h2>
-	<!-<?php if (Login is true){ ?-->
-	<form action="reserve/reservetable" method="post" autocomplete="off">
-		<label for="name">Aantal personen:</label>
-		<input required type="text" name="name" placeholder="Aantal"/>
-
-		<input type="submit" value="Reserveer" />
-	</form>
-
-
-	<!-<?php } else { ?>-->
-
-		<label for="name">Aantal personen:</label>
+	<h2 class="title">Aantal personen?</h2>
+		</br>
 		<input required type="text" name="name" placeholder="Aantal"/>
 
 		<div id="inloggen">
@@ -25,6 +14,7 @@
 				<input type="submit" name="btnLogin" value="Reserveer"/>
 			</form>
 		</div>
+		</br>
 
 		<div id="registreren">
 		<section id="signup">
@@ -60,6 +50,6 @@
 			<input type="submit" value="Reserveer"/>
 
 		</form>
-	<!-<?php } ?>-->
+
 	</form>
 </section>
