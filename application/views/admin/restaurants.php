@@ -1,8 +1,5 @@
-
-
-
-	<section id="restaurants-view">
-		<h2>Restaurant Overzicht</h2
+<section id="restaurants-view">
+		<h2>Restaurant Overzicht</h2>
 			<table id="restauranttable">
 				<tr>
 				  <th>Naam</th>

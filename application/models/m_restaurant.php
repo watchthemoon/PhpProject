@@ -61,5 +61,3 @@ class m_Restaurant extends CI_Model{
 	}
 
 }
-
-?>

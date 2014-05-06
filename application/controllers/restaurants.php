@@ -21,15 +21,12 @@ class Restaurants extends Config
 			'view' => 'restaurants',
 			'errors' => $this->session->userdata('error'),
 			'post' => $this->session->userdata('post'),
-			'restaurants' => $this->m_restaurant->getRestaurants($city), ## Even een logische naam.
+			'restaurants' => $this->m_restaurant->getRestaurants($city)
 		);
 
 		$this->load->view('index', array_merge($this->data, $data));
 		$this->session->unset_userdata('error');
 		$this->session->unset_userdata('post');
-
-		# Dit is toch die van annelies? jah
-
 	}
 
 	
