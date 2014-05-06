@@ -27,6 +27,7 @@
 				<div class="clear"></div><?php
 			}
 			?>
+			
 		</section>
 		</br>
 	</section>
@@ -58,14 +59,6 @@
 
 		openWindow('/reserve/form',{});
 	});
-	
-	 /*$(".grid-block-filled").on('click',function(){
-  		var currentId = $(this).attr('data-tableid');
-
-    if ($(this).find('.reserved').length == 0){
-	    location.href = "/reserve/reservetable/"+ <?php echo $restaurantid?> + "/" + currentId;
-	    }
-    });*/
 
 	$('.grid-block').click(function(event){event.preventDefault()});
 
