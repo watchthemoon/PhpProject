@@ -14,17 +14,21 @@ class Restaurants extends Config
 	public function index()
 	{
 		$this->load->model('m_restaurant');
-		
+
+		$city = $this->input->post("city");
+
 		$data = array(
 			'view' => 'restaurants',
 			'errors' => $this->session->userdata('error'),
 			'post' => $this->session->userdata('post'),
-			'query' => $this->m_restaurant->getRestaurants(),
+			'restaurants' => $this->m_restaurant->getRestaurants($city), ## Even een logische naam.
 		);
 
 		$this->load->view('index', array_merge($this->data, $data));
 		$this->session->unset_userdata('error');
 		$this->session->unset_userdata('post');
+
+		# Dit is toch die van annelies? jah
 
 	}
 
@@ -49,7 +53,4 @@ class Restaurants extends Config
 		$this->session->unset_userdata('post');
 	}
 
-	
-
-	
 }

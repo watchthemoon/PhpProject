@@ -1,7 +1,6 @@
-<h1>Contact</h1>
-<div id="rightside">
+	<section class="contain">
 
-	<section id="home">
+		<h2>Contact</h2>
 
 		<p>Voor verdere vragen gelieve het contact formulier hieronder in te vullen en door te sturen.</p>
 		<form action="/contact/mail/" method="post" autocomplete="off" name="contactform">
@@ -17,5 +16,3 @@
 		</form>
 
 	</section>
-
-</div>

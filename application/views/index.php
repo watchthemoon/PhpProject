@@ -79,10 +79,10 @@
 		</div>
 
 
-		<div class="push"></div>
+	<div class="push"></div>
 	</div>
 	<footer>
-
+		<p>Copyright 2014 - Anjalaya</p>
 	</footer>
 
 	<div id="popup_window">

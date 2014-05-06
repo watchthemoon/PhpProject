@@ -1,9 +1,6 @@
-<h1>Welkom bij Anjalaya</h1>
-<div id="rightside">
+<section class="contain">
 
-	<section id="signup">
-
-		<h2>Nieuw bij Anjalaya? <span>Registreer nu</span></h2>
+	<h2>Registreer als gebruiker of restauranthouder</h2>
 
 		<form action="/register/save/" method="post" autocomplete="off">
 
@@ -40,5 +37,3 @@
 		</form>
 
 	</section>
-
-</div>

@@ -1,5 +1,5 @@
-<section class="tables">
-	<h1>Tafels</h1>
+<section class="contain tables">
+	<h2>Tafels</h2>
 	<div id="grid">
 		<?php
 		for($y = 1; $y <= 10; $y++){

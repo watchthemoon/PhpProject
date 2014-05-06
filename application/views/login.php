@@ -1,19 +1,14 @@
-<h1>Welkom bij Anjalaya</h1>
-<div id="rightside">
+<section class="contain">
 
-	<section id="login">
+	<h2>Login als gebruiker of restauranthouder</h2>
 
-		<h2>Welkom bij Anjalaya</h2>
+	<form action="/login/save/" method="post" autocomplete="off">
+		<input required type="text" name="email" placeholder="Email" value="<?php echo $post['email']; ?>" /><?php if ($errors['email'] != ''){ echo $errors['email']; } ?>
+		<input required type="password" name="password" placeholder="Paswoord"/><?php if ($errors['password'] != ''){ echo $errors['password']; } ?>
 
-		<form action="/login/save/" method="post" autocomplete="off">
-			<input required type="text" name="email" placeholder="Email" value="<?php echo $post['email']; ?>" /><?php if ($errors['email'] != ''){ echo $errors['email']; } ?>
-			<input required type="password" name="password" placeholder="Paswoord"/><?php if ($errors['password'] != ''){ echo $errors['password']; } ?>
+		<input type="submit" name="btnLogin" value="Inloggen"/>
+	</form>
 
-			<input type="submit" name="btnLogin" value="Inloggen"/>
-		</form>
+	<p>Nog geen account? <a href="/register">Registreer</a></p>
 
-		<p>Nog geen account? <a href="/register">Registreer</a></p>
-
-	</section>
-
-</div>
+</section>
