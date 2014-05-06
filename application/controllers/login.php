@@ -82,7 +82,7 @@ class Login extends Config {
 			## Errors gevonden
 			$this->session->set_userdata('error',$error);
 			$this->session->set_userdata('post',$post);
-			redirect('reserve/reservetable');
+			redirect('/login');
 		}else{
 
 			## Geen errors, opslaan
@@ -90,7 +90,7 @@ class Login extends Config {
 			## Laad de model
 			$this->load->model('m_login');
 
-			## Sla de gegevens op in de modela
+			## Sla de gegevens op in de model
 			$result = $this->m_login->login($post);
 
 			if($result){
@@ -98,14 +98,13 @@ class Login extends Config {
 				$this->session->set_userdata('melding','U bent succesvol ingelogd.');
 
 				## Stuur door naar login check pagina
-				redirect('/reserve');
-
+				redirect('reserve/reservetable');
 			}else{
 				## Vul melding dat het niet gelukt is
 				$this->session->set_userdata('melding','Uw login gegevens zijn onjuist.');
 
-				redirect('reserve/reservetable');
-
+				## Stuur door naar login check pagina
+				redirect('/reserve/reserve_form');
 			}
 		}
 	}

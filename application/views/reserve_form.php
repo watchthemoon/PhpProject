@@ -1,13 +1,14 @@
 <section>
-	<h2 class="title">Aantal personen?</h2>
-		</br>
+	<h2>Aantal personen?</h2>
+	<form action="" method="post" autocomplete="off">
 		<input required type="text" name="name" placeholder="Aantal"/>
+	</form>
 
 		<div id="inloggen">
 		<section id="login">
-			<h2>Snel reserveren via je log in!</h2>
+			<h2 id="form">Snel reserveren via je log in!</h2>
 
-			<form action="login/savereserve/" method="post" autocomplete="off">
+			<form action="/login/savereserve/" method="post" autocomplete="off">
 				<input type="text" name="email" placeholder="Email" value="<?php echo $post['email']; ?>" /><?php if ($errors['email'] != ''){ echo $errors['email']; } ?>
 				<input type="password" name="password" placeholder="Paswoord"/><?php if ($errors['password'] != ''){ echo $errors['password']; } ?>
 

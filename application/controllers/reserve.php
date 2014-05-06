@@ -42,7 +42,7 @@ class Reserve extends Config {
 		echo json_encode($check);
 	}
 
-	public function reservetable($tableid){
+	public function reservetable(){
 
 		$tables = $this->m_tables->load($tableid);
 		$query = $this->db->where('tableid',$tableid);
