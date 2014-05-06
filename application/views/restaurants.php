@@ -5,7 +5,8 @@
 		?>Oh no!, geen restaurants gevonden, dan maar zelf koken!<?php
 	}else{
 		foreach ($restaurants as $item) {
-			?>
+		}
+	?>
 
 	<section id="restaurants-view">
 		<?php foreach ($query as $row) { ?>
