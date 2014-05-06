@@ -1,13 +1,16 @@
-<h1>Welkom bij Anjalaya</h1>
-<div id="rightside">
-
 	<section id="home">
 
-		<p>Welkom bij de Anjalaya applicatie!</p>
+		<div id="homesearch">
+			<h2>Zoek een restaurant</h2>
 
-		<p>Ben je hier om een reservatie te maken? Ga dan snel door naar onze <a href="/restaurants">restaurant pagina</a>. </p>
-		<p>Ben je hier om je als restaurant aan te melden? Ga dan snel door naar de <a href="/login">login pagina</a> en begin met je restaurant hier te beheren!</p>
+			<p>Op zoek naar een restaurant? Zoek een restaurant in uw buurt! </p>
+
+			<form action="#" method="post">
+				<label for="name"><img src="assets/images/location-icon.png" /></label>
+				<input type="search" placeholder="Vul een plaatsnaam in" />
+
+				<input type="submit" />
+			</form>
+		</div>
 
 	</section>
-
-</div>

@@ -16,15 +16,32 @@ body {
 	height: 100%;
 	overflow-y: scroll;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #ffffff;
 }
 
 .website {
 	width: 1200px;
-	background: #ffffff;
 	min-height: 100%;
 	height: auto !important;
 	height: 100%;
 	margin: 0 auto -50px;
+}
+
+#center{
+	width: 1200px;
+	margin: 0 auto -50px;
+}
+
+#logo{
+	float: left;
+}
+
+#logo p{
+	padding: 0px;
+	line-height: 10px;
+	font-size: 30px;
+	color: #880000;
+	margin-left: 20px;
 }
 
 footer, .push {
@@ -36,32 +53,38 @@ footer, .push {
 }
 
 header {
-	background: #eeeeee;
-	height: 275px;
+	height: 75px;
+	background: #fdfdff;
+}
+
+header nav{
+	margin-left: 200px;
 }
 
 header nav ul {
 	list-style: none;
 	padding: 0px;
 	margin: 0px;
-	background: #000000;
+	margin-left: 30px;
 }
 
 header nav ul li{
 	display: inline-block;
 }
 header nav ul li a{
-	line-height: 35px;
 	padding: 0px 15px;
 	display: block;
-	color: #ffffff;
+	color: #880000;
 	text-decoration: none;
 	font-size: 14px;
+	line-height: 75px;
 }
 
 header nav ul li a.active,
 header nav ul li a:hover{
-	background: #880000;
+	border-bottom: 2px solid #880000;
+	text-decoration: underline;
+
 }
 .main{
 	overflow: hidden;
@@ -69,13 +92,35 @@ header nav ul li a:hover{
 }
 
 .main h1 {
-	color: #333333;
 	font-size: 26px;
 	font-weight: normal;
 	margin-bottom: 0em;
-	text-shadow: 1px 1px 0 #bbbbbb;
 	font-weight: bold;
 	padding-bottom: 10px;
+}
+
+#homesearch{
+	width: 400px;
+	height: 200px;
+	background: #fdfdff;
+	margin: 0 auto;
+	padding: 20px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	vertical-align: middle;
+}
+
+#homesearch p,
+#homesearch h2{
+	color: #222222;
+}
+
+#homesearch form label{
+	float: left;
+}
+
+#homesearch form input{
+	width: 200px;
 }
 
 form{

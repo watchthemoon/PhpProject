@@ -18,47 +18,53 @@
 </head>
 <body>
 
-	<div class="website">
+<header>
+	<div id="center">
+		<div id="logo">
+			<p>Anjalaya</p>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="/home">Home</a></li>
 
-		<header>
-			<nav>
-				<ul>
-					<li><a href="/home">Home</a></li>
+				<?php
+				## Als het een ingelogde superuser is
+				if ($online){
 
-					<?php
-					## Als het een ingelogde superuser is
-					if ($online){
-
-						if ($super){
-							?>
-							<li><a href="/admin/restaurants">Restaurants beheren</a></li>
-							<?php
-						}else{
-							?>
-							<li><a href="/uitleg">Uitleg</a></li>
-							<li><a href="/restaurants">Restaurants</a></li>
-							<li><a href="/contact">Contact</a></li>
-							<?php
-						}
-
+					if ($super){
 						?>
-						<li><a href="/logout">Uitloggen</a></li>
-						<li><a href="/reservations">Reservaties</a></li>
-						<?php
-
+						<li><a href="/admin/restaurants">Restaurants beheren</a></li>
+					<?php
 					}else{
 						?>
 						<li><a href="/uitleg">Uitleg</a></li>
 						<li><a href="/restaurants">Restaurants</a></li>
 						<li><a href="/contact">Contact</a></li>
-						<li><a href="/register">Aanmelden</a></li>
-						<li><a href="/login">Inloggen</a></li>
-						<?php
+					<?php
 					}
+
 					?>
-				</ul>
-			</nav>
-		</header>
+					<li><a href="/logout">Uitloggen</a></li>
+					<li><a href="/reservations">Reservaties</a></li>
+				<?php
+
+				}else{
+					?>
+					<li><a href="/uitleg">Uitleg</a></li>
+					<li><a href="/restaurants">Restaurants</a></li>
+					<li><a href="/contact">Contact</a></li>
+					<li><a href="/register">Aanmelden</a></li>
+					<li><a href="/login">Inloggen</a></li>
+				<?php
+				}
+				?>
+			</ul>
+		</nav>
+	</div>
+</header>
+
+	<div class="website">
+
 		<?php if(!empty($melding)){ ?>
 			<div class="notice"><?php echo $melding; ?></div>
 		<?php } ?>
