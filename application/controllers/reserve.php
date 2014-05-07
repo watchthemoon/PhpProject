@@ -65,4 +65,26 @@ class Reserve extends Config {
 		return $query;
 	}
 
+	public function customer(){
+
+		$error = array();
+		$post = $this->input->post();
+
+			## Laad de model
+			$this->load->model('m_customer');
+
+			## Sla de gegevens op in de model
+			$this->m_register->save($post);
+
+			## Vul melding dat het gelukt is
+			$this->session->set_userdata('melding','U hebt succesvol gereserveerd.');
+
+			## Stuur door naar hoofd pagina
+			redirect('/');
+
+		}
+
+	}
+
+
 }

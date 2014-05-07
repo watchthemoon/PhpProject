@@ -1,0 +1,24 @@
+<?php
+class m_Customer extends CI_Model{
+
+	public function save($data){
+
+		## Array maken met gebruikers data
+		$set = array(
+			'restaurantid' => 'Nog variabele geven',
+			'tableid' => 'Nog variabele geven',
+			'date' => 'Nog variabele geven',
+			'peoplenr' => 'Nog variabele geven',
+			'userid' => 'Nog variabele geven',
+			'beschrijving' => 'Nog variabele geven'
+		);
+
+		## Sla de array op als reservatie
+		$this->db->insert('reserve',$set);
+
+		## Laat de laatst uitgevoerde query zien
+		## echo $this->db->last_query();
+		## die();
+	}
+
+}

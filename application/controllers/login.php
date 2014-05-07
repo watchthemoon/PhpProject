@@ -112,10 +112,15 @@ class Login extends Config {
 					'tafelid' => $tafelid,
 					'aantal' => $aantal,
 					'user' => $userinformatie,
-					'restaurant' => $restaurantinfo
+					'restaurantid' => $restaurantinfo
 				);
 
-					$this->load->view('index',array_merge($this->data,$data));
+				$this->session->set_userdata('tafelid',$tafelid);
+				$this->session->set_userdata('aantal',$aantal);
+				$this->session->set_userdata('user',$userinformatie);
+				$this->session->set_userdata('restaurantid',$restaurantinformatie);
+
+				//$this->session->set_userdata('tafelid', 'aantal', 'user', 'restaurantid');
 				## Stuur door naar login check pagina
 				redirect('/reserve/reservetable');
 
