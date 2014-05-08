@@ -28,9 +28,13 @@ class Reserve extends Config {
 	}
 
 	public function form(){
+		
+
+		$table = $this->m_tables->load($data['restaurantid'],$data['tableid']);
 
 		$data = array(
-			'view' => 'reserve',
+			'restaurantid' => $data['restaurantid'],
+			'tableid' => $data['tableid']
 		);
 
 		$this->load->view('/reserve_form',array_merge($this->data,$data));

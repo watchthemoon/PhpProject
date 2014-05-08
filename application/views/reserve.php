@@ -47,10 +47,10 @@
 
 <script type="text/javascript">
 	var curdate = '<?php echo date("d-m-Y");?>';
-	$(".grid-block-filled .free").on('click',function(){
 
-		openWindow('/reserve/form',{});
-	});
+	$(".grid-block-filled .free").on('click',function(){
+  		openWindow('/reserve/form',{tableid:$(this).parent().data('tableid')});
+ 		});
 
 	$('.grid-block').click(function(event){event.preventDefault()});
 
