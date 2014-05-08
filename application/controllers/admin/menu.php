@@ -31,8 +31,8 @@ class Menu extends Config {
 		$this->load->view('/admin/menu_form',array_merge($this->data,$data));
 	}
 
-		public function wijzigform($menuid){
-		$wijzigquery = $this->m_menu->getGerecht($menuid);
+		public function wijzigform(){
+		$wijzigquery = $this->m_menu->getGerecht($this->input->post());
 		$data = array(
 			'data' => $this->input->post(),
 			'wijzigquery' =>  $wijzigquery

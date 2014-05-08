@@ -12,7 +12,7 @@
 
                 <input type="hidden" name="menuid" value="<?php echo $row->menuid;?>" />
                 <input type="hidden" name="restaurantid" value="<?php echo $row->restaurantid;?>" />
-                <input type="submit" value="wijzig" class="wijzig" />
+                <div id="gerecht<?php echo $row->menuid?>" class="wijzig"><input type="submit" value="wijzig"/></div>
                 
 
 
@@ -22,9 +22,9 @@
     $(".wijzig").on('click',function(){
         var data = {
             'restaurantid': '<?php echo $restaurantid;?>',
-            'menuid' : '<?php echo $menuid;?>'
+            'menuid' : this.id.replace('gerecht','')
         };
-        openWindow("/admin/menu/wijzigform/<?php echo $row->menuid;?>",data);
+        openWindow("/admin/menu/wijzigform/",data);
 });
 
 </script>

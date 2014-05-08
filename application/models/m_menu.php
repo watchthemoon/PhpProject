@@ -25,6 +25,15 @@ class m_Menu extends CI_Model{
 		
 		}
 
+		public function getGerecht($data){
+			$this->db->from('menu');
+			$this->db->where('menuid',$data['menuid']);
+			$wijzigquery = $this->db->get();
+			return $wijzigquery;
+		
+		}
+
+
 		public function getVoorgerecht($restaurantid){
 			$this->db->from('menu');
 			$this->db->where('restaurantid',$restaurantid);
@@ -54,15 +63,7 @@ class m_Menu extends CI_Model{
 		
 		}
 
-			public function getGerecht($menuid){
-			$this->db->from('menu');
-			$this->db->where('menuid',$menuid);
-			$wijzigquery = $this->db->get();
-			return $wijzigquery;
-		
-		}
-
-
+	
 		public function delete($data){
 	
 			$this->db->where('menuid', $data['menuid']);
