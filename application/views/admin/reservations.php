@@ -29,7 +29,7 @@
 					$table = $tables[$x . '-' . $y];
 					?>
 					<div title="Deze tafel heeft <?php echo $table->amountseats ?> stoelen. Klik om te reserveren." id="tableid<?php echo $table->tableid ?>" class="grid-block-filled" data-tableid="<?php echo $table->tableid; ?>">
-						<div class="free"></div>
+						<div class="free" id="tableid<?php echo $table->tableid ?>"></div>
 					</div>
 				<?php
 				} else {
@@ -46,13 +46,13 @@
 </section>
 
 <script type="text/javascript">
-var curdate = '<?php echo date("dd-mm-yy");?>';
-var resdate = '<?php echo date("dd-mm-yy");?>';
+var curdate = '<?php echo date("d-m-Y");?>';
+var resdate = '<?php echo date("d-m-Y");?>';
 	$(".grid-block-filled .free").on('click',function(){
 		var data = {
 			'restaurantid': '<?php echo $restaurantid;?>',
 			'tableid' : this.id.replace('tableid',''),
-			'resdate' : resdate;
+			'resdate' : resdate
 		};
 		openWindow('/admin/reservations/form',data);
 	});
