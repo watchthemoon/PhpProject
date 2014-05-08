@@ -40,12 +40,12 @@
 						<li><a href="/uitleg">Uitleg</a></li>
 						<li><a href="/restaurants">Restaurants</a></li>
 						<li><a href="/contact">Contact</a></li>
+						<li><a href="/reservations">Reservaties</a></li>
 					<?php
 					}
 
 					?>
 					<li><a href="/logout">Uitloggen</a></li>
-					<li><a href="/reservations">Reservaties</a></li>
 				<?php
 
 				}else{
