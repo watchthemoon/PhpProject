@@ -52,16 +52,15 @@ class Reserve extends Config {
 		//$query = $this->db->where('tableid',$tableid);
 
 
+		//$this->m_reserve->save($this->input->post());
 		$data = array(
-			'view' => 'reservetable',
+			'view' => '/admin/restaurants',
 			'errors' => $this->session->userdata('error'),
-			'post' => $this->session->userdata('post'),
-			//'tables' => $this->m_tables->load($tableid)
-
+			'post' => $this->session->userdata('post')
+		
 		);
 
 		$this->load->view('index',array_merge($this->data,$data));
-
 		//return $query;
 	}
 

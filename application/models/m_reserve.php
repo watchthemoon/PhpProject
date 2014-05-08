@@ -47,4 +47,27 @@ class m_Reserve extends CI_Model{
 
 	}
 
+	public function save($data){
+
+		## Array maken met gebruikers data
+	
+		## Array maken met menu data
+		/*$set = array(
+			'restaurantid' => $data['restaurantid'],
+			'tableid' => $data['tableid'],
+			'date(dd-mm-yy)' => $data['resdate'],
+			'peoplenr' => $data['aantal']
+		);*/
+
+		$set = array(
+			'restaurantid' => 2,
+			'tableid' => 8,
+			'date' => '2014-05-09',
+			'peoplenr' => 3 
+		);
+		## Sla de array op als user
+		$this->db->insert('reserve',$set);
+			
+
+}
 }
