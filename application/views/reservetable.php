@@ -2,11 +2,11 @@
 <h1>Reservatie voltooien</h1>	
 	<div class="details">
 		<h2>Informatie</h2>
-		<p>Tafelnaam: <?php echo $tafelid; ?></p>
-		<p>Aantal plaatsen: <?php echo $this->aantal; ?></p>
+		<p>Tafelnaam: <?php echo $this->session->userdata('tafelid'); ?></p>
+		<p>Aantal plaatsen: <?php echo $this->session->userdata('aantal'); ?></p>
 
-		<?php echo $this->user; ?>
-		<?php echo $this->restaurantid; ?>
+		<?php echo $this->session->userdata('user'); ?>
+		<?php echo $this->session->userdata('restaurantid'); ?>
 
 
 		<h2>Voltooi je reservatie!</h2>

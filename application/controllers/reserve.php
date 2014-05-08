@@ -48,21 +48,21 @@ class Reserve extends Config {
 
 	public function reservetable(){
 
-		$tables = $this->m_tables->load($tableid);
-		$query = $this->db->where('tableid',$tableid);
+		//$tables = $this->m_tables->load();
+		//$query = $this->db->where('tableid',$tableid);
 
 
 		$data = array(
 			'view' => 'reservetable',
 			'errors' => $this->session->userdata('error'),
 			'post' => $this->session->userdata('post'),
-			'tables' => $this->m_tables->load($tableid)
+			//'tables' => $this->m_tables->load($tableid)
 
 		);
 
 		$this->load->view('index',array_merge($this->data,$data));
 
-		return $query;
+		//return $query;
 	}
 
 	public function customer(){
@@ -83,8 +83,5 @@ class Reserve extends Config {
 			redirect('/');
 
 		}
-
-	}
-
 
 }

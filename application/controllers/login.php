@@ -66,9 +66,6 @@ class Login extends Config {
 
 		public function savereserve(){
 
-		
-
-
 		$error = array();
 		$post = $this->input->post();
 
@@ -101,24 +98,15 @@ class Login extends Config {
 				## Vul melding dat het gelukt is
 				$this->session->set_userdata('melding','U kan uw reservatie voltooien.');
 
-
 				$tafelid = "1";
 				$aantal = "2";
 				$userinformatie = "user" ;
 				$restaurantinfo = "restaurant";
 
-				$data = array(
-					'view' => 'reservetable',
-					'tafelid' => $tafelid,
-					'aantal' => $aantal,
-					'user' => $userinformatie,
-					'restaurantid' => $restaurantinfo
-				);
-
 				$this->session->set_userdata('tafelid',$tafelid);
 				$this->session->set_userdata('aantal',$aantal);
 				$this->session->set_userdata('user',$userinformatie);
-				$this->session->set_userdata('restaurantid',$restaurantinformatie);
+				$this->session->set_userdata('restaurantid',$restaurantinfo);
 
 				//$this->session->set_userdata('tafelid', 'aantal', 'user', 'restaurantid');
 				## Stuur door naar login check pagina
