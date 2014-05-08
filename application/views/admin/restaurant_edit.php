@@ -13,10 +13,16 @@
 				<label for="description">Beschrijving</label>
 				<textarea name="description" required><?php echo $query->description; ?></textarea><?php if ($errors['description'] != ''){ echo $errors['description']."<br/>"; } ?>
 
-				<label for="image">Foto</label>
-				<input type="hidden" name="imageUrl" value="<?php echo $query->image; ?>"/>
-				<br/><img src="<?php echo site_url('../upload/restaurants/'.$query->image.''); ?>" class="fotoEdit" alt="<?php echo $query->image; ?>">
+				<label for="image">Foto Overzicht</label>
+				<input type="hidden" name="imageUrlOverzicht" value="<?php echo $query->image; ?>"/>
+				<br/><img src="<?php echo site_url('../upload/restaurants/overzicht/'.$query->image.''); ?>" class="fotoEdit" alt="<?php echo $query->image; ?>">
 				<input type="file" name="image"><?php if ($errors['image'] != ''){ echo $errors['image']."<br/>"; } ?>
+
+				<label for="imageHeader">Foto Header</label>
+				<input type="hidden" name="imageUrlHeader" value="<?php echo $query->imageHeader; ?>"/>
+				<br/><img src="<?php echo site_url('../upload/restaurants/header/'.$query->imageHeader.''); ?>" class="fotoEdit" alt="<?php echo $query->imageHeader; ?>">
+				<input type="file" name="imageHeader"><?php if ($errors['imageHeader'] != ''){ echo $errors['imageHeader']."<br/>"; } ?>
+
 
 				<input type="submit" value="Opslaan"/>
 

@@ -2,7 +2,7 @@
 	<section class="contain">	
 			
 			<div class="details">
-				<img src="<?php echo site_url('../upload/restaurants/'.$query->image.''); ?>" alt="<?php echo $query->image; ?>">
+				<img src="<?php echo site_url('../upload/restaurants/header/'.$query->imageHeader.''); ?>" alt="<?php echo $query->imageHeader; ?>">
 				
 			</div>
 			<div class="info">
