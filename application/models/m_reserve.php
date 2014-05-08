@@ -56,10 +56,30 @@ class m_Reserve extends CI_Model{
 			'restaurantid' => $data['restaurantid'],
 			'tableid' => $data['tableid'],
 			'date' =>   date("Y-m-d",strtotime($data['resdate'])),
-			'peoplenr' => $data['aantal']
+			'peoplenr' => $data['aantal'],
+			'description' => $data['description']
 		);
 			$this->db->insert('reserve',$set);
 			
+
+}
+
+	public function delete($data){
+
+		$this->db->where('reserveid',$data['reserveid']);
+		$this->db->delete('reserve');
+
+
+	}
+
+public function showRes($data){
+
+		$this->db->from('reserve');
+		$this->db->where('tableid',$data['tableid']);
+		$this->db->where('date',date("Y-m-d",strtotime($data['resdate'])));
+		$query = $this->db->get();
+		return $query;
+
 
 }
 }

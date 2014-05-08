@@ -39,7 +39,6 @@ function liveCheckBackEnd(restaurantid,date){
 			$('#block' + val.coordinates + ' .reservedBackEnd').show();
 			$('#block' + val.coordinates + ' .free').hide();
 			$('#block' + val.coordinates + ' .reservedBackEnd').attr("title", "Deze tafel is al gereserveerd.");
-			$('#block' + val.coordinates + ' .reservedBackEnd').attr("id", "tableid<?php echo $table->tableid ?>");
 		
 		});
 	});

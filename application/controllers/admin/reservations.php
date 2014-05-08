@@ -28,13 +28,28 @@ class Reservations extends Config {
 	}
 
 	public function form(){
+		
+		$query = $this->m_reserve->showRes($this->input->post());
 		$data = array(
-			'data' => $this->input->post()
+			'data' => $this->input->post(),
+			'query' => $query
 		);
 
 		$this->load->view('/admin/reservations_detail',array_merge($this->data,$data));
-	}
+}	
 
+	public function deleteRes(){
+
+		$data = $this->input->post();
+
+			$this->m_reserve->delete($data);
+
+			$this->session->set_userdata('melding', 'Reservatie succesvol verwijderd');
+
+$this->view($data['restaurantid']);
+		
+
+	}
 	public function check(){
 		$data = $this->input->post();
 		$this->load->model('m_reserve');
@@ -77,5 +92,9 @@ class Reservations extends Config {
 			redirect('/');
 
 		}
+
+
+
+
 
 }
