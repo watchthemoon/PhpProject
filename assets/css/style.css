@@ -232,15 +232,21 @@ textarea{
 	color: #ffffff;
 	background-color: #484848; 
 	padding-top: 5px;
+	margin-bottom: 0px;
 }
 
 .res p{
 	padding-left: 10px;
 	padding-right: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	color: #000000;
-	height: 70px;
+	height: 90px;
 	font-size: 12px;
 	line-height: 18px;
+	border-left: 1px #D0D0D0 solid ;
+	border-right: 1px #D0D0D0 solid ;
+	margin: 0px;
 }
 
 .resfoto{
@@ -249,6 +255,42 @@ textarea{
 
 #restaurants-view{
 	overflow: hidden;
+}
+
+#info{
+	float: left;
+	width: 70%;
+}
+
+#info img{
+	width: 100%;
+}
+
+#info h2{
+	background-color: #880000;
+	color: #ffffff;
+	padding-top: 5px;
+	margin-top: -7px;
+	padding-left: 5px;
+}
+
+#info h3{
+	border: none;
+	color: #ffffff;
+	background-color: #484848; 
+	padding-top: 5px;
+	padding-left: 5px;
+}
+
+div.contain{
+	background: #fdfdff;
+	padding: 25px;
+	box-sizing: border-box;
+	border-radius: 5px;
+}
+
+.info img{
+	width: 100%;
 }
 
 .info h2{
@@ -267,7 +309,22 @@ textarea{
 	padding-left: 5px;
 }
 
-.info img{
+#rsvblock{
+	float: left;
+	width: 25%;
+	margin-left: 20px;
+}
+
+#rsvblock h3{
+	border: none;
+	color: #ffffff;
+	background-color: #484848; 
+	padding-top: 5px;
+	padding-left: 5px;
+}
+
+#rsvblock .btn{
+	margin-bottom: 10px;
 }
 
 .details img{

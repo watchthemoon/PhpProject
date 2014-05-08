@@ -1,25 +1,14 @@
-	<section class="contain">
+	<section >
 
-			<div class="info">
+			<div id="info" class="contain">
 				<img src="<?php echo site_url('upload/restaurants/header/'.$query->imageHeader.''); ?>" alt="<?php echo $query->image; ?>">
 				<h2><?php echo $query->name . ' in '.$query->city . ' (' .$query->country.')'; ?></h2>
-				<div id="addRestaurant">
-				<form action="/reserve/view/<?php echo $query->restaurantid;?>" method="post">
-					<input type="submit" value="Reserveer"/>
-				</form>
-
+				<h3>Beschrijving</h3>
+				<p><?php echo $query->description; ?></p>
 				<h3>Informatie</h3>
-
-				<p>Reserveer nu met je account, nog geen account? <a href="/register">registreer hier!</a></p>
-			</div>
-				<div class="info">
-				<h2>Informatie</h2>
-
 				<p>Straat: <?php echo $query->address; ?></p>
 				<p>Stad: <?php echo $query->city; ?></p>
 				<p>Land: <?php echo $query->country; ?></p>
-				<h3>Beschrijving</h3>
-				<p><?php echo $query->description; ?></p>
 				<h3>Menu</h3>
 				<h4>Voorgerechten</h4>
 				<?php foreach ($voorgerecht as $vg) { ?>
@@ -34,6 +23,13 @@
 				<p><?php echo $ng->name; ?> -  <?php echo $ng->price; ?></p>
 				<?php } ?>
 				</div>
-			</div>
+				<div id="rsvblock" class="contain">
+				<h3>Reservatie</h3>
+				<p>Reserveer nu met je account, nog geen account? <a href="/register">registreer hier!</a></p>
+				<form action="/reserve/view/<?php echo $query->restaurantid;?>" method="post">
+					<input type="submit" value="Reserveer"/>
+				</form>
+				
+				</div>
 			<div class="clear"></div>
 	</section>
