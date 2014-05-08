@@ -46,17 +46,16 @@ class Reservations extends Config {
 	}
 
 	public function reservetable(){
-
-		$this->m_reserve->save($this->input->post());
+		$gegevens = ($this->input->post());
+		$this->m_reserve->save($gegevens);
 		$data = array(
-			'view' => '/admin/reservations',
+			'view' => '/admin/Reservations',
 			'errors' => $this->session->userdata('error'),
-			'post' => $this->session->userdata('post')
-		
+			'post' => $this->session->userdata('post'),
+			'restaurantid' => $gegevens['restaurantid']
 		);
 
-		$this->load->view('index',array_merge($this->data,$data));
-
+		$this->view($gegevens['restaurantid']);
 		//return $query;
 	}
 

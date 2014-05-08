@@ -14,7 +14,7 @@
 			<div>
 				<div class="legend">
 					<img src="/assets/images/table.png" alt="Bezette tafel" />
-					<div class="reserved"></div>
+					<div class="reservedBackEnd"></div>
 				</div>
 				<div class="text"><p>= bezette ruimte</p></div>
 			</div>
@@ -28,7 +28,8 @@
 				if (is_object($tables[$x . '-' . $y])) {
 					$table = $tables[$x . '-' . $y];
 					?>
-					<div title="Deze tafel heeft <?php echo $table->amountseats ?> stoelen. Klik om te reserveren." id="tableid<?php echo $table->tableid ?>" class="grid-block-filled" data-tableid="<?php echo $table->tableid; ?>">
+					<div title="Deze tafel heeft <?php echo $table->amountseats ?> stoelen. Klik om te reserveren." id="block<?php echo $x . '-' . $y; ?>" class="grid-block-filled" data-tableid="<?php echo $table->tableid ?>">
+						<div class="reservedBackEnd" id="tableid<?php echo $table->tableid ?>"></div>
 						<div class="free" id="tableid<?php echo $table->tableid ?>"></div>
 					</div>
 				<?php
@@ -52,16 +53,27 @@ var resdate = '<?php echo date("d-m-Y");?>';
 		var data = {
 			'restaurantid': '<?php echo $restaurantid;?>',
 			'tableid' : this.id.replace('tableid',''),
-			'resdate' : resdate
+			'resdate' : resdate,
+			'gereserveerd' : 'vrij'
+		};
+		openWindow('/admin/reservations/form',data);
+	});
+
+	$(".grid-block-filled .reservedBackEnd").on('click',function(){
+		var data = {
+			'restaurantid': '<?php echo $restaurantid;?>',
+			'tableid' : this.id.replace('tableid',''),
+			'resdate' : resdate,
+			'gereserveerd' : 'bezet'
 		};
 		openWindow('/admin/reservations/form',data);
 	});
 
 	$('.grid-block').click(function(event){event.preventDefault()});
 
-	liveCheck(<?php echo $restaurantid; ?>,curdate);
+	liveCheckBackEnd(<?php echo $restaurantid; ?>,curdate);
 	setInterval(function(){
-		liveCheck(<?php echo $restaurantid ?>,curdate);
+		liveCheckBackEnd(<?php echo $restaurantid ?>,curdate);
 	},5000)
 
 	$("#datepicker").datepicker({
@@ -73,7 +85,7 @@ var resdate = '<?php echo date("d-m-Y");?>';
 		onSelect: function(date){
 			resdate = date;
 			curdate = date;
-			liveCheck(<?php echo $restaurantid; ?>,curdate);
+			liveCheckBackEnd(<?php echo $restaurantid; ?>,curdate);
 		}
 	});
 </script>

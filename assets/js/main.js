@@ -30,3 +30,17 @@ function liveCheck(restaurantid,date){
 		});
 	});
 }
+
+function liveCheckBackEnd(restaurantid,date){
+	$.post( "/admin/reservations/check", { restaurantid: restaurantid,date: date }).done(function( data ) {
+		$('#tables .reservedBackEnd').hide();
+		$('#tables .free').show();
+		$.each( data, function( key, val ) {
+			$('#block' + val.coordinates + ' .reservedBackEnd').show();
+			$('#block' + val.coordinates + ' .free').hide();
+			$('#block' + val.coordinates + ' .reservedBackEnd').attr("title", "Deze tafel is al gereserveerd.");
+			$('#block' + val.coordinates + ' .reservedBackEnd').attr("id", "tableid<?php echo $table->tableid ?>");
+		
+		});
+	});
+}
