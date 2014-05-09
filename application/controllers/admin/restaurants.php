@@ -5,11 +5,12 @@ class Restaurants extends Config {
 	public function index()
 	{
 		$this->load->model('m_restaurant');
+		$user = $this->session->userdata('user_id');
 		$data = array(
 			'view' => 'admin/restaurants',
 			'errors' => $this->session->userdata('error'),
 			'post' => $this->session->userdata('post'),
-			'query' => $this->m_restaurant->getRestaurants()
+			'query' => $this->m_restaurant->getRestaurantByUser($user)
 		);
 
 		$this->load->view('index', array_merge($this->data, $data));
