@@ -49,8 +49,12 @@
 	var curdate = '<?php echo date("d-m-Y");?>';
 
 	$(".grid-block-filled .free").on('click',function(){
-  		openWindow('/reserve/form',{tableid:$(this).parent().data('tableid')});
- 		});
+		var data = {
+			restaurantid:<?php echo $restaurantid ?>,
+			tableid:$(this).parent().data('tableid')
+		};
+  		openWindow('/reserve/form',data);
+	});
 
 	$('.grid-block').click(function(event){event.preventDefault()});
 

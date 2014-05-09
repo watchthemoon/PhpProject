@@ -28,9 +28,11 @@ class Reserve extends Config {
 	}
 
 	public function form(){
-		
 
+		$data = $this->input->post();
 		$table = $this->m_tables->load($data['restaurantid'],$data['tableid']);
+
+
 
 		$data = array(
 			'restaurantid' => $data['restaurantid'],
