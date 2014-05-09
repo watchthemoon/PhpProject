@@ -10,17 +10,12 @@ class Reservations extends Config {
 
 	public function view($restaurantid)	{
 
-		if ($this->online){
-			$online = true;
-		}
 
-		$tables = $this->m_reserve->load($restaurantid);
-
+	
 		$data = array(
 			'view' => '/admin/reservations',
 			'errors' => $this->session->userdata('error'),
 			'post' => $this->session->userdata('post'),
-			'tables' => $tables,
 			'restaurantid' => $restaurantid
 		);
 
@@ -50,6 +45,51 @@ $this->view($data['restaurantid']);
 		
 
 	}
+
+		public function editRes(){
+
+		$data = $this->input->post();
+
+			$this->m_reserve->edit($data);
+
+			$this->session->set_userdata('melding', 'Reservatie succesvol Aangepast');
+
+		$this->view($data['restaurantid']);
+		
+
+	}
+
+	public function loadres(){
+	$gegevens= $this->input->post();
+
+	if($gegevens['weergave'] == 'tabel'){
+	
+	$tables = $this->m_reserve->load($gegevens['restaurantid']);
+
+		$data = array(
+			'tables' => $tables,
+			'restaurantid' => $gegevens['restaurantid']
+		);
+
+		$this->load->view('/admin/reservations_tabelview',array_merge($this->data,$data));
+	} elseif($gegevens['weergave'] == 'lijst'){
+
+		$data = array(
+		'restaurantid' => $gegevens['restaurantid']
+		);
+		$this->load->view('/admin/reservations_listview',array_merge($this->data,$data));
+	} else{
+				$query = $this->m_reserve->lijstRes($gegevens);
+		$data = array(
+		'query' => $query,
+		'restaurantid' => $gegevens['restaurantid'],
+		'resdate' => $gegevens['date']
+		);
+		$this->load->view('/admin/reservations_list',array_merge($this->data,$data));
+
+	}
+
+}
 	public function check(){
 		$data = $this->input->post();
 		$this->load->model('m_reserve');

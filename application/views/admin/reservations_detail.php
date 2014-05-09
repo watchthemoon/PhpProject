@@ -6,14 +6,19 @@
 
 	<?php foreach ($query->result() as $row) { ?>
 
-	<form action="/admin/reservations/deleteRes" method="post">
+	<form action="/admin/reservations/editRes" method="post">
 	<input type="text" name="aantal" value="<?php echo $row->peoplenr?>"/>
-	<input type="text" name="description" value="<?php echo $row->description?>"/>
+	<input type="text" name="description" value="<?php echo $row->description?>" placeholder="Beschrijving" /> 
 	<input type="hidden" name="reserveid" value="<?php echo $row->reserveid?>" />
 	<input type="hidden" name="restaurantid" value="<?php echo $row->restaurantid?>"/>
-	<input type="submit" name="btnDelete" value="Verwijder"/>
+	<input type="submit" name="btnDelete" value="Wijzig"/>
 	</form>
-		
+		<form action="/admin/reservations/deleteRes" method="post">
+	<input type="hidden" name="restaurantid" value="<?php echo $row->restaurantid?>"/>
+	<input type="hidden" name="reserveid" value="<?php echo $row->reserveid?>" />
+	<input type="submit" name="btnDelete" value="Verwijder"/>
+		</form>
+
 
 	<?php }} else { ?>
 		<h2 class="title">Maak een nieuwe reservatie aan</h2>

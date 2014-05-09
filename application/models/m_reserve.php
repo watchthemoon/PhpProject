@@ -72,6 +72,15 @@ class m_Reserve extends CI_Model{
 
 	}
 
+		public function edit($data){
+		$set = array(
+			'peoplenr' => $data['aantal'],
+			'description' => $data['description']
+			);
+		$this->db->where('reserveid',$data['reserveid']);
+		$this->db->update('reserve',$set);
+	}
+
 public function showRes($data){
 
 		$this->db->from('reserve');
@@ -80,6 +89,16 @@ public function showRes($data){
 		$query = $this->db->get();
 		return $query;
 
+
+}
+
+public function lijstRes($data){
+
+
+$this->db->from('reserve');
+		$this->db->where('date',date("Y-m-d",strtotime($data['date'])));
+		$query = $this->db->get();
+		return $query;
 
 }
 }

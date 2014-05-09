@@ -10,16 +10,16 @@
 
 </script>
 
+
+  <section class="contain">
+
 <h1>Menu's</h1>
 <div id="rightside">
-
-	<section>
 
 		<p>Hier komen de menu's voor de restauranthouder.</p>
 
 		<button class="toevoegen"type="submit">menu toevoegen </button>
 
-	</section>
 
 
 
@@ -34,6 +34,8 @@
 
 </div>
 
+  </section>
+
 <script type="text/javascript">
   
 
@@ -44,13 +46,6 @@
         openWindow('/admin/menu/form',data);
     });
 
-    $(".wijzig").on('click',function(){
-        var data = {
-            'restaurantid': '<?php echo $restaurantid;?>',
-            'menuid' : '<?php echo $menuid;?>'
-        };
-        openWindow("/admin/menu/wijzigform/<?php echo $row->menuid;?>",data);
-});
 
      $(".voorgerechten").on('click',function(){
        var data = {

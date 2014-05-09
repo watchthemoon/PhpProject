@@ -37,7 +37,7 @@ class Menu extends Config {
 			'data' => $this->input->post(),
 			'wijzigquery' =>  $wijzigquery
 		);
-		$this->load->view('/admin/menu_wijzig_form',array_merge($this->data,$data));
+		$this->load->view('/admin/menu_edit_form',array_merge($this->data,$data));
 	}
 		public function loadmenu(){
 		$query = $this->m_menu->getMenu($this->input->post());
