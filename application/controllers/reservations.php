@@ -13,4 +13,17 @@ class reservations extends Config {
 
 	}
 
+
+	public function loadrescustomer(){
+		$gegevens= $this->input->post();
+
+		$data = array(
+		'userid' => $gegevens['userid']
+		);
+		$this->load->view('/reservatons.php',array_merge($this->data,$data));
+
+		$query = $this->m_reserve->lijstRes($gegevens);
+
+	}
+
 }

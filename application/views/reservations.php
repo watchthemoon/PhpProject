@@ -1,13 +1,16 @@
+<section class="contain">
 <h1>Welkom bij Anjalaya</h1>
-<div id="rightside">
-
-	<section id="reservaties">
-
 		<h2>Jou reservaties</h2>
 
-		<p>Een overzicht van je reservaties komt hier</p>
-		<p> ingeladen als een for each --> Nog in orde brengen. </p>
+		<div id="klantenreservaties" class="reservatieklant">
+		</div>
+</section>
 
-	</section>
-
-</div>
+<script type="text/javascript">
+ $(document).ready(function(){
+    	var data = {
+		'restaurantid' : '<?php echo $restaurantid;?>',
+		'weergave' : 'lijstres'
+	}
+	$(".reservatieklant").load('/reservations/loadrescustomer',data);
+});
