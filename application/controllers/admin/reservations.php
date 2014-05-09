@@ -114,6 +114,20 @@ $this->view($data['restaurantid']);
 		//return $query;
 	}
 
+	public function reservetablecustomer1(){
+		$gegevens = ($this->input->post());
+		$this->m_reserve->savecustomer1($gegevens);
+		$data = array(
+			'view' => '/reservetable',
+			'errors' => $this->session->userdata('error'),
+			'post' => $this->session->userdata('post'),
+			'restaurantid' => $gegevens['restaurantid']
+		);
+
+		$this->view($gegevens['restaurantid']);
+		//return $query;
+	}
+
 	public function customer(){
 
 		$error = array();

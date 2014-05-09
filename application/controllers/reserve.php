@@ -54,9 +54,6 @@ class Reserve extends Config {
 
 	public function reservetable(){
 
-		//$tables = $this->m_tables->load();
-		//$query = $this->db->where('tableid',$tableid);
-
 
 		//$this->m_reserve->save($this->input->post());
 		$data = array(
@@ -69,6 +66,21 @@ class Reserve extends Config {
 		$this->load->view('index',array_merge($this->data,$data));
 		//return $query;
 	}
+
+	/*public function reservetablecustomer(){
+
+
+		//$this->m_reserve->save($this->input->post());
+		$data = array(
+			'view' => '/reservetable',
+			'errors' => $this->session->userdata('error'),
+			'post' => $this->session->userdata('post')
+		
+		);
+
+		$this->load->view('index',array_merge($this->data,$data));
+		//return $query;
+	}*/
 
 	public function customer(){
 

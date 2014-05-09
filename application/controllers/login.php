@@ -64,7 +64,7 @@ class Login extends Config {
 		}
 	}
 
-		public function savereserve(){
+		/*public function savereserve(){
 
 		$error = array();
 		$post = $this->input->post();
@@ -95,6 +95,7 @@ class Login extends Config {
 			## Laad de model
 			$this->load->model('m_login');
 			$this->load->model('m_tables');
+			$this->load->model('m_restaurant');
 
 			## Sla de gegevens op in de model
 			$result = $this->m_login->login($post);
@@ -106,19 +107,22 @@ class Login extends Config {
 				$post = $this->input->post();
 				$tafelid =$post['tableid'];
 				$aantal = $post['aantal1'];
-				$userinformatie = "user" ;
-				$restaurantinfo = $post['restaurantid'];
-
-				print_r($post);
-				die();
-
+				$userinfo = $this->m_reserve->weergaveuser();
+				$restaurantinfo = $this->m_reserve->weergaverestaurant();
+	
 				$this->session->set_userdata('tafelid',$tafelid);
-				$this->session->set_userdata('aantal',$aantal);
-				$this->session->set_userdata('user',$userinformatie);
-				$this->session->set_userdata('restaurantid',$restaurantinfo);
+				$this->session->set_userdata('aantal',$aantal);	
+
+				$data = array(
+					'view' => 'admin/restaurant_detail',
+					'errors' => $this->session->userdata('error'),
+					'post' => $this->session->userdata('post'),
+			'query' => $this->m_restaurant->getRestaurantById($this->uri->segment(4))
+		);
+				'query' => $this->m_restaurant->getRestaurantById($this->uri->segment(4))
 
 				## Stuur door naar reserveerpagina
-				redirect('/reserve/reservetable');
+				redirect('/reserve/reservetablecustomer');
 
 
 			}else{
@@ -127,5 +131,5 @@ class Login extends Config {
 				redirect('/reserve/reserve_form');
 			}
 		}
-	}
+	}*/
 }
