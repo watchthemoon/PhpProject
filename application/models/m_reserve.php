@@ -132,7 +132,7 @@ $this->db->from('reserve');
 
 }
 
-*public function weergaveuser(){
+public function weergaveuser(){
 
 $this->db->from('reserve');
 		$this->db->where('userid',$this->session->userdata['user_id']);
@@ -141,14 +141,5 @@ $this->db->from('reserve');
 
 }
 
-/*public function weergaverestaurant(){
-
-$this->db->select('name,address,city,country,phone');
-$this->db->from('restaurants');
-		$this->db->where('restaurantid',$this->session->set_userdata('restaurantid',$restaurantinfo));
-		$userinfo = $this->db->get();
-		return $restaurantinfo;
-
-}*/
 
 }
