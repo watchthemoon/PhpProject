@@ -4,7 +4,7 @@
 	?>
 	<div class="close"><a onclick="closeWindow();" href="#">Sluit venster</a></div>
 	<h2>Aantal personen?</h2>
-	<form action="reservations/reservetablecustomer2" method="post" autocomplete="off">
+	<form action="/reservations/reservetablecustomer2" method="post" autocomplete="off">
 		<input required type="text" name="aantal2" placeholder="Aantal"/>
 		<input type="submit" name="btnLogin" value="Reserveer"/>
 	</form>
@@ -19,7 +19,7 @@
 		<section id="login">
 			<h2>Aantal personen?</h2>
 
-			<form action="reservations/reservetablecustomer1" method="post" autocomplete="off">
+			<form action="/reservations/reservetablecustomer1" method="post" autocomplete="off">
 				<input required type="text" name="aantal1" placeholder="Aantal"/><?php if ($errors['aantal1'] != ''){ echo $errors['aantal1']; } ?>
 				</br>
 				<h2>Snel reserveren via je login!</h2>

@@ -49,9 +49,7 @@ class m_Reserve extends CI_Model{
 
 	public function save($data){
 
-		## Array maken met gebruikers data
-	
-		## Array maken met menu data
+		## Array maken 
 		$set = array(
 			'restaurantid' => $data['restaurantid'],
 			'tableid' => $data['tableid'],
@@ -66,9 +64,7 @@ class m_Reserve extends CI_Model{
 
 	public function savecustomer1($data){
 
-		## Array maken met gebruikers data
-	
-		## Array maken met menu data
+		## Array maken 
 		$set = array(
 			'restaurantid' => $data['restaurantid'],
 			'userid' => $this->session->userdata['user_id'],
@@ -91,7 +87,7 @@ class m_Reserve extends CI_Model{
 			'userid' => $this->session->userdata['user_id'],
 			'tableid' => $data['tableid'],
 			'date' => $date("Y-m-d",strtotime($data['resdate'])),
-			'peoplenr' => $data['aantal1']
+			'peoplenr' => $data['aantal2']
 		);
 			$this->db->insert('reserve',$set);
 			
@@ -136,17 +132,16 @@ $this->db->from('reserve');
 
 }
 
-/*public function weergaveuser(){
+*public function weergaveuser(){
 
-$this->db->select('name,firstname,email,phone');
-$this->db->from('users');
+$this->db->from('reserve');
 		$this->db->where('userid',$this->session->userdata['user_id']);
-		$userinfo = $this->db->get();
-		return $userinfo;
+		$reservations = $this->db->get();
+		return $reservations;
 
 }
 
-public function weergaverestaurant(){
+/*public function weergaverestaurant(){
 
 $this->db->select('name,address,city,country,phone');
 $this->db->from('restaurants');
