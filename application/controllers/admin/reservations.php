@@ -11,13 +11,15 @@ class Reservations extends Config {
 	public function view($restaurantid)	{
 
 
-	
+			$tables = $this->m_reserve->load($restaurantid);	
 		$data = array(
 			'view' => '/admin/reservations',
 			'errors' => $this->session->userdata('error'),
 			'post' => $this->session->userdata('post'),
-			'restaurantid' => $restaurantid
+			'restaurantid' => $restaurantid,
+			'tables' => $tables	
 		);
+
 
 		$this->load->view('index',array_merge($this->data,$data));
 	}
@@ -60,34 +62,6 @@ $this->view($data['restaurantid']);
 	}
 
 	public function loadres(){
-	$gegevens= $this->input->post();
-
-	if($gegevens['weergave'] == 'tabel'){
-	
-	$tables = $this->m_reserve->load($gegevens['restaurantid']);
-
-		$data = array(
-			'tables' => $tables,
-			'restaurantid' => $gegevens['restaurantid']
-		);
-
-		$this->load->view('/admin/reservations_tabelview',array_merge($this->data,$data));
-	} elseif($gegevens['weergave'] == 'lijst'){
-
-		$data = array(
-		'restaurantid' => $gegevens['restaurantid']
-		);
-		$this->load->view('/admin/reservations_listview',array_merge($this->data,$data));
-	} else{
-				$query = $this->m_reserve->lijstRes($gegevens);
-		$data = array(
-		'query' => $query,
-		'restaurantid' => $gegevens['restaurantid'],
-		'resdate' => $gegevens['date']
-		);
-		$this->load->view('/admin/reservations_list',array_merge($this->data,$data));
-
-	}
 
 }
 	public function check(){
