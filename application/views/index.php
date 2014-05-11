@@ -19,7 +19,7 @@
 <body>
 
 <header>
-	<div id="center">
+	<div class="center">
 		<div id="logo">
 			<p>Anjalaya</p>
 		</div>
@@ -63,11 +63,15 @@
 	</div>
 </header>
 
-	<div class="website">
+	<?php if(!empty($melding)){ ?>
+		<div class="notice">
+			<div class="center">
+				<?php echo $melding; ?>
+			</div>
+		</div>
+	<?php } ?>
 
-		<?php if(!empty($melding)){ ?>
-			<div class="notice"><?php echo $melding; ?></div>
-		<?php } ?>
+	<div class="website">
 		<div class="main">
 			<?php
 			if ($view != ''){
