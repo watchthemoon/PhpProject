@@ -36,7 +36,8 @@ class Reserve extends Config {
 
 		$data = array(
 			'restaurantid' => $data['restaurantid'],
-			'tableid' => $data['tableid']
+			'tableid' => $data['tableid'],
+			'resdate' => $data['resdate']
 		);
 
 		$this->load->view('/reserve_form',array_merge($this->data,$data));

@@ -66,11 +66,11 @@ class m_Reserve extends CI_Model{
 
 		## Array maken 
 		$set = array(
-			'restaurantid' => $gegevens1['restaurantid'],
+			'restaurantid' => $data['restaurantid'],
 			'userid' => $this->session->userdata['user_id'],
-			'tableid' => $gegevens1['tableid'],
-			'date' => $date("Y-m-d",strtotime($gegevens1['resdate'])),
-			'peoplenr' => $gegevens1['aantal1']
+			'tableid' => $data['tableid'],
+			'date' => $date("Y-m-d",strtotime($data['resdate'])),
+			'peoplenr' => $data['aantal1']
 		);
 			$this->db->insert('reserve',$set);
 			
@@ -83,11 +83,11 @@ class m_Reserve extends CI_Model{
 	
 		## Array maken met menu data
 		$set = array(
-			'restaurantid' => $gegevens2['restaurantid'],
+			'restaurantid' => $data['restaurantid'],
 			'userid' => $this->session->userdata['user_id'],
-			'tableid' => $gegevens2['tableid'],
-			'date' => $dategegevens2("Y-m-d",strtotime($gegevens2['resdate'])),
-			'peoplenr' => $gegevens2['aantal2']
+			'tableid' => $data['tableid'],
+			'date' => $date("Y-m-d",strtotime($data['resdate'])),
+			'peoplenr' => $data['aantal2']
 		);
 			$this->db->insert('reserve',$set);
 			
