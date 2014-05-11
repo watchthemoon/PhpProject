@@ -57,13 +57,9 @@ $this->view($data['restaurantid']);
 			$this->session->set_userdata('melding', 'Reservatie succesvol Aangepast');
 
 		$this->view($data['restaurantid']);
-		
 
 	}
 
-	public function loadres(){
-
-}
 	public function check(){
 		$data = $this->input->post();
 		$this->load->model('m_reserve');

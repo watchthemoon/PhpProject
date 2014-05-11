@@ -111,35 +111,39 @@ class m_Reserve extends CI_Model{
 		$this->db->update('reserve',$set);
 	}
 
-public function showRes($data){
+	public function showRes($data){
 
-		$this->db->from('reserve');
-		$this->db->where('tableid',$data['tableid']);
-		$this->db->where('date',date("Y-m-d",strtotime($data['resdate'])));
-		$query = $this->db->get();
-		return $query;
-
-
-}
-
-public function lijstRes($data){
+	$this->db->from('reserve');
+			$this->db->where('tableid',$data['tableid']);
+			$this->db->where('date',date("Y-m-d",strtotime($data['resdate'])));
+			$query = $this->db->get();
+			return $query;
 
 
-$this->db->from('reserve');
-		$this->db->where('date',date("Y-m-d",strtotime($data['date'])));
-		$query = $this->db->get();
-		return $query;
+	}
 
-}
-
-public function weergaveuser(){
-
-$this->db->from('reserve');
-		$this->db->where('userid',$this->session->userdata['user_id']);
-		$reservations = $this->db->get();
-		return $reservations;
-
-}
+	public function lijstRes($data){
 
 
+	$this->db->from('reserve');
+			$this->db->where('date',date("Y-m-d",strtotime($data['date'])));
+			$query = $this->db->get();
+			return $query;
+
+	}
+
+	public function weergaveuser(){
+
+	$this->db->from('reserve');
+			$this->db->where('userid',$this->session->userdata['user_id']);
+
+				$query = $this->db->get();
+				if ($query->num_rows() > 0){
+					if ($userid != 0){
+						return $query->row();
+				}
+				else{
+					return '';
+				}
+			return $query;
 }

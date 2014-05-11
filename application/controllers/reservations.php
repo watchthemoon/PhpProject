@@ -18,11 +18,11 @@ class reservations extends Config {
 		$gegevens= $this->input->post();
 
 		$data = array(
-		'userid' => $gegevens['userid']
+			'userid' => $this->session->userdata['user_id']
 		);
 		$this->load->view('/reservatons.php',array_merge($this->data,$data));
 
-		$query = $this->m_reserve->weergaveuser($gegevens);
+		$query = $this->m_reserve->weergaveuser();
 
 	}
 
@@ -138,22 +138,5 @@ class reservations extends Config {
 		//$this->view($gegevens['restaurantid']);
 
 	}
-
-		public function customer(){
-
-		$error = array();
-		$post = $this->input->post();
-
-			## Laad de model
-			$this->load->model('m_customer');
-
-			## Sla de gegevens op in de model
-			$this->m_register->save($post);
-
-			## Stuur door naar hoofd pagina
-			redirect('/');
-
-		}
-
 
 }
