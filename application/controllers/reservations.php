@@ -101,8 +101,8 @@ class reservations extends Config {
 
 		##VALIDEREN VAN DE VELDEN
 
-		if (empty($post['aantal1'])){
-			$error['aantal1'] = 'Vul het aantal personen in.';
+		if (empty($post['aantal2'])){
+			$error['aantal2'] = 'Vul het aantal personen in.';
 		}
 
 		if (count($error) > 0){
@@ -118,18 +118,11 @@ class reservations extends Config {
 			## Laad de model
 			$this->load->model('m_reserve');
 
+				## gegevens opslaan in reservatiedatabank
+				$this->m_reserve->savecustomer2($post);
+
 				## Vul melding dat het gelukt is
 				$this->session->set_userdata('melding','U hebt succesvol gereserveerd.');
-
-				$gegevens2 = array(
-					'aantal2' => $post['aantal2'],
-					'tafelid' => $post['tableid'],
-					'restaurantid' => $post['restaurantid'],
-					'resdate' => $post['resdate']
-				);
-
-				## gegevens opslaan in reservatiedatabank
-				$this->m_reserve->savecustomer2($gegevens2);
 
 				$data = array(
 					'view' => '/reservations',

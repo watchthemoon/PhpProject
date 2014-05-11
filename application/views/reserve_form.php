@@ -6,12 +6,11 @@
 	<h2>Aantal personen?</h2>
 	<form action="/reservations/reservetablecustomer2" method="post" autocomplete="off">
 		<input required type="text" name="aantal2" placeholder="Aantal"/>
+		<input type="hidden" name="tableid" value="<?php echo $tableid; ?>">
+		<input type="hidden" name="restaurantid" value="<?php echo $restaurantid; ?>">
+		<input type="hidden" name="date" value="<?php echo $resdate; ?>">
 		<input type="submit" name="btnLogin" value="Reserveer"/>
 
-		<input type="submit" name="btnLogin" value="Reserveer"/>
-				<input type="hidden" name="tableid" value="<?php echo $tableid; ?>">
-				<input type="hidden" name="restaurantid" value="<?php echo $restaurantid; ?>">
-				<input type="hidden" name="date" value="<?php echo $resdate; ?>">
 	</form>
 
 	<?php 
