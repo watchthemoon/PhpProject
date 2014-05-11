@@ -12,7 +12,8 @@ class m_Restaurant extends CI_Model{
 			'phone' => $data['phone'],
 			'image' => $data['image'],
 			'imageHeader' => $data['imageHeader'],
-			'description' => $data['description']
+			'description' => $data['description'],
+			'userid' => $this->session->userdata('user_id')
 		);
 
 		## Sla de array op als restaurant
@@ -31,6 +32,13 @@ class m_Restaurant extends CI_Model{
 		} else {
 			return '';
 		}
+	}
+
+	public function getRestaurantByUser($id)	{
+		$this->db->from('restaurants');
+		$this->db->where('userid', $id);
+		$rec = $this->db->get();
+		return $rec->result();
 	}
 
 	public function getRestaurantById($id)	{
@@ -55,7 +63,8 @@ class m_Restaurant extends CI_Model{
 			'phone' => $data['phone'],
 			'image' => $data['image'],
 			'imageHeader' => $data['imageHeader'],
-			'description' => $data['description']
+			'description' => $data['description'],
+			'userid' => $this->session->userdata('user_id')
 		);
 
 		$this->db->where('restaurantid', $data['restaurantid']);

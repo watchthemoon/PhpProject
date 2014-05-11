@@ -11,13 +11,15 @@ class Reservations extends Config {
 	public function view($restaurantid)	{
 
 
-	
+			$tables = $this->m_reserve->load($restaurantid);	
 		$data = array(
 			'view' => '/admin/reservations',
 			'errors' => $this->session->userdata('error'),
 			'post' => $this->session->userdata('post'),
-			'restaurantid' => $restaurantid
+			'restaurantid' => $restaurantid,
+			'tables' => $tables	
 		);
+
 
 		$this->load->view('index',array_merge($this->data,$data));
 	}
@@ -55,41 +57,9 @@ $this->view($data['restaurantid']);
 			$this->session->set_userdata('melding', 'Reservatie succesvol Aangepast');
 
 		$this->view($data['restaurantid']);
-		
 
 	}
 
-	public function loadres(){
-	$gegevens= $this->input->post();
-
-	if($gegevens['weergave'] == 'tabel'){
-	
-	$tables = $this->m_reserve->load($gegevens['restaurantid']);
-
-		$data = array(
-			'tables' => $tables,
-			'restaurantid' => $gegevens['restaurantid']
-		);
-
-		$this->load->view('/admin/reservations_tabelview',array_merge($this->data,$data));
-	} elseif($gegevens['weergave'] == 'lijst'){
-
-		$data = array(
-		'restaurantid' => $gegevens['restaurantid']
-		);
-		$this->load->view('/admin/reservations_listview',array_merge($this->data,$data));
-	} else{
-				$query = $this->m_reserve->lijstRes($gegevens);
-		$data = array(
-		'query' => $query,
-		'restaurantid' => $gegevens['restaurantid'],
-		'resdate' => $gegevens['date']
-		);
-		$this->load->view('/admin/reservations_list',array_merge($this->data,$data));
-
-	}
-
-}
 	public function check(){
 		$data = $this->input->post();
 		$this->load->model('m_reserve');
@@ -113,28 +83,4 @@ $this->view($data['restaurantid']);
 		$this->view($gegevens['restaurantid']);
 		//return $query;
 	}
-
-	public function customer(){
-
-		$error = array();
-		$post = $this->input->post();
-
-			## Laad de model
-			$this->load->model('m_customer');
-
-			## Sla de gegevens op in de model
-			$this->m_register->save($post);
-
-			## Vul melding dat het gelukt is
-			$this->session->set_userdata('melding','U hebt succesvol gereserveerd.');
-
-			## Stuur door naar hoofd pagina
-			redirect('/');
-
-		}
-
-
-
-
-
 }

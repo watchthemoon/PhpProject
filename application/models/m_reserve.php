@@ -49,9 +49,7 @@ class m_Reserve extends CI_Model{
 
 	public function save($data){
 
-		## Array maken met gebruikers data
-	
-		## Array maken met menu data
+		## Array maken 
 		$set = array(
 			'restaurantid' => $data['restaurantid'],
 			'tableid' => $data['tableid'],
@@ -63,6 +61,38 @@ class m_Reserve extends CI_Model{
 			
 
 }
+
+	public function savecustomer1($data){
+
+		## Array maken 
+		$set = array(
+			'restaurantid' => $data['restaurantid'],
+			'userid' => $this->session->userdata['user_id'],
+			'tableid' => $data['tableid'],
+			'date' => date("Y-m-d",strtotime($data['resdate'])),
+			'peoplenr' => $data['aantal1']
+		);
+			$this->db->insert('reserve',$set);
+			
+
+	}
+
+	public function savecustomer2($data){
+
+		## Array maken met gebruikers data
+		$dt = date("Y-m-d",strtotime($data['resdate']));
+		## Array maken met menu data
+		$set = array(
+			'restaurantid' => $data['restaurantid'],
+			'userid' => $this->session->userdata['user_id'],
+			'tableid' => $data['tableid'],
+			'date' => $dt,
+			'peoplenr' => $data['aantal2']
+		);
+			$this->db->insert('reserve',$set);
+			
+
+	}
 
 	public function delete($data){
 
@@ -81,24 +111,39 @@ class m_Reserve extends CI_Model{
 		$this->db->update('reserve',$set);
 	}
 
-public function showRes($data){
+	public function showRes($data){
 
-		$this->db->from('reserve');
-		$this->db->where('tableid',$data['tableid']);
-		$this->db->where('date',date("Y-m-d",strtotime($data['resdate'])));
-		$query = $this->db->get();
-		return $query;
-
-
-}
-
-public function lijstRes($data){
+	$this->db->from('reserve');
+			$this->db->where('tableid',$data['tableid']);
+			$this->db->where('date',date("Y-m-d",strtotime($data['resdate'])));
+			$query = $this->db->get();
+			return $query;
 
 
-$this->db->from('reserve');
-		$this->db->where('date',date("Y-m-d",strtotime($data['date'])));
-		$query = $this->db->get();
-		return $query;
+	}
 
-}
+	public function lijstRes($data){
+
+
+	$this->db->from('reserve');
+			$this->db->where('date',date("Y-m-d",strtotime($data['date'])));
+			$query = $this->db->get();
+			return $query;
+
+	}
+
+	public function weergaveuser(){
+
+	$this->db->from('reserve');
+			$this->db->where('userid',$this->session->userdata['user_id']);
+
+				$query = $this->db->get();
+				if ($query->num_rows() > 0){
+					if ($userid != 0){
+						return $query->row();
+				}
+				else{
+					return '';
+				}
+			return $query;
 }

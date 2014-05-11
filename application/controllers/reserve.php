@@ -29,14 +29,15 @@ class Reserve extends Config {
 
 	public function form(){
 
-		$data = $this->input->post();
+		$post = $this->input->post();
 		$table = $this->m_tables->load($data['restaurantid'],$data['tableid']);
 
 
 
 		$data = array(
-			'restaurantid' => $data['restaurantid'],
-			'tableid' => $data['tableid']
+			'restaurantid' => $post['restaurantid'],
+			'tableid' => $post['tableid'],
+			'resdate' => $post['resdate']
 		);
 
 		$this->load->view('/reserve_form',array_merge($this->data,$data));
@@ -54,9 +55,6 @@ class Reserve extends Config {
 
 	public function reservetable(){
 
-		//$tables = $this->m_tables->load();
-		//$query = $this->db->where('tableid',$tableid);
-
 
 		//$this->m_reserve->save($this->input->post());
 		$data = array(
@@ -70,23 +68,19 @@ class Reserve extends Config {
 		//return $query;
 	}
 
-	public function customer(){
+	/*public function reservetablecustomer(){
 
-		$error = array();
-		$post = $this->input->post();
 
-			## Laad de model
-			$this->load->model('m_customer');
+		//$this->m_reserve->save($this->input->post());
+		$data = array(
+			'view' => '/reservetable',
+			'errors' => $this->session->userdata('error'),
+			'post' => $this->session->userdata('post')
+		
+		);
 
-			## Sla de gegevens op in de model
-			$this->m_register->save($post);
-
-			## Vul melding dat het gelukt is
-			$this->session->set_userdata('melding','U hebt succesvol gereserveerd.');
-
-			## Stuur door naar hoofd pagina
-			redirect('/');
-
-		}
+		$this->load->view('index',array_merge($this->data,$data));
+		//return $query;
+	}*/
 
 }

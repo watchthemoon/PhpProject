@@ -16,17 +16,11 @@
 <h1>Menu's</h1>
 <div id="rightside">
 
-		<p>Hier komen de menu's voor de restauranthouder.</p>
+<a href="#" class="gerecht" id="voorgerechten">Voorgerechten</a>
+<a href="#" class="gerecht" id="hoofdgerechten">Hoofdgerechten</a>
+<a href="#" class="gerecht" id="nagerechten">Nagerechten</a>
 
-		<button class="toevoegen"type="submit">menu toevoegen </button>
-
-
-
-
-
-<a href="#" class="voorgerechten">Voorgerechten</a>
-<a href="#" class="hoofdgerechten">Hoofdgerechten</a>
-<a href="#" class="nagerechten"	>Nagerechten</a>
+		<input class="toevoegen"type="submit" value="toevoegen" />
 
 
 <div class="menucontent">
@@ -47,7 +41,7 @@
     });
 
 
-     $(".voorgerechten").on('click',function(){
+     $("#voorgerechten").on('click',function(){
        var data = {
             'restaurantid': '<?php echo $restaurantid;?>',
             'gerechttypeid': "1"
@@ -56,7 +50,7 @@
     });
 
 
-     $(".hoofdgerechten").on('click',function(){
+     $("#hoofdgerechten").on('click',function(){
        var data = {
             'restaurantid': '<?php echo $restaurantid;?>',
             'gerechttypeid': "2"
@@ -65,7 +59,7 @@
     });
 
 
-     $(".nagerechten").on('click',function(){
+     $("#nagerechten").on('click',function(){
        var data = {
             'restaurantid': '<?php echo $restaurantid;?>',
             'gerechttypeid': "3"

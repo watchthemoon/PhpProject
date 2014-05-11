@@ -51,8 +51,10 @@
 	$(".grid-block-filled .free").on('click',function(){
 		var data = {
 			restaurantid:<?php echo $restaurantid ?>,
-			tableid:$(this).parent().data('tableid')
+			tableid:$(this).parent().data('tableid'),
+			resdate:curdate,
 		};
+
   		openWindow('/reserve/form',data);
 	});
 
