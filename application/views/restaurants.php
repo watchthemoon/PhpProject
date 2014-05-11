@@ -4,10 +4,10 @@
 		if (!is_array($restaurants)){
 			?>Hier moet nog een foutmelding komen.<?php
 		}else{
-		foreach ($restaurants as $item) { ?>
+			foreach ($restaurants as $item) { ?>
 
 			<div class="res">
-				<img src="<?php echo 'upload/restaurants/overzicht/' . $item->image; ?>" class="resfoto" alt="<?php echo $item->image; ?>">
+				<img src="/upload/restaurants/overzicht/<?php echo $item->image; ?>" class="resfoto" alt="<?php echo $item->image; ?>">
 				<h2><?php echo $item->name; ?></h2>
 				<h3><?php echo $item->city; ?></h3>
 				<p><?php

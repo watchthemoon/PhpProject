@@ -132,6 +132,7 @@ class m_Reserve extends CI_Model{
 
 	}
 
+	/* Even in commentaar, omdat het nog niet af is en zorgt voor fouten op de pagina.
 	public function weergaveuser(){
 
 	$this->db->from('reserve');
@@ -146,4 +147,6 @@ class m_Reserve extends CI_Model{
 					return '';
 				}
 			return $query;
+				}
+	*/
 }
