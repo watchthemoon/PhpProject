@@ -20,9 +20,13 @@ class reservations extends Config {
 		$data = array(
 			'userid' => $this->session->userdata['user_id']
 		);
-		$this->load->view('/reservatons.php',array_merge($this->data,$data));
 
 		$query = $this->m_reserve->weergaveuser();
+
+		
+		$this->load->view('/reservatons.php',array_merge($this->data,$data));
+
+		
 
 	}
 
@@ -39,8 +43,8 @@ class reservations extends Config {
 			$error['password'] = 'Vul een paswoord in.';
 		}
 
-		if (empty($post['aantal1'])){
-		$error['aantal1'] = 'Vul het aantal personen in.';
+		if (empty($post['aantal1'])||$post['aantal1']>$post['vastaantal']){
+		$error['aantal1'] = 'Fout aantal personen.';
 		}
 
 		if (count($error) > 0){
@@ -70,6 +74,10 @@ class reservations extends Config {
 					'restaurantid' => $post['restaurantid'],
 					'resdate' => $post['resdate']
 				);
+
+
+				print_r($gegevens1);
+				die();
 
 				## gegevens opslaan in reservatiedatabank
 				$this->m_reserve->savecustomer1($gegevens1);
@@ -101,7 +109,7 @@ class reservations extends Config {
 
 		##VALIDEREN VAN DE VELDEN
 
-		if (empty($post['aantal2'])){
+		if (empty($post['aantal2']||$post['aantal1']>$post['vastaantal'])){
 			$error['aantal2'] = 'Vul het aantal personen in.';
 		}
 
@@ -130,12 +138,11 @@ class reservations extends Config {
 					'post' => $this->session->userdata('post')
 				);
 
+
 						
 				## Stuur door naar volgende pagina
 				redirect('/reservations');
 			}
-
-		//$this->view($gegevens['restaurantid']);
 
 	}
 

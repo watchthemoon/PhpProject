@@ -8,7 +8,8 @@
 		<input required type="text" name="aantal2" placeholder="Aantal"/>
 		<input type="hidden" name="tableid" value="<?php echo $tableid; ?>">
 		<input type="hidden" name="restaurantid" value="<?php echo $restaurantid; ?>">
-		<input type="hidden" name="date" value="<?php echo $resdate; ?>">
+		<input type="hidden" name="resdate" value="<?php echo $resdate; ?>">
+		<input type="hidden" name="vastaantal" value="<?php echo $vastaantal; ?>">
 		<input type="submit" name="btnLogin" value="Reserveer"/>
 
 	</form>
@@ -33,7 +34,8 @@
 				<input type="submit" name="btnLogin" value="Reserveer"/>
 				<input type="hidden" name="tableid" value="<?php echo $tableid; ?>">
 				<input type="hidden" name="restaurantid" value="<?php echo $restaurantid; ?>">
-				<input type="hidden" name="date" value="<?php echo $resdate; ?>">
+				<input type="hidden" name="resdate" value="<?php echo $resdate; ?>">
+
 
 			</form>
 		</div>

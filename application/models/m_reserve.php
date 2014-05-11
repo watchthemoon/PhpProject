@@ -89,6 +89,9 @@ class m_Reserve extends CI_Model{
 			'date' => $dt,
 			'peoplenr' => $data['aantal2']
 		);
+
+		print_r($set);
+		die();
 			$this->db->insert('reserve',$set);
 			
 
@@ -133,13 +136,18 @@ class m_Reserve extends CI_Model{
 	}
 
 	/* Even in commentaar, omdat het nog niet af is en zorgt voor fouten op de pagina.
+	
 	public function weergaveuser(){
 
 	$this->db->from('reserve');
-			$this->db->where('userid',$this->session->userdata['user_id']);
+		$this->db->where('userid',$this->session->userdata['user_id']);
+			
+				if ($userid!= 0){
+					$this->db->where('userid',$userid);
+				}
 
-				$query = $this->db->get();
-				if ($query->num_rows() > 0){
+				$rec = $this->db->get();
+				if ($rec->num_rows() > 0){
 					if ($userid != 0){
 						return $query->row();
 				}
@@ -148,5 +156,6 @@ class m_Reserve extends CI_Model{
 				}
 			return $query;
 				}
+	}
 	*/
 }
