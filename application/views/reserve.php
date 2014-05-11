@@ -51,8 +51,10 @@
 	$(".grid-block-filled .free").on('click',function(){
 		var data = {
 			restaurantid:<?php echo $restaurantid ?>,
-			tableid:$(this).parent().data('tableid')
+			tableid:$(this).parent().data('tableid'),
+			resdate:resdate,
 		};
+
   		openWindow('/reserve/form',data);
 	});
 
@@ -70,6 +72,7 @@
 		dayNamesMin: [ "Zo", "Ma", "Di", "Wo", "Do", "Vr", "Za" ],
 		monthNames: [ "Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December" ],
 		onSelect: function(date){
+			resdate:date;
 			curdate = date;
 			liveCheck(<?php echo $restaurantid; ?>,curdate);
 		}
