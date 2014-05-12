@@ -89,9 +89,6 @@ class m_Reserve extends CI_Model{
 			'date' => $dt,
 			'peoplenr' => $data['aantal2']
 		);
-
-		print_r($set);
-		die();
 			$this->db->insert('reserve',$set);
 			
 

@@ -81,10 +81,13 @@ class reservations extends Config {
 				$data = array(
 					'view' => '/reservationoverview',
 					'errors' => $this->session->userdata('error'),
-					'post' => $this->session->userdata('post')
+					'post' => $this->session->userdata('post'),
+					'tafelnummer' => $post['tableid'],
+					'aantalpersonen' => $post['aantal1'],
+					'gereserveerdedatum' => $post['resdate']
 				);
 
-			
+		
 				## Stuur door naar login check pagina
 				redirect('/reservationoverview');
 			}else{
@@ -135,11 +138,15 @@ class reservations extends Config {
 				$data = array(
 					'view' => '/reservationoverview',
 					'errors' => $this->session->userdata('error'),
-					'post' => $this->session->userdata('post')
+					'post' => $this->session->userdata('post'),
 				);
 
+				## variabelen om mee door te sturen naar de volgende pagina
+				$tafelnummer = $post['tableid'];
+				$aantalpersonen = $post['aantal2'];
+				$gereserveerdedatum = $post['resdate'];
 
-						
+
 				## Stuur door naar volgende pagina
 				redirect('/reservationoverview');
 			}
