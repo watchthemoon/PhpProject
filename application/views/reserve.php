@@ -52,7 +52,7 @@
 		var data = {
 			restaurantid:<?php echo $restaurantid ?>,
 			tableid:$(this).parent().data('tableid'),
-			vastaantal:$(this).parent().data('amountseats'),
+			vastaantal:<?php echo $table->amountseats ?>,
 			resdate:curdate,
 		};
 

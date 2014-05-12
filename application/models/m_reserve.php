@@ -70,7 +70,7 @@ class m_Reserve extends CI_Model{
 			'userid' => $this->session->userdata['user_id'],
 			'tableid' => $data['tableid'],
 			'date' => date("Y-m-d",strtotime($data['resdate'])),
-			'peoplenr' => $data['aantal1']
+			'peoplenr' => $data['aantal']
 		);
 			$this->db->insert('reserve',$set);
 			
@@ -129,7 +129,7 @@ class m_Reserve extends CI_Model{
 
 
 	$this->db->from('reserve');
-			$this->db->where('date',date("Y-m-d",strtotime($data['date'])));
+			$this->db->where('date',date("Y-m-d",strtotime($data['resdate'])));
 			$query = $this->db->get();
 			return $query;
 
