@@ -5,9 +5,14 @@
 		<p>Aantal personen: <?php echo $aantalpersonen; ?></p>
 		<p>Datum: <?php echo $gereserveerdedatum; ?></p>
 
-		<input type="submit" name="btnLogin" value="Ok"/>
+		
+		<a href="/">Ga terug naar de startpagina.</a>
+		<p></p>
 <h2>Nog vragen? Neem dan contact met ons op!</h2>
-		<input type="submit" name="btnLogin" value="contact"/>
-
+		<a href="/contact">Ga naar de contactpagina.</a>
 </section>
+<?php
+	$this->session->unset_userdata('aantal2');
+	$this->session->unset_userdata('aantal1');
+?>
 

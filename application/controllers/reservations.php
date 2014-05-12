@@ -43,7 +43,7 @@ class reservations extends Config {
 			$error['password'] = 'Vul een paswoord in.';
 		}
 
-		if (empty($post['aantal1'])||$post['aantal1']>3){
+		if (empty($post['aantal1'])||$post['aantal1']>$post['vastaantal']){
 		$error['aantal1'] = 'Fout aantal personen.';
 		}
 
@@ -52,6 +52,7 @@ class reservations extends Config {
 			## Errors gevonden
 			$this->session->set_userdata('error',$error);
 			$this->session->set_userdata('post',$post);
+
 			redirect('/login');
 		}else{
 
@@ -82,14 +83,16 @@ class reservations extends Config {
 					'view' => '/reservationoverview',
 					'errors' => $this->session->userdata('error'),
 					'post' => $this->session->userdata('post'),
-					'tafelnummer' => $post['tableid'],
-					'aantalpersonen' => $post['aantal1'],
-					'gereserveerdedatum' => $post['resdate']
 				);
 
+				$this->session->set_userdata('tafelnummer',$post['tableid']);
+				$this->session->set_userdata('aantal1',$post['aantal1']);
+				$this->session->set_userdata('resdate',$post['resdate']);
 		
 				## Stuur door naar login check pagina
 				redirect('/reservationoverview');
+
+				$this->session->unset_userdata('aantal1');
 			}else{
 				## Vul melding dat het niet gelukt is
 				$this->session->set_userdata('meldingfail','Uw login gegevens zijn onjuist.');
@@ -126,11 +129,11 @@ class reservations extends Config {
 				## gegevens opslaan in reservatiedatabank
 				$this->m_reserve->savecustomer2($post);
 
-				$gegevens1 = array(
+				/*$gegevens1 = array(
 					'aantal' => $post['aantal2'],
 					'tafelid' => $post['tableid'],
 					'resdate' => $post['resdate'],
-				);
+				);*/
 
 				## Vul melding dat het gelukt is
 				$this->session->set_userdata('meldingsuccess','U hebt succesvol gereserveerd.');
@@ -142,6 +145,7 @@ class reservations extends Config {
 
 				## Stuur door naar volgende pagina
 				redirect('/reservationoverview');
+
 			}
 
 	}

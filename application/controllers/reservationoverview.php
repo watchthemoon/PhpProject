@@ -8,7 +8,7 @@ class reservationoverview extends Config {
 			'errors' => $this->session->userdata('error'),
 			'post' => $this->session->userdata('post'),
 			'tafelnummer' => $this->session->userdata('tafelnummer'),
-			'aantalpersonen' => $this->session->userdata('aantal2'),
+			'aantalpersonen' => $this->session->userdata('aantal1') . $this->session->userdata('aantal2'),
 			'gereserveerdedatum' => $this->session->userdata('resdate')
 		);
 
