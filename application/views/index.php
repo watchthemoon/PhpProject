@@ -3,7 +3,7 @@
 <head>
 
 	<meta charset="UTF-8">
-	<title><?php echo $title;?></title>
+	<title>Anjalaya | Restaurant reservaties</title>
 	<link href="/assets/css/style.css" type="text/css" rel="stylesheet">
 	<script type="text/javascript" src="/assets/js/main.js"></script>
 	<script type="text/javascript" src="/assets/js/jquery.min.js"></script>

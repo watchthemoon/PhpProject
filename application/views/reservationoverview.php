@@ -3,7 +3,8 @@
 		<h2>Een overzicht van jou reservatie.</h2>
 		<p>Tafelnummer: <?php echo $tafelnummer; ?></p>
 		<p>Aantal personen: <?php echo $aantalpersonen; ?></p>
-		<p>Datum: <?php echo $gereserveerdedatum; ?></p>
+		<p>Datum: <?php echo date("d-m-Y",strtotime($date)); ?></p>
+		<p>Tijd: <?php echo date("H:i",strtotime($time)); ?></p>
 
 		
 		<a href="/">Ga terug naar de startpagina.</a>

@@ -17,6 +17,7 @@ body {
 	height: 100%;
 	overflow-y: scroll;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 12px;
 	color: #222222;
 }
 
@@ -43,6 +44,19 @@ body {
 	font-size: 30px;
 	color: #880000;
 	margin-left: 20px;
+}
+
+a{
+	color: #880000;
+}
+
+a:hover{
+	color: #000000;
+	text-decoration: none;
+}
+
+a.btnmeerinfo:hover{
+	color: #ffffff;
 }
 
 footer, .push {
@@ -133,10 +147,6 @@ header nav ul li a:hover {
 	width: 200px;
 }
 
-form {
-	width: 450px;
-}
-
 h2 {
 	font-weight: normal;
 	font-size: 20px;
@@ -154,24 +164,32 @@ h3 {
 	padding-bottom: 5px;
 }
 
-input {
+input{
 	display: block;
-	width: 70%;
+	width: 250px;
 	margin-bottom: 10px;
 	border-radius: 5px;
 	border: 1px solid #cccccc;
-	padding: 5px;
+	padding: 8px;
 	background: #f5f5f5;
+}
+
+select{
+	margin-bottom: 10px;
+	border-radius: 5px;
+	border: 1px solid #cccccc;
+	padding: 8px;
 }
 
 input[type=submit] {
 	background-color: #880000;
 	border: 1px solid #880000;
 	border-radius: 5px;
-	width: 100px;
+	padding: 8px;
 	font-size: 14px;
 	color: #fff;
 	font-weight: bold;
+	width: auto;
 }
 
 input[type=checkbox] {
@@ -192,8 +210,8 @@ textarea {
 	resize: none;
 	border-radius: 5px;
 	border: 1px solid #cccccc;
-	width: 70%;
-	height: 70%;
+	width: 350px;
+	height: 100px;
 	display: block;
 	padding: 5px;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -417,16 +435,6 @@ div.contain {
 	padding: 20px;
 }
 
-#MessageContact {
-	display: block;
-	width: 70%;
-	margin-bottom: 10px;
-	border-radius: 5px;
-	border: 1px solid #cccccc;
-	padding: 5px;
-	height: 200px;
-}
-
 section.contain {
 	background: #fdfdff;
 	padding: 25px;
@@ -436,6 +444,9 @@ section.contain {
 
 .fleft {
 	float: left;
+}
+.fright {
+	float: right;
 }
 
 section.contain p {
@@ -752,4 +763,21 @@ a.gerecht:hover {
 	line-height: 25px;
 	padding: 5px;
 	color: #FFFFFF;
+}
+
+.info{
+	padding: 15px 0px;
+	font-size: 12px;
+}
+
+.small{
+	width: 70px;
+}
+
+.large{
+	width: 200px;
+}
+
+.inline{
+	display: inline-block;
 }

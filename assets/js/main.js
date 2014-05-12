@@ -19,8 +19,14 @@ function closeWindow(){
 	});
 }
 
-function liveCheck(restaurantid,date){
-	$.post( "/reserve/check", { restaurantid: restaurantid,date: date }).done(function( data ) {
+function liveCheck(restaurantid,date,time){
+	var data = {
+		restaurantid: restaurantid,
+		date: date,
+		time: time
+	};
+
+	$.post("/reserve/check",data).done(function( data ) {
 		$('#tables .reserved').remove();
 		$('#tables .free').show();
 		$.each( data, function( key, val ) {
@@ -31,8 +37,14 @@ function liveCheck(restaurantid,date){
 	});
 }
 
-function liveCheckBackEnd(restaurantid,date){
-	$.post( "/admin/reservations/check", { restaurantid: restaurantid,date: date }).done(function( data ) {
+function liveCheckBackEnd(restaurantid,date,time){
+	var data = {
+		restaurantid: restaurantid,
+		date: date,
+		time: time
+	};
+
+	$.post( "/admin/reservations/check", data).done(function( data ) {
 		$('#tables .reservedBackEnd').hide();
 		$('#tables .free').show();
 		$.each( data, function( key, val ) {

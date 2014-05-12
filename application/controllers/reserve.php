@@ -28,18 +28,7 @@ class Reserve extends Config {
 	}
 
 	public function form(){
-
-		$post = $this->input->post();
-		$table = $this->m_tables->load($data['restaurantid'],$data['tableid']);
-
-
-
-		$data = array(
-			'restaurantid' => $post['restaurantid'],
-			'tableid' => $post['tableid'],
-			'resdate' => $post['resdate']
-		);
-
+		$data = $this->input->post();
 		$this->load->view('/reserve_form',array_merge($this->data,$data));
 	}
 
@@ -47,7 +36,7 @@ class Reserve extends Config {
 		$data = $this->input->post();
 		$this->load->model('m_reserve');
 
-		$check = $this->m_reserve->check($data['restaurantid'],$data['date']);
+		$check = $this->m_reserve->check($data['restaurantid'],$data['date'],$data['time']);
 
 		header('Content-type: application/json');
 		echo json_encode($check);
