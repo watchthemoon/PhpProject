@@ -30,24 +30,36 @@ class Restaurants extends Config
 	}
 
 	
-	public function detail()
-	{
-		## Hier bouw je detail pagina op
+	public function detail($restaurant_id = 0){
+
 		$this->load->helper('url');
 		$this->load->model(array('m_restaurant','m_menu'));
-		$data = array(
-			'view' => 'restaurant_detail',
-			'errors' => $this->session->userdata('error'),
-			'post' => $this->session->userdata('post'),
-			'query' => $this->m_restaurant->getRestaurantById($this->uri->segment(3)),
-			'voorgerecht' => $this->m_menu->getVoorgerecht($this->uri->segment(3)),
-			'hoofdgerecht' => $this->m_menu->getHoofdgerecht($this->uri->segment(3)),
-			'nagerecht' => $this->m_menu->getNagerecht($this->uri->segment(3))
-		);
 
-		$this->load->view('index', array_merge($this->data, $data));
-		$this->session->unset_userdata('error');
-		$this->session->unset_userdata('post');
+		$query = $this->m_restaurant->getRestaurantById($restaurant_id);
+		if ($query->restaurantid != 0){
+
+			## Hier bouw je detail pagina op
+			$data = array(
+				'view' => 'restaurant_detail',
+				'errors' => $this->session->userdata('error'),
+				'post' => $this->session->userdata('post'),
+				'query' => $query,
+				'voorgerecht' => $this->m_menu->getVoorgerecht($restaurant_id),
+				'hoofdgerecht' => $this->m_menu->getHoofdgerecht($restaurant_id),
+				'nagerecht' => $this->m_menu->getNagerecht($restaurant_id)
+			);
+
+			$this->load->view('index', array_merge($this->data, $data));
+			$this->session->unset_userdata('error');
+			$this->session->unset_userdata('post');
+
+		}else{
+
+			$this->session->set_userdata('meldingfail','Geen restaurant gevonden.');
+			redirect('/');
+
+		}
+
 	}
 
 }

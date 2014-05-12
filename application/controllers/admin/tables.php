@@ -5,19 +5,33 @@ class Tables extends Config {
 	public function __construct(){
 		parent::__construct();
 
+		if (!$this->online) redirect('/');
 		$this->load->model('m_tables');
+		$this->load->model('m_restaurant');
 	}
 
 	public function view($restaurantid){
-		$data = array(
-			'restaurantid' => $restaurantid,
-			'view' => '/admin/tables',
-			'errors' => $this->session->userdata('error'),
-			'post' => $this->session->userdata('post'),
-			'tables' => $this->m_tables->load($restaurantid)
-		);
 
-		$this->load->view('index',array_merge($this->data,$data));
+		$restaurant = $this->m_restaurant->getRestaurantById($restaurantid);
+		if ($restaurant->restaurantid != 0){
+
+			$data = array(
+				'restaurantid' => $restaurantid,
+				'view' => '/admin/tables',
+				'errors' => $this->session->userdata('error'),
+				'post' => $this->session->userdata('post'),
+				'tables' => $this->m_tables->load($restaurantid)
+			);
+
+			$this->load->view('index',array_merge($this->data,$data));
+
+		}else{
+
+			$this->session->set_userdata('meldingfail','Dit restaurant bestaat niet.');
+			redirect('/admin/restaurants/');
+
+		}
+
 	}
 
 	public function form(){
@@ -44,8 +58,7 @@ class Tables extends Config {
 		redirect('/admin/tables/view/'.$restaurantid);
 	}
 
-	public function save()
-	{
+	public function save(){
 
 		$error = array();
 		$post = $this->input->post();

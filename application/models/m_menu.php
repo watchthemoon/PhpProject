@@ -1,7 +1,7 @@
 <?php
 class m_Menu extends CI_Model{
 
- public function save($data){
+	 public function save($data){
 
 		## Array maken met menu data
 		$set = array(
@@ -15,80 +15,65 @@ class m_Menu extends CI_Model{
 		$this->db->insert('menu',$set);
 	}
 
+	public function getMenu($data){
+		$this->db->from('menu');
+		$this->db->where('restaurantid',$data['restaurantid']);
+		$this->db->where('gerechttypeid',$data['gerechttypeid']);
+		$query = $this->db->get();
+		return $query;
 
-		public function getMenu($data){
-			$this->db->from('menu');
-			$this->db->where('restaurantid',$data['restaurantid']);
-			$this->db->where('gerechttypeid',$data['gerechttypeid']);
-			$query = $this->db->get();
-			return $query;
-		
-		}
+	}
 
-		public function getGerecht($data){
-			$this->db->from('menu');
-			$this->db->where('menuid',$data['menuid']);
-			$wijzigquery = $this->db->get();
-			return $wijzigquery;
-		
-		}
+	public function getGerecht($data){
+		$this->db->from('menu');
+		$this->db->where('menuid',$data['menuid']);
+		$wijzigquery = $this->db->get();
+		return $wijzigquery;
 
+	}
 
-		public function getVoorgerecht($restaurantid){
-			$this->db->from('menu');
-			$this->db->where('restaurantid',$restaurantid);
-			$this->db->where('gerechttypeid',1);
-			$query = $this->db->get();
-			return $query->result();
-		
-		}
+	public function getVoorgerecht($restaurantid){
+		$this->db->from('menu');
+		$this->db->where('restaurantid',$restaurantid);
+		$this->db->where('gerechttypeid',1);
+		$query = $this->db->get();
+		return $query->result();
 
+	}
 
-		public function getHoofdgerecht($restaurantid){
-			$this->db->from('menu');
-			$this->db->where('restaurantid',$restaurantid);
-			$this->db->where('gerechttypeid',2);
-			$query = $this->db->get();
-			return $query->result();
-		
-		}
+	public function getHoofdgerecht($restaurantid){
+		$this->db->from('menu');
+		$this->db->where('restaurantid',$restaurantid);
+		$this->db->where('gerechttypeid',2);
+		$query = $this->db->get();
+		return $query->result();
 
+	}
 
-		public function getNagerecht($restaurantid){
-			$this->db->from('menu');
-			$this->db->where('restaurantid',$restaurantid);
-			$this->db->where('gerechttypeid',3);
-			$query = $this->db->get();
-			return $query->result();
-		
-		}
+	public function getNagerecht($restaurantid){
+		$this->db->from('menu');
+		$this->db->where('restaurantid',$restaurantid);
+		$this->db->where('gerechttypeid',3);
+		$query = $this->db->get();
+		return $query->result();
 
-	
-		public function delete($data){
-	
-			$this->db->where('menuid', $data['menuid']);
-			$this->db->delete('menu'); 
-		}
+	}
 
+	public function delete($data){
+		$this->db->where('menuid', $data['menuid']);
+		$this->db->delete('menu');
+	}
 
-
-		public function edit($data)
-		{
-			$set = array(
+	public function edit($data){
+		$set = array(
 			'name' => $data['name'],
 			'price' => $data['price'],
 			'gerechttypeid' => $data['gerechttypeid'],
 			'restaurantid' => $data['restaurantid']
+		);
 
-			);
+		$this->db->where('menuid', $data['menuid']);
+		$this->db->update('menu', $set);
+	}
 
-			$this->db->where('menuid', $data['menuid']);
-			$this->db->update('menu', $set); 
-
-
-
-
-
-	
-}
 }

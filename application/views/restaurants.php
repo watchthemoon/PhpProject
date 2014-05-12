@@ -2,7 +2,7 @@
 	<h2>Restaurant Overzicht</h2>
 		<?php
 		if (!is_array($restaurants)){
-			?>Hier moet nog een foutmelding komen.<?php
+			?>Geen restaurants gevonden.<?php
 		}else{
 			foreach ($restaurants as $item) { ?>
 

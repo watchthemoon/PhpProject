@@ -2,9 +2,15 @@
 include dirname(__FILE__) . "/../config.php";
 class Restaurants extends Config {
 
+	public function __construct(){
+		parent::__construct();
+		if (!$this->online) redirect('/');
+		$this->load->model('m_restaurant');
+	}
+
+
 	public function index()
 	{
-		$this->load->model('m_restaurant');
 		$user = $this->session->userdata('user_id');
 		$data = array(
 			'view' => 'admin/restaurants',
@@ -34,35 +40,55 @@ class Restaurants extends Config {
 		$this->session->unset_userdata('post');
 	}
 
-	public function detail()
-	{
-		## Hier bouw je detail pagina op
-		$this->load->helper('url');
-		$this->load->model('m_restaurant');
-		$data = array(
-			'view' => 'admin/restaurant_detail',
-			'errors' => $this->session->userdata('error'),
-			'post' => $this->session->userdata('post'),
-			'query' => $this->m_restaurant->getRestaurantById($this->uri->segment(4))
-		);
+	public function detail($restaurantid){
 
-		$this->load->view('index', array_merge($this->data, $data));
-		$this->session->unset_userdata('error');
-		$this->session->unset_userdata('post');
+		$restaurant = $this->m_restaurant->getRestaurantById($restaurantid);
+		if ($restaurant->restaurantid != 0){
+
+			## Hier bouw je detail pagina op
+			$this->load->helper('url');
+			$data = array(
+				'view' => 'admin/restaurant_detail',
+				'errors' => $this->session->userdata('error'),
+				'post' => $this->session->userdata('post'),
+				'query' => $this->m_restaurant->getRestaurantById($restaurantid)
+			);
+
+			$this->load->view('index', array_merge($this->data, $data));
+			$this->session->unset_userdata('error');
+			$this->session->unset_userdata('post');
+
+		}else{
+
+			$this->session->set_userdata('meldingfail','Geen restaurant gevonden.');
+			redirect('/admin/restaurants/');
+
+		}
+
 	}
 
-	public function edit($restaurantid)
-		{
-		$this->load->helper('url');
-		$this->load->model('m_restaurant');
-		$data = array(
-			'view' => '/admin/restaurant_edit',
-			'errors' => $this->session->userdata('error'),
-			'post' => $this->session->userdata('post'),
-			'query' =>  $this->m_restaurant->getRestaurantById($this->uri->segment(4))
-		);
+	public function edit($restaurantid){
 
-		$this->load->view('index',array_merge($this->data,$data));
+		$this->load->helper('url');
+
+		$query = $this->m_restaurant->getRestaurantById($restaurantid);
+		if ($query->restaurantid != 0){
+
+			$data = array(
+				'view' => '/admin/restaurant_edit',
+				'errors' => $this->session->userdata('error'),
+				'post' => $this->session->userdata('post'),
+				'query' => $query
+			);
+
+			$this->load->view('index',array_merge($this->data,$data));
+
+		}else{
+
+			$this->session->set_userdata('meldingfail','Geen restaurant gevonden');
+			redirect('/admin/restaurants/');
+
+		}
 
 	}
 

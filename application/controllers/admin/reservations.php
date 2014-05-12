@@ -4,24 +4,36 @@ class Reservations extends Config {
 
 	public function __construct(){
 		parent::__construct();
+		if (!$this->online) redirect('/');
 
 		$this->load->model('m_reserve');
+		$this->load->model('m_restaurant');
 	}
 
 	public function view($restaurantid)	{
 
+		$restaurant = $this->m_restaurant->getRestaurantById($restaurantid);
+		if ($restaurant->restaurantid != 0){
 
-			$tables = $this->m_reserve->load($restaurantid);	
-		$data = array(
-			'view' => '/admin/reservations',
-			'errors' => $this->session->userdata('error'),
-			'post' => $this->session->userdata('post'),
-			'restaurantid' => $restaurantid,
-			'tables' => $tables	
-		);
+			$tables = $this->m_reserve->load($restaurantid);
+			$data = array(
+				'view' => '/admin/reservations',
+				'errors' => $this->session->userdata('error'),
+				'post' => $this->session->userdata('post'),
+				'restaurantid' => $restaurantid,
+				'tables' => $tables
+			);
 
 
-		$this->load->view('index',array_merge($this->data,$data));
+			$this->load->view('index',array_merge($this->data,$data));
+
+		}else{
+
+			$this->session->set_userdata('meldingfail','Geen restaurant gevonden.');
+			redirect('/admin/restaurants/');
+
+		}
+
 	}
 
 	public function form(){

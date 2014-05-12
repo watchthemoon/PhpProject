@@ -44,15 +44,19 @@ class m_Restaurant extends CI_Model{
 	public function getRestaurantById($id)	{
 		$this->db->from('restaurants');
 		$this->db->where('restaurantid', $id);
+
 		$rec = $this->db->get();
-		return $rec->row();
+		if ($rec->num_rows() > 0){
+			return $rec->row();
+		}else{
+			return '';
+		}
 	}
 
-		public function delete($id){
-	
-			$this->db->where('restaurantid', $id);
-			$this->db->delete('restaurants'); 
-		}
+	public function delete($id){
+		$this->db->where('restaurantid', $id);
+		$this->db->delete('restaurants');
+	}
 
 	public function edit($data)	{
 		$set = array(

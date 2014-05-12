@@ -13,4 +13,14 @@ class Home extends Config {
 
 	}
 
+	public function error_404(){
+
+		$data = array(
+			'view' => '404'
+		);
+
+		$this->load->view('index',array_merge($this->data,$data));
+
+	}
+
 }
