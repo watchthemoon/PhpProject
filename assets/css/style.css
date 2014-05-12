@@ -349,12 +349,11 @@ div.contain {
 	font-weight: bold;
 	text-shadow: 1px 1px 0 #000;
 	text-decoration: none;
-	display: inline-block;
+	display: block;
 	height: 25px;
 	line-height: 25px;
 	text-align: center;
 	padding: 0px 0px;
-	width: 188px;
 }
 
 .res .btn {
@@ -586,12 +585,32 @@ select {
 	text-align: center;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 768px) {
+
+	.res{
+		margin: 5px;
+		width: 45%;
+	}
+
+	.website{
+		width: 100%;
+	}
+
+}
+
+@media screen and (max-width: 480px) {
 	body{
 		overflow: hidden;
+		background: #FFFFFF;
 	}
-	section.contain{
+
+	.website{
 		width: 100%;
+	}
+
+	section.contain{
+		border-radius: 0;
+		padding: 5px;
 	}
 
     div#tables{
@@ -599,14 +618,106 @@ select {
 	    margin-left: 0;
     }
 
+    .legend div.free,
+    .legend div.reserved{
+	    width: 50px;
+	    height: 50px;
+    }
+
+    .legend div.free{
+	    cursor: default;
+    }
+
     .grid-block-filled,
     .grid-block-none,
     .free,
     .reserved{
-	    width: 25px;
-	    height: 25px;
+	    width: 34px;
+	    height: 34px;
     }
 
+    .grid-block-filled{
+	    background: url('/assets/images/table34.png');
+    }
+
+    .center{
+	    width: 100%;
+    }
+
+    .main{
+	    padding: 0px;
+    }
+
+	.fleft{
+		float: none;
+	}
+
+	#logo{
+		float: none;
+	}
+
+	header{
+		height: auto;
+		min-height: 75px;
+	}
+
+	header nav{
+		margin-left: 0px;
+	}
+
+	header nav ul{
+		margin-left: 0px;
+		text-align: center;
+	}
+
+	header nav ul li a{
+		color: #222222;
+		font-size: 14px;
+		line-height: 20px;
+		text-align: center;
+		padding: 6px 10px;
+	}
+
+    header nav ul li a:hover,
+    header nav ul li a:active{
+	    text-decoration: none;
+	    border-bottom: 0px;
+	    background: #880000;
+	    color: #ffffff;
+	    border-radius: 5px;
+    }
+
+	.res{
+		margin: 5px;
+		width: 45%;
+		height: 340px;
+	}
+
+}
+
+@media screen and (max-width: 320px) {
+	.grid-block-filled,
+	.grid-block-none,
+	.free,
+	.reserved{
+		width: 30px;
+		height: 30px;
+	}
+
+	.res{
+		margin: 5px;
+		width: 95%;
+		height: auto;
+	}
+
+	.grid-block-filled{
+		background: url('/assets/images/table30.png');
+	}
+
+
+	.main{
+		padding: 0px;
+	}
 }
 
 a.gerecht {
