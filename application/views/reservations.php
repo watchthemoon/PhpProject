@@ -11,8 +11,8 @@
 				<?php foreach($reservations as $reservation){ ?>
 				<tr>
 					<td><?php echo date('d-m-Y', strtotime($reservation->date)); ?></td>
-					<td><?php echo $reservation->restaurantid; ?></td>
-					<td><?php echo $reservation->tableid; ?></td>
+					<td><?php echo $reservation->restaurantname; ?></td>
+					<td><?php echo $reservation->tablename; ?></td>
 					<td><?php echo $reservation->peoplenr; ?></td>
 				</tr>
 				<?php } ?>

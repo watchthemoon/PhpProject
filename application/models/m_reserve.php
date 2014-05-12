@@ -130,9 +130,12 @@ class m_Reserve extends CI_Model{
 	}
 
 	public function custRes(){
-		$this->db->from('reserve');
-		$this->db->where('userid',$this->session->userdata('user_id'));
-		$this->db->order_by('date desc');
+		$this->db->select('r.date,s.name as restaurantname,t.name as tablename,r.peoplenr');
+		$this->db->from('reserve r');
+		$this->db->join('restaurants s','s.restaurantid = r.restaurantid');
+		$this->db->join('tables t','t.tableid = r.tableid');
+		$this->db->where('r.userid',$this->session->userdata('user_id'));
+		$this->db->order_by('r.date desc');
 		$rec = $this->db->get();
 
 		## Als er iets is
