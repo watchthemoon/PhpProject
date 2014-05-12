@@ -135,17 +135,10 @@ class reservations extends Config {
 				## Vul melding dat het gelukt is
 				$this->session->set_userdata('meldingsuccess','U hebt succesvol gereserveerd.');
 
-				$data = array(
-					'view' => '/reservationoverview',
-					'errors' => $this->session->userdata('error'),
-					'post' => $this->session->userdata('post'),
-				);
-
 				## variabelen om mee door te sturen naar de volgende pagina
-				$tafelnummer = $post['tableid'];
-				$aantalpersonen = $post['aantal2'];
-				$gereserveerdedatum = $post['resdate'];
-
+				$this->session->set_userdata('tafelnummer',$post['tableid']);
+				$this->session->set_userdata('aantal2',$post['aantal2']);
+				$this->session->set_userdata('resdate',$post['resdate']);
 
 				## Stuur door naar volgende pagina
 				redirect('/reservationoverview');

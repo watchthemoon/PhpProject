@@ -90,7 +90,7 @@ class m_Reserve extends CI_Model{
 			'peoplenr' => $data['aantal2']
 		);
 			$this->db->insert('reserve',$set);
-			
+
 
 	}
 

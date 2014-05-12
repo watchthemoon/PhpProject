@@ -7,13 +7,10 @@ class reservationoverview extends Config {
 			'view' => 'reservationoverview',
 			'errors' => $this->session->userdata('error'),
 			'post' => $this->session->userdata('post'),
-			'tafelnummer' => $gegevens1->tableid,
-			'aantalpersonen' => $aantalpersonen,
-			'gereserveerdedatum' => $gereserveerdedatum
+			'tafelnummer' => $this->session->userdata('tafelnummer'),
+			'aantalpersonen' => $this->session->userdata('aantal2'),
+			'gereserveerdedatum' => $this->session->userdata('resdate')
 		);
-
-		print_r($data);
-		die();
 
 		$this->load->view('index',array_merge($this->data,$data));
 
