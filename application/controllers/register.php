@@ -78,7 +78,7 @@ class Register extends Config {
 			$this->m_register->save($post);
 
 			## Vul melding dat het gelukt is
-			$this->session->set_userdata('melding','U bent succesvol geregistreerd.');
+			$this->session->set_userdata('meldingsuccess','U bent succesvol geregistreerd.');
 
 			## Stuur door naar login pagina
 			redirect('/login');
@@ -147,7 +147,7 @@ class Register extends Config {
 			$this->m_register->save($post);
 
 			## Vul melding dat het gelukt is
-			$this->session->set_userdata('melding','U bent succesvol geregistreerd.');
+			$this->session->set_userdata('meldingsuccess','U bent succesvol geregistreerd.');
 
 			## Stuur door naar login pagina
 			redirect('/reserve/reservetable');

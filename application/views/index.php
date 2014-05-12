@@ -63,10 +63,17 @@
 	</div>
 </header>
 
-	<?php if(!empty($melding)){ ?>
-		<div class="notice">
+	<?php if(!empty($meldingsuccess)){ ?>
+		<div class="success">
 			<div class="center">
-				<?php echo $melding; ?>
+				<?php echo $meldingsuccess; ?>
+			</div>
+		</div>
+	<?php }
+	if(!empty($meldingfail)){ ?>
+		<div class="fail">
+			<div class="center">
+				<?php echo $meldingfail; ?>
 			</div>
 		</div>
 	<?php } ?>
@@ -77,7 +84,7 @@
 			if ($view != ''){
 				$this->load->view($view);
 			}else{
-				?><strong>Ey, geen view minoin!</strong><?php
+				?><strong>Geen view gevonden.</strong><?php
 			}
 			?>
 		</div>

@@ -38,7 +38,7 @@ class Tables extends Config {
 	public function delete($tableid,$restaurantid){
 		$this->m_tables->delete($tableid);
 
-		$this->session->set_userdata('melding', 'Tafel succesvol verwijderd');
+		$this->session->set_userdata('meldingsuccess', 'Tafel succesvol verwijderd');
 
 		## Stuur door naar tafel pagina
 		redirect('/admin/tables/view/'.$restaurantid);
@@ -72,9 +72,9 @@ class Tables extends Config {
 
 			## Vul melding dat het gelukt is
 			if($post['tableid'] != 0){
-				$this->session->set_userdata('melding', 'Tafel succesvol gewijzigd');
+				$this->session->set_userdata('meldingsuccess', 'Tafel succesvol gewijzigd');
 			}else{
-				$this->session->set_userdata('melding', 'Tafel succesvol toegevoegd');
+				$this->session->set_userdata('meldingsuccess', 'Tafel succesvol toegevoegd');
 			}
 
 			## Stuur door naar tafel pagina

@@ -50,13 +50,13 @@ class Login extends Config {
 
 			if($result){
 				## Vul melding dat het gelukt is
-				$this->session->set_userdata('melding','U bent succesvol ingelogd.');
+				$this->session->set_userdata('meldingsuccess','U bent succesvol ingelogd.');
 
 				## Stuur door naar login check pagina
 				redirect('/');
 			}else{
 				## Vul melding dat het niet gelukt is
-				$this->session->set_userdata('melding','Uw login gegevens zijn onjuist.');
+				$this->session->set_userdata('meldingfail','Uw login gegevens zijn onjuist.');
 
 				## Stuur door naar login check pagina
 				redirect('/login');

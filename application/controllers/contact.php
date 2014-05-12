@@ -65,7 +65,7 @@ class Contact extends Config {
 			$this->m_contact->mail($post);
 
 			## Vul melding dat het gelukt is
-			$this->session->set_userdata('melding','Het formulier is verzonden.');
+			$this->session->set_userdata('meldingsuccess','Het formulier is verzonden.');
 
 			## Stuur door naar login pagina
 			redirect('/contact');

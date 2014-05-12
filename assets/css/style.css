@@ -1,8 +1,9 @@
-html,body,form,h1,h2,h3,h4,h5,h6,input,img,select,textarea{
+html, body, form, h1, h2, h3, h4, h5, h6, input, img, select, textarea {
 	margin: 0px;
 	padding: 0px;
 	border: 0px;
 }
+
 html {
 	width: 100%;
 	height: 100%;
@@ -27,16 +28,16 @@ body {
 	margin: 0 auto -50px;
 }
 
-.center{
+.center {
 	width: 1200px;
 	margin: 0 auto;
 }
 
-#logo{
+#logo {
 	float: left;
 }
 
-#logo p{
+#logo p {
 	padding: 0px;
 	line-height: 10px;
 	font-size: 30px;
@@ -48,15 +49,15 @@ footer, .push {
 	height: 50px;
 }
 
-footer{
+footer {
 	background: #880000;
 }
 
-footer p{
+footer p {
 	color: #ffffff;
 }
 
-.clear{
+.clear {
 	clear: both;
 }
 
@@ -65,7 +66,7 @@ header {
 	background: #fdfdff;
 }
 
-header nav{
+header nav {
 	margin-left: 200px;
 }
 
@@ -76,10 +77,11 @@ header nav ul {
 	margin-left: 30px;
 }
 
-header nav ul li{
+header nav ul li {
 	display: inline-block;
 }
-header nav ul li a{
+
+header nav ul li a {
 	padding: 0px 15px;
 	display: block;
 	color: #880000;
@@ -89,12 +91,13 @@ header nav ul li a{
 }
 
 header nav ul li a.active,
-header nav ul li a:hover{
+header nav ul li a:hover {
 	border-bottom: 2px solid #880000;
 	text-decoration: underline;
 
 }
-.main{
+
+.main {
 	overflow: hidden;
 	padding: 20px;
 }
@@ -106,7 +109,7 @@ header nav ul li a:hover{
 	padding-bottom: 10px;
 }
 
-#homesearch{
+#homesearch {
 	width: 400px;
 	height: 200px;
 	background: #fdfdff;
@@ -118,19 +121,19 @@ header nav ul li a:hover{
 }
 
 #homesearch p,
-#homesearch h2{
+#homesearch h2 {
 	color: #222222;
 }
 
-#homesearch form label{
+#homesearch form label {
 	float: left;
 }
 
-#homesearch form input{
+#homesearch form input {
 	width: 200px;
 }
 
-form{
+form {
 	width: 450px;
 }
 
@@ -143,7 +146,7 @@ h2 {
 	color: #880000;
 }
 
-h3{
+h3 {
 	font-weight: bold;
 	font-size: 16px;
 	border-bottom: 1px solid #e2e2e2;
@@ -151,7 +154,7 @@ h3{
 	padding-bottom: 5px;
 }
 
-input{
+input {
 	display: block;
 	width: 70%;
 	margin-bottom: 10px;
@@ -185,15 +188,7 @@ label {
 	font-size: 13px;
 }
 
-.notice{
-	height: 25px;
-	background: #00CC00;
-	line-height: 25px;
-	padding: 5px;
-	color: #FFFFFF;
-}
-
-textarea{
+textarea {
 	resize: none;
 	border-radius: 5px;
 	border: 1px solid #cccccc;
@@ -205,7 +200,7 @@ textarea{
 	background: #f5f5f5;
 }
 
-.res{
+.res {
 	float: left;
 	margin: 0px 10px 10px 0px;
 	width: 17%;
@@ -213,8 +208,8 @@ textarea{
 
 }
 
-.res h2{
-	text-align:center;
+.res h2 {
+	text-align: center;
 	background-color: #880000;
 	border: none;
 	margin-top: -7px;
@@ -222,20 +217,19 @@ textarea{
 	color: #ffffff;
 	font-size: 18px;
 	margin-bottom: 0px;
-	
 
 }
 
-.res h3{
+.res h3 {
 	text-align: center;
 	border: none;
 	color: #ffffff;
-	background-color: #484848; 
+	background-color: #484848;
 	padding-top: 5px;
 	margin-bottom: 0px;
 }
 
-.res p{
+.res p {
 	padding-left: 10px;
 	padding-right: 5px;
 	padding-top: 10px;
@@ -244,29 +238,29 @@ textarea{
 	height: 90px;
 	font-size: 12px;
 	line-height: 18px;
-	border-left: 1px #D0D0D0 solid ;
-	border-right: 1px #D0D0D0 solid ;
+	border-left: 1px #D0D0D0 solid;
+	border-right: 1px #D0D0D0 solid;
 	margin: 0px;
 }
 
-.resfoto{
+.resfoto {
 	width: 100%;
 }
 
-#restaurants-view{
+#restaurants-view {
 	overflow: hidden;
 }
 
-#info{
+#info {
 	float: left;
 	width: 70%;
 }
 
-#info img{
+#info img {
 	width: 100%;
 }
 
-#info h2{
+#info h2 {
 	background-color: #880000;
 	color: #ffffff;
 	padding-top: 5px;
@@ -274,26 +268,26 @@ textarea{
 	padding-left: 5px;
 }
 
-#info h3{
+#info h3 {
 	border: none;
 	color: #ffffff;
-	background-color: #484848; 
+	background-color: #484848;
 	padding-top: 5px;
 	padding-left: 5px;
 }
 
-div.contain{
+div.contain {
 	background: #fdfdff;
 	padding: 25px;
 	box-sizing: border-box;
 	border-radius: 5px;
 }
 
-.info img{
+.info img {
 	width: 100%;
 }
 
-.info h2{
+.info h2 {
 	background-color: #880000;
 	color: #ffffff;
 	padding-top: 5px;
@@ -301,37 +295,37 @@ div.contain{
 	padding-left: 5px;
 }
 
-.info h3{
+.info h3 {
 	border: none;
 	color: #ffffff;
-	background-color: #484848; 
+	background-color: #484848;
 	padding-top: 5px;
 	padding-left: 5px;
 }
 
-#rsvblock{
+#rsvblock {
 	float: left;
 	width: 25%;
 	margin-left: 20px;
 }
 
-#rsvblock h3{
+#rsvblock h3 {
 	border: none;
 	color: #ffffff;
-	background-color: #484848; 
+	background-color: #484848;
 	padding-top: 5px;
 	padding-left: 5px;
 }
 
-#rsvblock .btn{
+#rsvblock .btn {
 	margin-bottom: 10px;
 }
 
-.details img{
+.details img {
 	padding-right: 10px;
 }
 
-.btn{
+.btn {
 	background-color: #880000;
 	border: 1px solid #880000;
 	border-radius: 5px;
@@ -348,7 +342,7 @@ div.contain{
 
 }
 
-.btnmeerinfo{
+.btnmeerinfo {
 	background-color: #880000;
 	font-size: 14px;
 	color: #fff;
@@ -363,12 +357,12 @@ div.contain{
 	width: 188px;
 }
 
-.res .btn{
+.res .btn {
 	margin-top: 5px;
 	display: block;
 }
 
-.grid-block{
+.grid-block {
 	width: 50px;
 	height: 50px;
 	background: #DDD;
@@ -376,7 +370,8 @@ div.contain{
 	border-right: 1px solid #eeeeee;
 	border-bottom: 1px solid #eeeeee;
 }
-.grid-block-none{
+
+.grid-block-none {
 	width: 50px;
 	height: 50px;
 	background: #eeeeee;
@@ -385,7 +380,7 @@ div.contain{
 	border-bottom: 1px solid #ffffff;
 }
 
-.grid-block-filled{
+.grid-block-filled {
 	width: 50px;
 	height: 50px;
 	background: url('/assets/images/table.png');
@@ -395,17 +390,17 @@ div.contain{
 	position: relative;
 }
 
-.grid-block:hover{
+.grid-block:hover {
 	background: #bbbbbb;
 	cursor: pointer;
 }
 
-.grid-block-filled:hover{
+.grid-block-filled:hover {
 	cursor: pointer;
 }
 
-#popup_window{
-	background: rgba(0,0,0,0.6);
+#popup_window {
+	background: rgba(0, 0, 0, 0.6);
 	position: absolute;
 	top: 0px;
 	left: 0px;
@@ -413,7 +408,7 @@ div.contain{
 	display: none;
 }
 
-#popup_form{
+#popup_form {
 	background: #ffffff;
 	position: absolute;
 	width: 600px;
@@ -423,43 +418,43 @@ div.contain{
 	padding: 20px;
 }
 
-#MessageContact{
+#MessageContact {
 	display: block;
 	width: 70%;
 	margin-bottom: 10px;
 	border-radius: 5px;
 	border: 1px solid #cccccc;
 	padding: 5px;
-	height:200px;
+	height: 200px;
 }
 
-section.contain{
+section.contain {
 	background: #fdfdff;
 	padding: 25px;
 	box-sizing: border-box;
 	border-radius: 5px;
 }
 
-.fleft{
+.fleft {
 	float: left;
 }
 
-section.contain p{
+section.contain p {
 	line-height: 25px;
 }
 
-div#tables{
+div#tables {
 	float: left;
 	margin-left: 30px;
 }
 
-.legend{
+.legend {
 	width: 50px;
 	margin: 5px;
 	position: relative;
 }
 
-.legend.block{
+.legend.block {
 	height: 50px;
 	background: #DDD;
 	float: left;
@@ -467,23 +462,23 @@ div#tables{
 	border-bottom: 1px solid #eeeeee;
 }
 
-.legend img{
+.legend img {
 	float: left;
 }
 
-section.contain .text p{
+section.contain .text p {
 	width: 200px;
 	height: 50px;
 	line-height: 50px;
 	margin-left: 5px;
 }
 
-.fotoEdit{
+.fotoEdit {
 	height: 40%;
 	width: 40%;
 }
 
-.btnEdit{
+.btnEdit {
 	background-color: #880000;
 	border-radius: 5px;
 	font-size: 14px;
@@ -499,31 +494,32 @@ section.contain .text p{
 	float: left;
 	margin-right: 5px;
 }
-.close{
+
+.close {
 	float: right;
 	margin-right: 10px;
 }
 
-h2.title{
+h2.title {
 	float: left;
 }
 
-input[type=button]{
+input[type=button] {
 	width: 150px;
 }
 
-select{
+select {
 	border: 1px solid #dddddd;
 	border-radius: 3px;
 	margin-bottom: 10px;
 }
 
-#btnnoggeenacc{
-	width:200;
+#btnnoggeenacc {
+	width: 200;
 }
 
-.reserved{
-	background: rgba(255,0,0,0.3);
+.reserved {
+	background: rgba(255, 0, 0, 0.3);
 	width: 50px;
 	height: 50px;
 	position: absolute;
@@ -532,8 +528,8 @@ select{
 	cursor: default;
 }
 
-.reservedBackEnd{
-	background: rgba(255,0,0,0.3);
+.reservedBackEnd {
+	background: rgba(255, 0, 0, 0.3);
 	width: 50px;
 	height: 50px;
 	position: absolute;
@@ -542,8 +538,8 @@ select{
 	cursor: pointer;
 }
 
-.free{
-	background: rgba(51,255,0,0.3);
+.free {
+	background: rgba(51, 255, 0, 0.3);
 	width: 50px;
 	height: 50px;
 	position: absolute;
@@ -552,62 +548,80 @@ select{
 	cursor: pointer;
 }
 
-#restauranttable{
-	width:100%;
-	border-collapse:collapse;
-}
-#restauranttable td
-{
-font-size:1em;
-border:1px solid #880000;
-padding:3px 7px 2px 7px;
-background-color:#fdfdff;
-color: #000000;
-}
-#restauranttable th 
-{
-font-size:1em;
-text-align:left;
-padding-top:5px;
-padding-bottom:4px;
-background-color:#880000;
-color:#ffffff;
-padding-left: 7px;
-border:1px solid #880000;
+#restauranttable {
+	width: 100%;
+	border-collapse: collapse;
 }
 
-.knop{
+#restauranttable td {
+	font-size: 1em;
+	border: 1px solid #880000;
+	padding: 3px 7px 2px 7px;
+	background-color: #fdfdff;
+	color: #000000;
+}
+
+#restauranttable th {
+	font-size: 1em;
+	text-align: left;
+	padding-top: 5px;
+	padding-bottom: 4px;
+	background-color: #880000;
+	color: #ffffff;
+	padding-left: 7px;
+	border: 1px solid #880000;
+}
+
+.knop {
 	padding-top: 10px;
 }
 
-.editkolom{
+.editkolom {
 	width: 50px;
 	text-align: center;
 }
 
-.deletekolom{
+.deletekolom {
 	width: 70px;
 	text-align: center;
 }
 
 @media screen and (max-width: 640px) {
-	section.tables{
+	section.tables {
 		width: 600px;
 	}
 }
 
-.gerecht
-{
+a.gerecht {
 	text-decoration: none;
 	margin-right: 20px;
+	color: #222222;
 }
 
-.menucontent
-{
+a.gerecht:hover {
+	color: #880000;
+}
+
+.menucontent {
 	margin-top: 10px;
 }
 
-.toevoegen
-{
-	margin-top:20px;
+.toevoegen {
+	margin-top: 20px;
+}
+
+.success{
+	height: 25px;
+	background: #00CC00;
+	line-height: 25px;
+	padding: 5px;
+	color: #FFFFFF;
+}
+
+.fail{
+	height: 25px;
+	background: #FF0000;
+	line-height: 25px;
+	padding: 5px;
+	color: #FFFFFF;
 }

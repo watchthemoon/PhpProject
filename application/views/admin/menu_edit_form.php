@@ -1,9 +1,8 @@
 <section>
 
-
-	
-				<h1>Menu Wijzigen</h1>
+	<h2 class="title">Menu wijzigen</h2>
 	<div class="close"><a onclick="closeWindow();" href="#">Sluit venster</a></div>
+	<div class="clear"></div>
 	
 	<?php foreach ($wijzigquery->result() as $row) { ?>
 
@@ -19,8 +18,8 @@
 
 			<input type="hidden" name="restaurantid" value="<?php echo $row->restaurantid; ?>" />
 
-<?php }?>		
-			<button type="submit">Menu wijzigen</button>
+	<?php }?>
+			<input type="submit" value="Opslaan" />
 		</form>
 
 </section>

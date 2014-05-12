@@ -177,7 +177,7 @@ class Restaurants extends Config {
 			$this->m_restaurant->save($post);
 
 			## Vul melding dat het gelukt is
-			$this->session->set_userdata('melding', 'Restaurant succesvol toegevoegd');
+			$this->session->set_userdata('meldingsuccess', 'Restaurant succesvol toegevoegd');
 
 			## Stuur door naar overzicht pagina
 			redirect('/admin/restaurants');
@@ -298,7 +298,7 @@ class Restaurants extends Config {
 			$this->m_restaurant->edit($post);
 
 			## Vul melding dat het gelukt is
-			$this->session->set_userdata('melding', 'Restaurant succesvol gewijzigd');
+			$this->session->set_userdata('meldingsuccess', 'Restaurant succesvol gewijzigd');
 
 			## Stuur door naar overzicht pagina
 			redirect('/admin/restaurants');
@@ -318,7 +318,7 @@ class Restaurants extends Config {
 			$this->m_restaurant->delete($id);
 
 			## Vul melding dat het gelukt is
-			$this->session->set_userdata('melding', 'Restaurant succesvol verwijderd');
+			$this->session->set_userdata('meldingsuccess', 'Restaurant succesvol verwijderd');
 
 			## Stuur door naar overzicht pagina
 			redirect('/admin/restaurants');

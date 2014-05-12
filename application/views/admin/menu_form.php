@@ -1,10 +1,8 @@
 <section>
 
-
-	
-				<h1>Menu toevoegen</h1>
+	<h2 class="title">Menu toevoegen</h2>
 	<div class="close"><a onclick="closeWindow();" href="#">Sluit venster</a></div>
-	
+	<div class="clear"></div>
 
 		<form method="post" action="/admin/menu/save">
 	
@@ -17,8 +15,8 @@
              </select></br>
 
 			<input type="hidden" name="restaurantid" value="<?php echo $data['restaurantid'] ?>" />
-		
-			<button type="submit">Menu toevoegen</button>
+
+			<input type="submit" value="Opslaan" />
 		</form>
 
 </section>

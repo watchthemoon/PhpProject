@@ -12,15 +12,15 @@
 				<h3>Menu</h3>
 				<h4>Voorgerechten</h4>
 				<?php foreach ($voorgerecht as $vg) { ?>
-				<p><?php echo $vg->name; ?> -  <?php echo $vg->price; ?></p>
+				<p><?php echo $vg->name; ?> -  <?php echo $vg->price . ' euro'; ?></p>
 				<?php } ?>
 				<h4>Hoofdgerechten</h4>
 				<?php foreach ($hoofdgerecht as $hg) { ?>
-				<p><?php echo $hg->name; ?> -  <?php echo $hg->price; ?></p>
+				<p><?php echo $hg->name; ?> -  <?php echo $hg->price . ' euro'; ?></p>
 				<?php } ?>
 				<h4>Nagerechten</h4>
 				<?php foreach ($nagerecht as $ng) { ?>
-				<p><?php echo $ng->name; ?> -  <?php echo $ng->price; ?></p>
+				<p><?php echo $ng->name; ?> -  <?php echo $ng->price . ' euro'; ?></p>
 				<?php } ?>
 				</div>
 				<div id="rsvblock" class="contain">

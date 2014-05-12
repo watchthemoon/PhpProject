@@ -1,37 +1,29 @@
-<script type="text/javascript">
- $(document).ready(function(){
-      var data = {
-            'restaurantid': '<?php echo $restaurantid;?>',
-            'gerechttypeid': "1"
-        };
-       $(".menucontent").load('/admin/menu/loadmenu',data);
-     
- });
+<section class="contain">
 
-</script>
+	<h1>Menu's</h1>
+
+	<a href="#" class="gerecht" id="voorgerechten">Voorgerechten</a>
+	<a href="#" class="gerecht" id="hoofdgerechten">Hoofdgerechten</a>
+	<a href="#" class="gerecht" id="nagerechten">Nagerechten</a>
+
+	<input class="toevoegen"type="submit" value="Toevoegen" />
 
 
-  <section class="contain">
+	<div class="menucontent">
 
-<h1>Menu's</h1>
-<div id="rightside">
+	</div>
 
-<a href="#" class="gerecht" id="voorgerechten">Voorgerechten</a>
-<a href="#" class="gerecht" id="hoofdgerechten">Hoofdgerechten</a>
-<a href="#" class="gerecht" id="nagerechten">Nagerechten</a>
-
-		<input class="toevoegen"type="submit" value="toevoegen" />
-
-
-<div class="menucontent">
-
-
-</div>
-
-  </section>
+</section>
 
 <script type="text/javascript">
-  
+	$(document).ready(function(){
+		var data = {
+			'restaurantid': '<?php echo $restaurantid;?>',
+			'gerechttypeid': "1"
+		};
+		$(".menucontent").load('/admin/menu/loadmenu',data);
+
+	});
 
     $(".toevoegen").on('click',function(){
         var data = {

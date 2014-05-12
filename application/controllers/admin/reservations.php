@@ -41,7 +41,7 @@ class Reservations extends Config {
 
 			$this->m_reserve->delete($data);
 
-			$this->session->set_userdata('melding', 'Reservatie succesvol verwijderd');
+			$this->session->set_userdata('meldingsuccess', 'Reservatie succesvol verwijderd.');
 
 $this->view($data['restaurantid']);
 		
@@ -54,7 +54,7 @@ $this->view($data['restaurantid']);
 
 			$this->m_reserve->edit($data);
 
-			$this->session->set_userdata('melding', 'Reservatie succesvol Aangepast');
+			$this->session->set_userdata('meldingsuccess', 'Reservatie succesvol aangepast.');
 
 		$this->view($data['restaurantid']);
 

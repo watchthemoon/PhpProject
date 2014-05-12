@@ -26,7 +26,7 @@ class reservations extends Config {
 		
 		$this->load->view('/reservatons.php',array_merge($this->data,$data));
 
-		
+
 
 	}
 
@@ -66,7 +66,7 @@ class reservations extends Config {
 
 			if($result){
 				## Vul melding dat het gelukt is
-				$this->session->set_userdata('melding','U hebt succesvol gereserveerd.');
+				$this->session->set_userdata('meldingsuccess','U hebt succesvol gereserveerd.');
 
 				$gegevens1 = array(
 					'aantal' => $post['aantal1'],
@@ -89,7 +89,7 @@ class reservations extends Config {
 				redirect('/reservationoverview');
 			}else{
 				## Vul melding dat het niet gelukt is
-				$this->session->set_userdata('melding','Uw login gegevens zijn onjuist.');
+				$this->session->set_userdata('meldingfail','Uw login gegevens zijn onjuist.');
 
 				## Stuur door naar volgende pagina
 				redirect('/login');
@@ -130,7 +130,7 @@ class reservations extends Config {
 				);
 
 				## Vul melding dat het gelukt is
-				$this->session->set_userdata('melding','U hebt succesvol gereserveerd.');
+				$this->session->set_userdata('meldingsuccess','U hebt succesvol gereserveerd.');
 
 				$data = array(
 					'view' => '/reservationoverview',

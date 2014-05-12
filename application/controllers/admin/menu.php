@@ -78,7 +78,7 @@ class Menu extends Config {
 			$this->m_menu->save($post);
 
 			## Vul melding dat het gelukt is
-			$this->session->set_userdata('melding', 'Gerecht toegevoegd');
+			$this->session->set_userdata('meldingsuccess', 'Gerecht toegevoegd');
 
 			## Stuur door naar tafel pagina
 			redirect('/admin/menu/view/'.$post['restaurantid']);
@@ -116,7 +116,7 @@ class Menu extends Config {
 			$this->m_menu->edit($post);
 
 			## Vul melding dat het gelukt is
-			$this->session->set_userdata('melding', 'Gerecht gewijzigd');
+			$this->session->set_userdata('meldingsuccess', 'Gerecht gewijzigd');
 
 			## Stuur door naar tafel pagina
 			redirect('/admin/menu/view/'.$post['restaurantid']);
@@ -139,7 +139,7 @@ class Menu extends Config {
 			$this->m_menu->delete($post);
 
 			## Vul melding dat het gelukt is
-			$this->session->set_userdata('melding', 'Gerecht succesvol verwijderd');
+			$this->session->set_userdata('meldingsuccess', 'Gerecht succesvol verwijderd');
 
 			## Stuur door naar overzicht pagina
 				redirect('/admin/menu/view/'.$post['restaurantid']);
