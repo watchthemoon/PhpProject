@@ -1,6 +1,11 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 include "config.php";
-class reservations extends Config {
+class Reservations extends Config {
+
+	public function __construct(){
+		parent::__construct();
+		if (!$this->online) redirect('/');
+	}
 
 	public function index()	{
 		$this->load->model('m_reserve');
