@@ -8,7 +8,8 @@
 	<script type="text/javascript" src="/assets/js/main.js"></script>
 	<script type="text/javascript" src="/assets/js/jquery.min.js"></script>
 	<link href="/assets/css/jquery-ui.css" type="text/css" rel="stylesheet">
-	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>.
+	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<script>
 		$(function() {
 			$( document ).tooltip();
@@ -40,7 +41,7 @@
 						<li><a href="/uitleg">Uitleg</a></li>
 						<li><a href="/restaurants">Restaurants</a></li>
 						<li><a href="/contact">Contact</a></li>
-						<li><a href="/reservations">Reservaties</a></li>
+						<li><a href="/reservations">Mijn reservaties</a></li>
 					<?php
 					}
 

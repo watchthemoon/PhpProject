@@ -25,7 +25,7 @@
 				</div>
 				<div id="rsvblock" class="contain">
 				<h3>Reservatie</h3>
-				<p>Reserveer nu met je account, nog geen account? <a href="/register">registreer hier!</a></p>
+				<p>Reserveer nu met je account! Nog geen account? <a href="/register">Registreer hier!</a></p>
 				<form action="/reserve/view/<?php echo $query->restaurantid;?>" method="post">
 					<input type="submit" value="Reserveer"/>
 				</form>

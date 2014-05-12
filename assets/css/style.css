@@ -548,12 +548,12 @@ select {
 	cursor: pointer;
 }
 
-#restauranttable {
+#table {
 	width: 100%;
 	border-collapse: collapse;
 }
 
-#restauranttable td {
+#table td {
 	font-size: 1em;
 	border: 1px solid #880000;
 	padding: 3px 7px 2px 7px;
@@ -561,7 +561,7 @@ select {
 	color: #000000;
 }
 
-#restauranttable th {
+#table th {
 	font-size: 1em;
 	text-align: left;
 	padding-top: 5px;
@@ -587,9 +587,26 @@ select {
 }
 
 @media screen and (max-width: 640px) {
-	section.tables {
-		width: 600px;
+	body{
+		overflow: hidden;
 	}
+	section.contain{
+		width: 100%;
+	}
+
+    div#tables{
+	    float: none;
+	    margin-left: 0;
+    }
+
+    .grid-block-filled,
+    .grid-block-none,
+    .free,
+    .reserved{
+	    width: 25px;
+	    height: 25px;
+    }
+
 }
 
 a.gerecht {

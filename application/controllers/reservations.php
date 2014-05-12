@@ -3,14 +3,18 @@ include "config.php";
 class reservations extends Config {
 
 	public function index()	{
+		$this->load->model('m_reserve');
+
+		$resdata = $this->m_reserve->custRes();
+
 		$data = array(
 			'view' => 'reservations',
+			'reservations' => $resdata,
 			'errors' => $this->session->userdata('error'),
 			'post' => $this->session->userdata('post')
 		);
 
 		$this->load->view('index',array_merge($this->data,$data));
-
 	}
 
 

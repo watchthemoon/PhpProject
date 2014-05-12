@@ -1,20 +1,22 @@
-<script type="text/javascript">
- $(document).ready(function(){
-	$(".reservatieklant").load('/reservations/loadrescustomer',data);
-});
-
- </script>
-
 <section class="contain">
-<h1>Welkom bij Anjalaya</h1>
-		<h2>Jou reservaties</h2>
-		<div id="klantenreservaties" class="reservatieklant">
-		<?php foreach ($rquery as $row) { ?>
-			<?php echo "Restaurant: " .$row->restaurantid ?>
-			<?php echo "Tafelnummer: " .$row->tableid ?>
-			<?php echo "Aantal personen: " .$row->peoplenr?>
-			<?php echo "Datum: " .$row->date?>
-		<?php } ?>
+		<h2>Jouw reservaties</h2>
+		<div>
+			<table id="table">
+				<tr>
+					<th>Datum</th>
+					<th>Restaurant naam</th>
+					<th>Tafelnummer</th>
+					<th>Aantal personen</th>
+				</tr>
+				<?php foreach($reservations as $reservation){ ?>
+				<tr>
+					<td><?php echo date('d-m-Y', strtotime($reservation->date)); ?></td>
+					<td><?php echo $reservation->restaurantid; ?></td>
+					<td><?php echo $reservation->tableid; ?></td>
+					<td><?php echo $reservation->peoplenr; ?></td>
+				</tr>
+				<?php } ?>
+			</table>
 		</div>
 </section>
 

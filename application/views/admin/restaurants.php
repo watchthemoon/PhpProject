@@ -1,6 +1,6 @@
 <section class="contain">
 		<h2>Restaurant Overzicht</h2>
-			<table id="restauranttable">
+			<table id="table">
 				<tr>
 				  <th>Naam</th>
 				  <th>Wijzig</th>

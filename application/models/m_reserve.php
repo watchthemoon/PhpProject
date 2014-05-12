@@ -112,14 +112,11 @@ class m_Reserve extends CI_Model{
 	}
 
 	public function showRes($data){
-
-	$this->db->from('reserve');
-			$this->db->where('tableid',$data['tableid']);
-			$this->db->where('date',date("Y-m-d",strtotime($data['resdate'])));
-			$query = $this->db->get();
-			return $query;
-
-
+		$this->db->from('reserve');
+		$this->db->where('tableid',$data['tableid']);
+		$this->db->where('date',date("Y-m-d",strtotime($data['resdate'])));
+		$query = $this->db->get();
+		return $query;
 	}
 
 	public function lijstRes($data){
@@ -132,27 +129,17 @@ class m_Reserve extends CI_Model{
 
 	}
 
-	/* Even in commentaar, omdat het nog niet af is en zorgt voor fouten op de pagina.
-	
-	public function weergaveuser(){
+	public function custRes(){
+		$this->db->from('reserve');
+		$this->db->where('userid',$this->session->userdata('user_id'));
+		$this->db->order_by('date desc');
+		$rec = $this->db->get();
 
-	$this->db->from('reserve');
-		$this->db->where('userid',$this->session->userdata['user_id']);
-			
-				if ($userid!= 0){
-					$this->db->where('userid',$userid);
-				}
-
-				$rec = $this->db->get();
-				if ($rec->num_rows() > 0){
-					if ($userid != 0){
-						return $query->row();
-				}
-				else{
-					return '';
-				}
-			return $query;
-				}
+		## Als er iets is
+		if($rec->num_rows() > 0){
+			return $rec->result();
+		}else{
+			return '';
+		}
 	}
-	*/
 }
